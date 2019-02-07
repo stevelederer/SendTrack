@@ -1,0 +1,16 @@
+PODS:
+  - CupertinoJWT (0.2.0)
+
+DEPENDENCIES:
+  - CupertinoJWT
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - CupertinoJWT
+
+SPEC CHECKSUMS:
+  CupertinoJWT: f712fdc2cc422aac8daa301ad1dce05ea9f6b6d6
+
+PODFILE CHECKSUM: fbb88263a5c2ac9d83947e1256336ffb3c81d850
+
+COCOAPODS: 1.5.3

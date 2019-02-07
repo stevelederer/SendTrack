@@ -1,0 +1,6 @@
+framework module Pods_SendTrack {
+  umbrella header "Pods-SendTrack-umbrella.h"
+
+  export *
+  module * { export * }
+}
