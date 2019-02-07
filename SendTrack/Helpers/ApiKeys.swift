@@ -35,7 +35,8 @@ func getSpotifyBasicAPIKey() -> String? {
 func getAppleMusicID(for key: AppleIDs) -> String? {
     guard let filePath = Bundle.main.path(forResource: "APIKeys", ofType: "plist") else { return nil }
     let plist = NSDictionary(contentsOfFile: filePath)
-    guard let appleMusicID: String = plist?.object(forKey: key) as? String else { return nil }
+    guard let appleMusicID: String = plist?.object(forKey: key.rawValue) as? String else { return nil }
+    
     return appleMusicID
 }
 

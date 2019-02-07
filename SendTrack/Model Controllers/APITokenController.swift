@@ -15,7 +15,7 @@ class APITokenController {
     
     
     /**
-     This function takes my clientID and clientSecret from the APIKeys.plist file and retrieves the Access Token needed for further interaction with the Spotify API.
+     This function takes my SpotifyClientID and SpotifyClientSecret from the APIKeys.plist file and retrieves the Access Token needed for further interaction with the Spotify API.
      
      - Returns: This function completes with a string of the desired token
      */
@@ -61,6 +61,11 @@ class APITokenController {
         
     }
     
+    /**
+     This function takes my AppleMusicKeyID and AppleMusicTeamID from the APIKeys.plist file and creates the Access Token needed for further interaction with the AppleMusic API.
+     
+     - Returns: This function completes with a string of the desired token
+     */
     static func getAppleMusicAccessToken() -> String {
         var privateKey: String?
         if let filePath = Bundle.main.path(forResource: "MusicKit", ofType: "p8") {
