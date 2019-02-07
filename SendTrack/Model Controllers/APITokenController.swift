@@ -1,5 +1,5 @@
 //
-//  SongController.swift
+//  APITokenController.swift
 //  SendTrack
 //
 //  Created by Steve Lederer on 2/6/19.
@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import CupertinoJWT
 
-class SongController {
+class APITokenController {
     static let baseSpotifyURL = URL(string: "https://api.spotify.com")
     static let baseAppleURL = URL(string: "https://api.music.apple.com")
     
@@ -19,7 +20,7 @@ class SongController {
      - Returns: This function completes with a string of the desired token
      */
     static func getSpotifyAccessToken(completion: @escaping(String?) -> Void) {
-        guard let spotifyBasicAPIKey = spotifyBasicAPIKey() else { return }
+        guard let spotifyBasicAPIKey = getSpotifyBasicAPIKey() else { return }
         
         let headers = [
             "Authorization" : "Basic \(spotifyBasicAPIKey)",
@@ -60,26 +61,30 @@ class SongController {
         
     }
     
+    static func getAppleMusicAccessToken() -> String {
+        var privateKey: String?
+        if let filePath = Bundle.main.path(forResource: "MusicKit", ofType: "p8") {
+            do {
+                let contents = try String(contentsOfFile: filePath)
+                privateKey = contents
+            } catch {
+                print("❌ There was an error in \(#function) ; \(error.localizedDescription)❌")
+            }
+        } else {
+            print("🚨 MusicKey.p8 file not found!")
+        }
+        
+        guard let keyID = getAppleMusicID(for: .keyID),
+            let teamID = getAppleMusicID(for: .teamID) else { return "" }
+        let appleMusicJWT = JWT(keyID: keyID, teamID: teamID, issueDate: Date(), expireDuration: 15777000)
+        do {
+            guard let privateKey = privateKey else { return "" }
+            let token = try appleMusicJWT.sign(with: privateKey)
+            return token
+        } catch {
+            print("❌ There was an error in \(#function) ; \(error.localizedDescription)❌")
+        }
+        return ""
+    }
     
-    
-    //    static func fetchSpotifySongs(with searchTerm: String, completion: @escaping ([SpotifyTrack]?) -> Void) {
-    //        guard let url = baseSpotifyURL?.appendingPathComponent("v1").appendingPathComponent("search") else { completion(nil) ; return }
-    //        var components = URLComponents(url: url, resolvingAgainstBaseURL: true)
-    //        let searchTermQueryItem = URLQueryItem(name: "q", value: searchTerm)
-    //        let typeQueryItem = URLQueryItem(name: "type", value: "track")
-    //        components?.queryItems = [searchTermQueryItem, typeQueryItem]
-    //
-    //        guard let requestURL = components?.url else { completion(nil) ; return }
-    //
-    //        let headers = [
-    //            "Authorization" : "Bearer \(spotifyToken)",
-    //        ]
-    //
-    //
-    //        print("📡📡📡 Spotify URL: \(requestURL.absoluteString)")
-    //
-    //        let request = URLRequest(url: requestURL)
-    //
-    //
-    //    }
 }
