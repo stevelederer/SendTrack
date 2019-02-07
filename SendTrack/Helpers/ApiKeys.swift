@@ -22,7 +22,7 @@ extension String {
     
 }
 
-func spotifyBasicAPIKey() -> String? {
+func getSpotifyBasicAPIKey() -> String? {
     guard let filePath = Bundle.main.path(forResource: "APIKeys", ofType: "plist") else { return nil }
     let plist = NSDictionary(contentsOfFile: filePath)
     guard let clientID: String = plist?.object(forKey: "SpotifyClientID") as? String,
@@ -30,4 +30,17 @@ func spotifyBasicAPIKey() -> String? {
         let basicAPIKeyBase64: String = ("\(clientID):\(clientSecret)").toBase64() else { return nil }
 
     return basicAPIKeyBase64
+}
+
+func getAppleMusicID(for key: AppleIDs) -> String? {
+    guard let filePath = Bundle.main.path(forResource: "APIKeys", ofType: "plist") else { return nil }
+    let plist = NSDictionary(contentsOfFile: filePath)
+    guard let appleMusicID: String = plist?.object(forKey: key.rawValue) as? String else { return nil }
+    
+    return appleMusicID
+}
+
+enum AppleIDs: String {
+    case keyID = "AppleMusicKeyID"
+    case teamID = "AppleMusicTeamID"
 }

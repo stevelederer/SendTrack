@@ -17,7 +17,6 @@ DerivedData/
 !default.perspectivev3
 xcuserdata/
 *.DS_Store
-SendTrack/Resources/APIKeys.plist 
 
 ## Other
 *.moved-aside
@@ -68,3 +67,5 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
+MusicKit.p8
+APIKeys.plist
