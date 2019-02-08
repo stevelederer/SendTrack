@@ -27,7 +27,7 @@ struct Results: Codable {
 struct Songs: Codable {
     let href: String
     let next: String
-    let data: [Song]
+    let data: [AppleMusicSong]
     
     enum CodingKeys: String, CodingKey {
         case href
@@ -36,7 +36,7 @@ struct Songs: Codable {
     }
 }
 
-struct Song: Codable {
+struct AppleMusicSong: Codable {
     let id: String
     let href: String
     let attributes: Attributes

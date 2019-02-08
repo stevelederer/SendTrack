@@ -8,14 +8,14 @@
 
 import Foundation
 
-struct TopLevelDictionary:  Codable {
+struct TopLevelDictionary: Codable {
     let results: SpotifyAccessToken
 }
 
 struct SpotifyAccessToken: Codable {
     let accessToken: String
     let tokenType: String
-    let expiresIn: Int
+    let expiresIn: TimeInterval
     let scope: String
     
     enum CodingKeys: String, CodingKey {
