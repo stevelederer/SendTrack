@@ -10,30 +10,30 @@ import Foundation
 import CupertinoJWT
 
 class APITokenController {
-    static let baseSpotifyURL = URL(string: "https://api.spotify.com")
-    static let baseAppleURL = URL(string: "https://api.music.apple.com")
-    
     
     /**
      This function takes my SpotifyClientID and SpotifyClientSecret from the APIKeys.plist file and retrieves the Access Token needed for further interaction with the Spotify API.
-     
-     - Returns: This function completes with a string of the desired token
+     - Parameter completion: escapes with an optional string containing the Spotify token
+     - Returns: Void
      */
     static func getSpotifyAccessToken(completion: @escaping(String?) -> Void) {
+        
+        if let bearerToken = fetchSpotifyBearerTokenLocally() {
+            completion(bearerToken)
+            return
+        }
+        
         guard let spotifyBasicAPIKey = getSpotifyBasicAPIKey() else { return }
         
         let headers = [
             "Authorization" : "Basic \(spotifyBasicAPIKey)",
-            "Content-Type": "application/x-www-form-urlencoded",
-            "cache-control": "no-cache",
-            "Postman-Token": "f79e695c-5009-4abe-b128-2e8206060816"
+            "Content-Type": "application/x-www-form-urlencoded"
         ]
         
         let body =
             "grant_type=client_credentials".data(using: .utf8)!
         
         var request = URLRequest(url: URL(string: "https://accounts.spotify.com/api/token")!,
-                                 cachePolicy: .useProtocolCachePolicy,
                                  timeoutInterval: 10.0)
         request.httpMethod = "POST"
         request.allHTTPHeaderFields = headers
@@ -45,12 +45,20 @@ class APITokenController {
                 print(error.localizedDescription)
                 completion(nil) ; return
             }
-            print(response)
+            
+            if let response = response {
+                print(response)
+            }
             
             guard let data = data else { completion(nil) ; return }
             do {
-                guard let topLevelDictionary = try JSONSerialization.jsonObject(with: data, options: []) as? [String : Any],
-                    let accessToken = topLevelDictionary["access_token"] as? String else { completion(nil) ; return }
+                guard let topLevelDictionary = try JSONSerialization.jsonObject(with: data, options: []) as? [String : Any] else { completion(nil) ; return }
+                let accessToken = topLevelDictionary["access_token"] as? String
+                UserDefaults.standard.set(accessToken, forKey: "spotifyBearerToken")
+                if let expirationTimeInterval = topLevelDictionary["expires_in"] as? TimeInterval {
+                    let expirationDate = Date(timeIntervalSinceNow: expirationTimeInterval)
+                    UserDefaults.standard.set(expirationDate, forKey: "spotifyTokenExpirationDate")
+                }
                 completion(accessToken)
             } catch {
                 print("❌ There was an error in \(#function) ; \(error.localizedDescription)❌")
@@ -61,12 +69,23 @@ class APITokenController {
         
     }
     
+    static func fetchSpotifyBearerTokenLocally() -> String? {
+        guard let experationTime = UserDefaults.standard.value(forKey: "spotifyTokenExpirationDate") as? Date,
+            experationTime > Date() else { return nil }
+        return UserDefaults.standard.value(forKey: "spotifyBearerToken") as? String
+    }
+    
     /**
      This function takes my AppleMusicKeyID and AppleMusicTeamID from the APIKeys.plist file and creates the Access Token needed for further interaction with the AppleMusic API.
      
-     - Returns: This function completes with a string of the desired token
+     - Returns: String?: Optional string containing the desired Apple Music token
      */
-    static func getAppleMusicAccessToken() -> String {
+    static func getAppleMusicAccessToken() -> String? {
+        
+        if let bearerToken = fetchAppleMusicBearerTokenLocally() {
+            return (bearerToken)
+        }
+        
         var privateKey: String?
         if let filePath = Bundle.main.path(forResource: "MusicKit", ofType: "p8") {
             do {
@@ -80,16 +99,25 @@ class APITokenController {
         }
         
         guard let keyID = getAppleMusicID(for: .keyID),
-            let teamID = getAppleMusicID(for: .teamID) else { return "" }
+            let teamID = getAppleMusicID(for: .teamID) else { return nil }
         let appleMusicJWT = JWT(keyID: keyID, teamID: teamID, issueDate: Date(), expireDuration: 15777000)
         do {
-            guard let privateKey = privateKey else { return "" }
+            guard let privateKey = privateKey else { return nil }
             let token = try appleMusicJWT.sign(with: privateKey)
+            UserDefaults.standard.set(token, forKey: "appleMusicBearerToken")
+            let expirationDate = Date(timeIntervalSinceNow: 15773400)
+            UserDefaults.standard.set(expirationDate, forKey: "appleMusicTokenExpirationDate")
             return token
         } catch {
             print("❌ There was an error in \(#function) ; \(error.localizedDescription)❌")
         }
-        return ""
+        return nil
+    }
+    
+    static func fetchAppleMusicBearerTokenLocally() -> String? {
+        guard let experationTime = UserDefaults.standard.value(forKey: "appleMusicTokenExpirationDate") as? Date,
+            experationTime > Date() else { return nil }
+        return UserDefaults.standard.value(forKey: "appleMusicBearerToken") as? String
     }
     
 }

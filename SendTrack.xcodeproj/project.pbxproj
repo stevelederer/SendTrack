@@ -15,13 +15,16 @@
 		1B1D9F8B220B9F3500DFC5B1 /* AppleMusicTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1D9F8A220B9F3500DFC5B1 /* AppleMusicTrack.swift */; };
 		1B1D9F8E220BCD3800DFC5B1 /* HexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1D9F8D220BCD3800DFC5B1 /* HexColor.swift */; };
 		1B344C74220B949A00360865 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B344C73220B949A00360865 /* AppDelegate.swift */; };
-		1B344C76220B949A00360865 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B344C75220B949A00360865 /* ViewController.swift */; };
 		1B344C79220B949A00360865 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B344C77220B949A00360865 /* Main.storyboard */; };
 		1B344C7B220B949B00360865 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B344C7A220B949B00360865 /* Assets.xcassets */; };
 		1B344C7E220B949B00360865 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B344C7C220B949B00360865 /* LaunchScreen.storyboard */; };
 		1B344C8A220B983B00360865 /* SpotifyTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B344C89220B983B00360865 /* SpotifyTrack.swift */; };
+		1B6554F7220D32E10067C52D /* SongDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6554F6220D32E10067C52D /* SongDetailViewController.swift */; };
 		1BB5B04C220CB47F00D82A90 /* MusicKit.p8 in Resources */ = {isa = PBXBuildFile; fileRef = 1BB5B04B220CB47F00D82A90 /* MusicKit.p8 */; };
 		1BB5B04E220CB9BF00D82A90 /* SpotifyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5B04D220CB9BF00D82A90 /* SpotifyController.swift */; };
+		1BB5B050220CF32900D82A90 /* AppleMusicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5B04F220CF32900D82A90 /* AppleMusicController.swift */; };
+		1BB5B057220D24F300D82A90 /* SongTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5B056220D24F300D82A90 /* SongTableViewCell.swift */; };
+		1BB5B059220D2A8600D82A90 /* SongSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5B058220D2A8600D82A90 /* SongSearchTableViewController.swift */; };
 		304A48AFEFF8D96C42CB7C5A /* Pods_SendTrack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44CEB1E1581570FA50FFC46E /* Pods_SendTrack.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,14 +39,17 @@
 		1B1D9F8D220BCD3800DFC5B1 /* HexColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexColor.swift; sourceTree = "<group>"; };
 		1B344C70220B949A00360865 /* SendTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SendTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B344C73220B949A00360865 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1B344C75220B949A00360865 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1B344C78220B949A00360865 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1B344C7A220B949B00360865 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1B344C7D220B949B00360865 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1B344C7F220B949B00360865 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B344C89220B983B00360865 /* SpotifyTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyTrack.swift; sourceTree = "<group>"; };
+		1B6554F6220D32E10067C52D /* SongDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDetailViewController.swift; sourceTree = "<group>"; };
 		1BB5B04B220CB47F00D82A90 /* MusicKit.p8 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MusicKit.p8; sourceTree = "<group>"; };
 		1BB5B04D220CB9BF00D82A90 /* SpotifyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyController.swift; sourceTree = "<group>"; };
+		1BB5B04F220CF32900D82A90 /* AppleMusicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMusicController.swift; sourceTree = "<group>"; };
+		1BB5B056220D24F300D82A90 /* SongTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTableViewCell.swift; sourceTree = "<group>"; };
+		1BB5B058220D2A8600D82A90 /* SongSearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongSearchTableViewController.swift; sourceTree = "<group>"; };
 		44CEB1E1581570FA50FFC46E /* Pods_SendTrack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SendTrack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52A47DC296C86C4126B99164 /* Pods-SendTrack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SendTrack.release.xcconfig"; path = "Pods/Target Support Files/Pods-SendTrack/Pods-SendTrack.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -65,6 +71,7 @@
 			children = (
 				1B06A761220BDFE600000E81 /* APITokenController.swift */,
 				1BB5B04D220CB9BF00D82A90 /* SpotifyController.swift */,
+				1BB5B04F220CF32900D82A90 /* AppleMusicController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -104,6 +111,7 @@
 				1B06A760220BDFC300000E81 /* Model Controllers */,
 				1B344C87220B94CA00360865 /* UI */,
 				1B344C86220B94BA00360865 /* View Controllers */,
+				1BB5B053220D228000D82A90 /* Views */,
 				1B344C85220B94B600360865 /* Resources */,
 			);
 			path = SendTrack;
@@ -125,7 +133,8 @@
 		1B344C86220B94BA00360865 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				1B344C75220B949A00360865 /* ViewController.swift */,
+				1BB5B058220D2A8600D82A90 /* SongSearchTableViewController.swift */,
+				1B6554F6220D32E10067C52D /* SongDetailViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -147,6 +156,14 @@
 				1B06A75E220BD92100000E81 /* SteveSong.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		1BB5B053220D228000D82A90 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1BB5B056220D24F300D82A90 /* SongTableViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		8D497FCF075305165E69BFAA /* Pods */ = {
@@ -288,15 +305,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BB5B057220D24F300D82A90 /* SongTableViewCell.swift in Sources */,
 				1B06A762220BDFE600000E81 /* APITokenController.swift in Sources */,
 				1B06A75F220BD92100000E81 /* SteveSong.swift in Sources */,
 				1B1D9F8B220B9F3500DFC5B1 /* AppleMusicTrack.swift in Sources */,
 				1B06A768220BF0A900000E81 /* SpotifyAccessToken.swift in Sources */,
 				1BB5B04E220CB9BF00D82A90 /* SpotifyController.swift in Sources */,
+				1BB5B059220D2A8600D82A90 /* SongSearchTableViewController.swift in Sources */,
+				1B6554F7220D32E10067C52D /* SongDetailViewController.swift in Sources */,
 				1B344C8A220B983B00360865 /* SpotifyTrack.swift in Sources */,
 				1B1D9F8E220BCD3800DFC5B1 /* HexColor.swift in Sources */,
-				1B344C76220B949A00360865 /* ViewController.swift in Sources */,
 				1B06A766220BE5C300000E81 /* ApiKeys.swift in Sources */,
+				1BB5B050220CF32900D82A90 /* AppleMusicController.swift in Sources */,
 				1B344C74220B949A00360865 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
