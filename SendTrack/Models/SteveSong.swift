@@ -13,24 +13,43 @@ struct SteveSong {
     let artistName: String
     let albumName: String
     let songRecordingCode: String
-    let spotifySongLink: String?
+    let appleSongArtworkURL: String
+    let appleSongArtworkBGColor: String
+    let appleSongPreviewURL: String?
+
+//    let spotifySongLink: String?
     let appleSongLink: String?
     
-    init?(spotifySong: SpotifyTrack?, appleSong: AppleTrack?) {
-        
-        if let spotifySong = spotifySong {
-            self.songName = spotifySong.tracks.spotifySongs.first?.songName ?? ""
-            self.artistName = spotifySong.tracks.spotifySongs.first?.artists.first?.artistName ?? ""
-            self.albumName = spotifySong.tracks.spotifySongs.first?.album.albumName ?? ""
-            self.songRecordingCode = spotifySong.tracks.spotifySongs.first?.externalIds.songRecordingCode ?? ""
-        } else if let appleSong = appleSong {
-            self.songName = appleSong.results.appleSongResults.data.first?.attributes.songName ?? ""
-            self.artistName = appleSong.results.appleSongResults.data.first?.attributes.artistName ?? ""
-            self.albumName = appleSong.results.appleSongResults.data.first?.attributes.albumName ?? ""
-            self.songRecordingCode = appleSong.results.appleSongResults.data.first?.attributes.songRecordingCode ?? ""
+//    init?(spotifySong: SpotifyTrack?, appleSong: AppleMusicSong?) {
+//
+//        if let spotifySong = spotifySong {
+//            self.songName = spotifySong.tracks.spotifySongs.first?.songName ?? ""
+//            self.artistName = spotifySong.tracks.spotifySongs.first?.artists.first?.artistName ?? ""
+//            self.albumName = spotifySong.tracks.spotifySongs.first?.album.albumName ?? ""
+//            self.songRecordingCode = spotifySong.tracks.spotifySongs.first?.externalIds.songRecordingCode ?? ""
+//        } else if let appleSong = appleSong {
+//            self.songName = appleSong.attributes.songName
+//            self.artistName = appleSong.attributes.artistName
+//            self.albumName = appleSong.attributes.albumName
+//            self.songRecordingCode = appleSong.attributes.songRecordingCode
+//            self.appleSongPreviewURL = appleSong.attributes.previewURLs.first?.songApplePreviewURL
+//        } else { return nil }
+//
+//        self.spotifySongLink = spotifySong?.tracks.spotifySongs.first?.externalUrls.spotifyLink ?? ""
+//        self.appleSongLink = appleSong?.attributes.appleLink ?? ""
+//    }
+    
+    init?(appleSong: AppleMusicSong?) {
+        if let appleSong = appleSong {
+            self.songName = appleSong.attributes.songName
+            self.artistName = appleSong.attributes.artistName
+            self.albumName = appleSong.attributes.albumName
+            self.songRecordingCode = appleSong.attributes.songRecordingCode
+            self.appleSongPreviewURL = appleSong.attributes.previewURLs.first?.songApplePreviewURL
+            self.appleSongArtworkURL = appleSong.attributes.artwork.appleArtworkURL
+            self.appleSongArtworkBGColor = appleSong.attributes.artwork.bgColor
+            self.appleSongLink = appleSong.attributes.appleLink
         } else { return nil }
-        
-        self.spotifySongLink = spotifySong?.tracks.spotifySongs.first?.externalUrls.spotifyLink ?? ""
-        self.appleSongLink = appleSong?.results.appleSongResults.data.first?.attributes.appleLink ?? ""
+//        self.spotifySongLink = nil
     }
 }

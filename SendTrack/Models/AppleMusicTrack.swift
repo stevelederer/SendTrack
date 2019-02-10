@@ -97,3 +97,20 @@ struct Preview: Codable {
         case songApplePreviewURL = "url"
     }
 }
+
+struct AppleSearchHints: Codable {
+    let results: SearchHintResults
+    
+    enum CodingKeys: String, CodingKey {
+        case results = "results"
+    }
+}
+
+struct SearchHintResults: Codable {
+    let terms: [String]
+    
+    enum CodingKeys: String, CodingKey {
+        case terms = "terms"
+    }
+}
+
