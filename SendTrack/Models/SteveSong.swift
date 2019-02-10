@@ -15,10 +15,12 @@ struct SteveSong {
     let songRecordingCode: String
     let appleSongArtworkURL: String
     let appleSongArtworkBGColor: String
+    let appleSongTextColor1: String
+    let appleSongTextColor2: String
     let appleSongPreviewURL: String?
 
 //    let spotifySongLink: String?
-    let appleSongLink: String?
+//    let appleSongLink: String?
     
 //    init?(spotifySong: SpotifyTrack?, appleSong: AppleMusicSong?) {
 //
@@ -45,10 +47,12 @@ struct SteveSong {
             self.artistName = appleSong.attributes.artistName
             self.albumName = appleSong.attributes.albumName
             self.songRecordingCode = appleSong.attributes.songRecordingCode
-            self.appleSongPreviewURL = appleSong.attributes.previewURLs.first?.songApplePreviewURL
             self.appleSongArtworkURL = appleSong.attributes.artwork.appleArtworkURL
             self.appleSongArtworkBGColor = appleSong.attributes.artwork.bgColor
-            self.appleSongLink = appleSong.attributes.appleLink
+            self.appleSongTextColor1 = appleSong.attributes.artwork.textColor1
+            self.appleSongTextColor2 = appleSong.attributes.artwork.textColor2
+            self.appleSongPreviewURL = appleSong.attributes.previewURLs.first?.songApplePreviewURL
+//            self.appleSongLink = appleSong.attributes.appleLink
         } else { return nil }
 //        self.spotifySongLink = nil
     }
