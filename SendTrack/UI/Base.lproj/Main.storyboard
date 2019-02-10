@@ -10,28 +10,23 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--Search-->
         <scene sceneID="SeM-n6-ouQ">
             <objects>
-                <tableViewController id="SLh-cl-89t" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="4Lo-Xc-cYv">
+                <tableViewController id="SLh-cl-89t" customClass="SongSearchTableViewController" customModule="SendTrack" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="111" estimatedRowHeight="111" sectionHeaderHeight="28" sectionFooterHeight="28" id="4Lo-Xc-cYv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" id="7FP-UX-GhF">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="111" id="PdK-Au-ZTf" customClass="SongTableViewCell" customModule="SendTrack" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="72" width="375" height="111"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="songCell" rowHeight="111" id="PdK-Au-ZTf" customClass="SongTableViewCell" customModule="SendTrack" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="111"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PdK-Au-ZTf" id="Qup-dA-lFK">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="110.66666666666667"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IxR-jD-fhv">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IxR-jD-fhv">
                                             <rect key="frame" x="16" y="11" width="88.666666666666671" height="88.666666666666671"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="IxR-jD-fhv" secondAttribute="height" multiplier="1:1" id="SK7-vk-qNa"/>
@@ -76,7 +71,7 @@
                                     <outlet property="albumNameLabel" destination="DNs-ga-1qH" id="zXI-Wa-1ko"/>
                                     <outlet property="artistNameLabel" destination="1VH-eS-Rmp" id="OOY-VZ-Yeg"/>
                                     <outlet property="songNameLabel" destination="U7F-ze-xDS" id="c8D-An-rwK"/>
-                                    <segue destination="fnq-im-x5E" kind="show" id="ghL-kJ-R8l"/>
+                                    <segue destination="fnq-im-x5E" kind="show" identifier="toSongDetailView" id="ghL-kJ-R8l"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -85,7 +80,7 @@
                             <outlet property="delegate" destination="SLh-cl-89t" id="sx2-Se-2MS"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="EGN-WY-XlC"/>
+                    <navigationItem key="navigationItem" title="Search" id="EGN-WY-XlC"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="isN-iY-Kmm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -99,7 +94,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Lwa-2T-NYG">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Lwa-2T-NYG">
                                 <rect key="frame" x="45.333333333333343" y="117.99999999999997" width="284.33333333333326" height="284.33333333333326"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Lwa-2T-NYG" secondAttribute="height" multiplier="1:1" id="7Gg-AQ-jqQ"/>

@@ -70,8 +70,8 @@
 			isa = PBXGroup;
 			children = (
 				1B06A761220BDFE600000E81 /* APITokenController.swift */,
-				1BB5B04D220CB9BF00D82A90 /* SpotifyController.swift */,
 				1BB5B04F220CF32900D82A90 /* AppleMusicController.swift */,
+				1BB5B04D220CB9BF00D82A90 /* SpotifyController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -133,8 +133,8 @@
 		1B344C86220B94BA00360865 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				1BB5B058220D2A8600D82A90 /* SongSearchTableViewController.swift */,
 				1B6554F6220D32E10067C52D /* SongDetailViewController.swift */,
+				1BB5B058220D2A8600D82A90 /* SongSearchTableViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
