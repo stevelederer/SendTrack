@@ -39,8 +39,8 @@ class AppleMusicController {
                 completion(nil) ; return
             }
             
-            guard let httpResponse = response as? HTTPURLResponse else { completion(nil) ; return }
-            print(httpResponse as Any)
+//            guard let httpResponse = response as? HTTPURLResponse else { completion(nil) ; return }
+//            print(httpResponse as Any)
             
             guard let data = data else { completion(nil) ; return }
             
@@ -82,8 +82,8 @@ class AppleMusicController {
                 completion(nil) ; return
             }
             
-            guard let httpResponse = response as? HTTPURLResponse else { completion(nil) ; return }
-            print(httpResponse as Any)
+//            guard let httpResponse = response as? HTTPURLResponse else { completion(nil) ; return }
+//            print(httpResponse as Any)
             
             guard let data = data else { completion(nil) ; return }
             
@@ -110,7 +110,7 @@ class AppleMusicController {
                 print("❌ There was an error in \(#function) ; \(error.localizedDescription) ❌")
                 completion(nil) ; return
             }
-            print(response ?? "no response for artwork url")
+//            print(response ?? "no response for artwork url")
             
             guard let imageData = imageData else { completion(nil) ; return }
             

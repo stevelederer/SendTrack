@@ -130,13 +130,13 @@
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="24.666666666666668"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nDE-nR-DBa">
-                                        <rect key="frame" x="89.999999999999986" y="46.666666666666629" width="60.000000000000014" height="24.666666666666671"/>
-                                        <state key="normal" title="(Spotify)"/>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WXN-rj-MfP">
-                                        <rect key="frame" x="71.999999999999986" y="93.333333333333258" width="96.000000000000014" height="24.666666666666671"/>
+                                        <rect key="frame" x="71.999999999999986" y="46.666666666666629" width="96.000000000000014" height="24.666666666666671"/>
                                         <state key="normal" title="(Apple Music)"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nDE-nR-DBa">
+                                        <rect key="frame" x="89.999999999999986" y="93.333333333333258" width="60.000000000000014" height="24.666666666666671"/>
+                                        <state key="normal" title="(Spotify)"/>
                                     </button>
                                     <view contentMode="scaleToFill" verticalHuggingPriority="1" verticalCompressionResistancePriority="1" translatesAutoresizingMaskIntoConstraints="NO" id="Heg-JQ-q8a">
                                         <rect key="frame" x="0.0" y="140" width="240" height="24.666666666666657"/>
@@ -144,6 +144,15 @@
                                     </view>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8sf-F4-s9X">
+                                <rect key="frame" x="126" y="536" width="124" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="PLAY PREVIEW"/>
+                                <connections>
+                                    <action selector="playPreviewButtonTapped:" destination="fnq-im-x5E" eventType="touchUpInside" id="Nkg-3v-3KY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -161,9 +170,11 @@
                     </view>
                     <connections>
                         <outlet property="albumNameLabel" destination="YPt-qX-BU9" id="jYn-PD-Yvw"/>
+                        <outlet property="appleLinkButton" destination="WXN-rj-MfP" id="4bY-lg-vuN"/>
                         <outlet property="artistNameLabel" destination="Ziq-EQ-HST" id="dOH-8C-P2M"/>
                         <outlet property="songArtworkImageView" destination="Lwa-2T-NYG" id="ndk-Xi-U8r"/>
                         <outlet property="songNameLabel" destination="7Un-jI-WCt" id="Z60-JI-yxc"/>
+                        <outlet property="spotifyLinkButton" destination="nDE-nR-DBa" id="QcY-2z-xCo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5P-nc-gOy" userLabel="First Responder" sceneMemberID="firstResponder"/>
