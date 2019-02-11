@@ -13,6 +13,7 @@ class SongSearchTableViewController: UITableViewController {
     // MARK: - Properties
     
     var songs: [SteveSong] = []
+//    var shouldSearch = true
     
     // MARK: - View Lifecycle
     
@@ -20,11 +21,6 @@ class SongSearchTableViewController: UITableViewController {
         super.viewDidLoad()
         definesPresentationContext = true
         setupNavBar()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
     func setupNavBar() {
@@ -56,11 +52,8 @@ class SongSearchTableViewController: UITableViewController {
         return cell
     }
     
-    
-    
     // MARK: - Navigation
     
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toSongDetailView" {
             guard let indexPath = tableView.indexPathForSelectedRow,
@@ -69,7 +62,6 @@ class SongSearchTableViewController: UITableViewController {
             destinationVC.song = song
         }
     }
-    
     
 }
 
@@ -97,9 +89,19 @@ extension SongSearchTableViewController: UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        let searchTerm = searchBar.text ?? ""
+//        guard shouldSearch else { return }
+//        shouldSearch = false
+//        searchForSong(with: searchText)
+        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.searchForSong(_:)), object: nil)
+        perform(#selector(self.searchForSong(_:)), with: searchBar, afterDelay: 0.5)
+        
+    }
+    
+    @objc func searchForSong(_ searchBar: UISearchBar) {
+        guard let searchTerm = searchBar.text, !searchTerm.isEmpty else { return }
         
         AppleMusicController.fetchAppleMusicSongs(with: searchTerm) { (songs) in
+//            guard let fetchedSongs = songs else { self.shouldSearch = true ; return }
             guard let fetchedSongs = songs else { return }
             var steveSongs: [SteveSong] = []
             for song in fetchedSongs {
@@ -111,8 +113,8 @@ extension SongSearchTableViewController: UISearchBarDelegate {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
                 self.navigationItem.hidesSearchBarWhenScrolling = true
+//                self.shouldSearch = true
             }
         }
     }
-    
 }

@@ -24,20 +24,32 @@ class SongDetailViewController: UIViewController {
     lazy var player: AVPlayer = {
         return AVPlayer()
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
+        guard var song = song else { return }
+        SpotifyController.matchSpotifySong(byISRC: song.songRecordingCode) { (songs) in
+            if let fetchedSongs = songs {
+                song.spotifySongLink = fetchedSongs.first?.externalUrls.spotifyLink
+            } else {
+                SpotifyController.matchSpotifySong(bySongName: song.songName, artistName: song.artistName, albumName: song.albumName, completion: { (songs) in
+                    if let fetchedSongs = songs {
+                        song.spotifySongLink = fetchedSongs.first?.externalUrls.spotifyLink
+                    }
+                })
+            }
+            if let spotifyLink = song.spotifySongLink {
+                print("Spotify link: \(spotifyLink)")
+            }
+            self.song = song
+        }
     }
     
     @IBAction func playPreviewButtonTapped(_ sender: UIButton) {
         guard let previewURLString = song?.appleSongPreviewURL,
             let previewURL = URL(string: previewURLString) else { return }
-//        var downloadTask: URLSessionDownloadTask
-//        downloadTask = URLSession.shared.downloadTask(with: previewURL, completionHandler: { (url, reponse, error) in
-//            self.play(url: previewURL)
-//        })
-//        downloadTask.resume()
+        
         print("playing \(previewURL)")
         
         let playerItem = AVPlayerItem(url: previewURL)
@@ -45,11 +57,7 @@ class SongDetailViewController: UIViewController {
         player.volume = 1.0
         player.play()
     }
-    
-    func play(url: URL) {
-        
-    }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         dimension = Int(songArtworkImageView.frame.height)
@@ -60,6 +68,7 @@ class SongDetailViewController: UIViewController {
         guard isViewLoaded else { return }
         dimension = Int(songArtworkImageView.frame.height)
         guard let song = song else { return }
+        self.songArtworkImageView.image = AppleMusicController.thumbnailImageCache.object(forKey: NSString(string: song.uuid))
         let textColor = UIColor(hex: song.appleSongTextColor1)
         let linkColor = UIColor(hex: song.appleSongTextColor2)
         updateTextWith(labelColor: textColor, buttonColor: linkColor)
@@ -83,5 +92,5 @@ class SongDetailViewController: UIViewController {
         self.appleLinkButton.setTitleColor(buttonColor, for: .normal)
         self.spotifyLinkButton.setTitleColor(buttonColor, for: .normal)
     }
-
+    
 }
