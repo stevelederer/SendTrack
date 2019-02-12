@@ -12,6 +12,8 @@ class AppleMusicController {
     
     static let baseAppleMusicURL = URL(string: "https://api.music.apple.com")
     
+    static var thumbnailImageCache: NSCache<NSString, UIImage> = NSCache()
+    
     static func fetchAppleMusicSongs(with searchTerm: String, completion: @escaping ([AppleMusicSong]?) -> ()) {
         guard let appleMusicToken = APITokenController.getAppleMusicAccessToken() else { return }
         let appleMusicBearer = "Bearer \(appleMusicToken)"
@@ -103,6 +105,7 @@ class AppleMusicController {
         let dimensionComponent: String = "\(dimension)x\(dimension)bb.jpeg"
         guard let artworkPath = song.appleSongArtworkURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
             let artworkURL = URL(string: artworkPath)?.deletingLastPathComponent().appendingPathComponent(dimensionComponent) else { completion(nil) ; return }
+        
         let request = URLRequest(url: artworkURL)
         
         URLSession.shared.dataTask(with: request) { (imageData, response, error) in

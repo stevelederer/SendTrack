@@ -25,6 +25,7 @@
 		1BB5B050220CF32900D82A90 /* AppleMusicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5B04F220CF32900D82A90 /* AppleMusicController.swift */; };
 		1BB5B057220D24F300D82A90 /* SongTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5B056220D24F300D82A90 /* SongTableViewCell.swift */; };
 		1BB5B059220D2A8600D82A90 /* SongSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5B058220D2A8600D82A90 /* SongSearchTableViewController.swift */; };
+		1BD5BA1022123574007C0FE9 /* MessageComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD5BA0F22123574007C0FE9 /* MessageComposer.swift */; };
 		304A48AFEFF8D96C42CB7C5A /* Pods_SendTrack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44CEB1E1581570FA50FFC46E /* Pods_SendTrack.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,7 @@
 		1BB5B04F220CF32900D82A90 /* AppleMusicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMusicController.swift; sourceTree = "<group>"; };
 		1BB5B056220D24F300D82A90 /* SongTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTableViewCell.swift; sourceTree = "<group>"; };
 		1BB5B058220D2A8600D82A90 /* SongSearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongSearchTableViewController.swift; sourceTree = "<group>"; };
+		1BD5BA0F22123574007C0FE9 /* MessageComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageComposer.swift; sourceTree = "<group>"; };
 		44CEB1E1581570FA50FFC46E /* Pods_SendTrack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SendTrack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52A47DC296C86C4126B99164 /* Pods-SendTrack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SendTrack.release.xcconfig"; path = "Pods/Target Support Files/Pods-SendTrack/Pods-SendTrack.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,6 +83,7 @@
 			children = (
 				1B06A765220BE5C300000E81 /* ApiKeys.swift */,
 				1B1D9F8D220BCD3800DFC5B1 /* HexColor.swift */,
+				1BD5BA0F22123574007C0FE9 /* MessageComposer.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				1BB5B059220D2A8600D82A90 /* SongSearchTableViewController.swift in Sources */,
 				1B6554F7220D32E10067C52D /* SongDetailViewController.swift in Sources */,
 				1B344C8A220B983B00360865 /* SpotifyTrack.swift in Sources */,
+				1BD5BA1022123574007C0FE9 /* MessageComposer.swift in Sources */,
 				1B1D9F8E220BCD3800DFC5B1 /* HexColor.swift in Sources */,
 				1B06A766220BE5C300000E81 /* ApiKeys.swift in Sources */,
 				1BB5B050220CF32900D82A90 /* AppleMusicController.swift in Sources */,

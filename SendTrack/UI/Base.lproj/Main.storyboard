@@ -133,10 +133,16 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WXN-rj-MfP">
                                         <rect key="frame" x="71.999999999999986" y="46.666666666666629" width="96.000000000000014" height="24.666666666666671"/>
                                         <state key="normal" title="(Apple Music)"/>
+                                        <connections>
+                                            <action selector="appleMusicLinkButtonTapped:" destination="fnq-im-x5E" eventType="touchUpInside" id="Vqe-5p-jTR"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nDE-nR-DBa">
                                         <rect key="frame" x="89.999999999999986" y="93.333333333333258" width="60.000000000000014" height="24.666666666666671"/>
                                         <state key="normal" title="(Spotify)"/>
+                                        <connections>
+                                            <action selector="spotifyLinkButtonTapped:" destination="fnq-im-x5E" eventType="touchUpInside" id="eJ1-gZ-fka"/>
+                                        </connections>
                                     </button>
                                     <view contentMode="scaleToFill" verticalHuggingPriority="1" verticalCompressionResistancePriority="1" translatesAutoresizingMaskIntoConstraints="NO" id="Heg-JQ-q8a">
                                         <rect key="frame" x="0.0" y="140" width="240" height="24.666666666666657"/>
@@ -153,15 +159,20 @@
                                     <action selector="playPreviewButtonTapped:" destination="fnq-im-x5E" eventType="touchUpInside" id="Nkg-3v-3KY"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Ug0-rG-7DU">
+                                <rect key="frame" x="169" y="241.66666666666663" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Ug0-rG-7DU" firstAttribute="centerY" secondItem="Lwa-2T-NYG" secondAttribute="centerY" id="FZi-hl-5MX"/>
                             <constraint firstItem="UBv-4l-M3e" firstAttribute="bottom" secondItem="LBb-D6-ZRQ" secondAttribute="bottom" constant="40" id="GGi-vb-tf9"/>
                             <constraint firstItem="pKg-xJ-MMn" firstAttribute="centerX" secondItem="rS6-Qp-RLx" secondAttribute="centerX" id="ILF-kN-mwb"/>
                             <constraint firstItem="Lwa-2T-NYG" firstAttribute="top" secondItem="UBv-4l-M3e" secondAttribute="top" constant="30" id="ITb-Aa-TEY"/>
                             <constraint firstItem="pKg-xJ-MMn" firstAttribute="top" secondItem="Lwa-2T-NYG" secondAttribute="bottom" constant="30" id="NVO-D6-2hl"/>
                             <constraint firstItem="pKg-xJ-MMn" firstAttribute="width" secondItem="rS6-Qp-RLx" secondAttribute="width" multiplier="0.8" id="QGN-mq-GYS"/>
                             <constraint firstItem="Lwa-2T-NYG" firstAttribute="centerX" secondItem="rS6-Qp-RLx" secondAttribute="centerX" id="i0K-TJ-tOe"/>
+                            <constraint firstItem="Ug0-rG-7DU" firstAttribute="centerX" secondItem="Lwa-2T-NYG" secondAttribute="centerX" id="jzV-BC-kqt"/>
                             <constraint firstItem="Lwa-2T-NYG" firstAttribute="height" secondItem="rS6-Qp-RLx" secondAttribute="height" multiplier="0.35" id="o4b-1l-feD"/>
                             <constraint firstItem="LBb-D6-ZRQ" firstAttribute="top" secondItem="pKg-xJ-MMn" secondAttribute="bottom" constant="40" id="oHi-2z-KEQ"/>
                             <constraint firstItem="LBb-D6-ZRQ" firstAttribute="centerX" secondItem="rS6-Qp-RLx" secondAttribute="centerX" id="sOz-Ya-dBT"/>
@@ -169,9 +180,11 @@
                         <viewLayoutGuide key="safeArea" id="UBv-4l-M3e"/>
                     </view>
                     <connections>
+                        <outlet property="activitySpinner" destination="Ug0-rG-7DU" id="cIo-66-QWh"/>
                         <outlet property="albumNameLabel" destination="YPt-qX-BU9" id="jYn-PD-Yvw"/>
                         <outlet property="appleLinkButton" destination="WXN-rj-MfP" id="4bY-lg-vuN"/>
                         <outlet property="artistNameLabel" destination="Ziq-EQ-HST" id="dOH-8C-P2M"/>
+                        <outlet property="playPausePreviewButton" destination="8sf-F4-s9X" id="sL8-ln-TdK"/>
                         <outlet property="songArtworkImageView" destination="Lwa-2T-NYG" id="ndk-Xi-U8r"/>
                         <outlet property="songNameLabel" destination="7Un-jI-WCt" id="Z60-JI-yxc"/>
                         <outlet property="spotifyLinkButton" destination="nDE-nR-DBa" id="QcY-2z-xCo"/>

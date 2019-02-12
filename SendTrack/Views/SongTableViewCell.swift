@@ -18,15 +18,18 @@ class SongTableViewCell: UITableViewCell {
     var dimension = 0
     var song: SteveSong? {
         didSet {
-            updateViews()
             dimension = Int(albumArtworkImageView.frame.height)
+            updateViews()
         }
     }
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.albumArtworkImageView.image = nil
     }
 
     func updateViews() {
@@ -34,10 +37,15 @@ class SongTableViewCell: UITableViewCell {
         self.songNameLabel.text = song.songName
         self.artistNameLabel.text = song.artistName
         self.albumNameLabel.text = song.albumName
-        AppleMusicController.fetchAppleMusicArtwork(forSong: song, withDimension: dimension) { (image) in
-            if let image = image {
-                DispatchQueue.main.async {
-                    self.albumArtworkImageView.image = image
+        if let thumbnailImage = AppleMusicController.thumbnailImageCache.object(forKey: NSString(string: song.uuid)) {
+            self.albumArtworkImageView.image = thumbnailImage
+        } else {
+            AppleMusicController.fetchAppleMusicArtwork(forSong: song, withDimension: dimension) { (image) in
+                if let image = image {
+                    DispatchQueue.main.async {
+                        self.albumArtworkImageView.image = image
+                        AppleMusicController.thumbnailImageCache.setObject(image, forKey: NSString(string: song.uuid))
+                    }
                 }
             }
         }

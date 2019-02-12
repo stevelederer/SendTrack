@@ -9,6 +9,7 @@
 import Foundation
 
 struct SteveSong {
+    let uuid: String
     let songName: String
     let artistName: String
     let albumName: String
@@ -19,30 +20,12 @@ struct SteveSong {
     let appleSongTextColor2: String
     let appleSongPreviewURL: String?
 
-//    let spotifySongLink: String?
-//    let appleSongLink: String?
-    
-//    init?(spotifySong: SpotifyTrack?, appleSong: AppleMusicSong?) {
-//
-//        if let spotifySong = spotifySong {
-//            self.songName = spotifySong.tracks.spotifySongs.first?.songName ?? ""
-//            self.artistName = spotifySong.tracks.spotifySongs.first?.artists.first?.artistName ?? ""
-//            self.albumName = spotifySong.tracks.spotifySongs.first?.album.albumName ?? ""
-//            self.songRecordingCode = spotifySong.tracks.spotifySongs.first?.externalIds.songRecordingCode ?? ""
-//        } else if let appleSong = appleSong {
-//            self.songName = appleSong.attributes.songName
-//            self.artistName = appleSong.attributes.artistName
-//            self.albumName = appleSong.attributes.albumName
-//            self.songRecordingCode = appleSong.attributes.songRecordingCode
-//            self.appleSongPreviewURL = appleSong.attributes.previewURLs.first?.songApplePreviewURL
-//        } else { return nil }
-//
-//        self.spotifySongLink = spotifySong?.tracks.spotifySongs.first?.externalUrls.spotifyLink ?? ""
-//        self.appleSongLink = appleSong?.attributes.appleLink ?? ""
-//    }
+    var spotifySongLink: String?
+    let appleSongLink: String?
     
     init?(appleSong: AppleMusicSong?) {
         if let appleSong = appleSong {
+            self.uuid = UUID().uuidString
             self.songName = appleSong.attributes.songName
             self.artistName = appleSong.attributes.artistName
             self.albumName = appleSong.attributes.albumName
@@ -52,8 +35,7 @@ struct SteveSong {
             self.appleSongTextColor1 = appleSong.attributes.artwork.textColor1
             self.appleSongTextColor2 = appleSong.attributes.artwork.textColor2
             self.appleSongPreviewURL = appleSong.attributes.previewURLs.first?.songApplePreviewURL
-//            self.appleSongLink = appleSong.attributes.appleLink
+            self.appleSongLink = appleSong.attributes.appleLink
         } else { return nil }
-//        self.spotifySongLink = nil
     }
 }
