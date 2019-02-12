@@ -14,7 +14,7 @@ class AppleMusicController {
     
     static var thumbnailImageCache: NSCache<NSString, UIImage> = NSCache()
     
-    static func fetchAppleMusicSongs(with searchTerm: String, completion: @escaping ([AppleMusicSong]?) -> ()) {
+    static func fetchAppleMusicSongs(with searchTerm: String, completion: @escaping ([AppleMusicSong]?) -> Void) {
         guard let appleMusicToken = APITokenController.getAppleMusicAccessToken() else { return }
         let appleMusicBearer = "Bearer \(appleMusicToken)"
         
@@ -58,9 +58,9 @@ class AppleMusicController {
         dataTask.resume()
     }
     
-    static func fetchAppleMusicSongs(fromAppleMusicLink appleLink: String, completion: @escaping (AppleMusicSong?) -> ()) {
+    static func fetchAppleMusicSong(fromAppleMusicLink appleLink: String, completion: @escaping (AppleMusicSong?) -> Void) {
         
-        //incoming link format: https://itunes.apple.com/us/album/strawberry-bubblegum/1441493446?i=1441493594
+        // incoming link format: https://itunes.apple.com/us/album/strawberry-bubblegum/1441493446?i=1441493594
         guard let appleMusicToken = APITokenController.getAppleMusicAccessToken() else { return }
         let appleMusicBearer = "Bearer \(appleMusicToken)"
         
@@ -98,6 +98,48 @@ class AppleMusicController {
                 let songs = tld.data
                 let song = songs.first
                 completion(song)
+            } catch {
+                print("❌ There was an error in \(#function) ; \(error.localizedDescription)❌")
+                completion(nil) ; return
+            }
+        })
+        dataTask.resume()
+    }
+    
+    static func matchAppleMusicSong(byISRC isrc: String, completion: @escaping ([AppleMusicSong]?) -> Void) {
+        guard let appleMusicToken = APITokenController.getAppleMusicAccessToken() else { return }
+        let appleMusicBearer = "Bearer \(appleMusicToken)"
+        
+        guard let url = baseAppleMusicURL?.appendingPathComponent("v1").appendingPathComponent("catalog").appendingPathComponent("US").appendingPathComponent("songs") else { completion(nil) ; return }
+        
+        var components = URLComponents(url: url, resolvingAgainstBaseURL: true)
+        let isrcQueryItem = URLQueryItem(name: "filter[isrc]", value: isrc)
+        components?.queryItems = [isrcQueryItem]
+        
+        guard let requestURL = components?.url else { completion(nil) ; return }
+        
+        let headers = ["Authorization" : appleMusicBearer]
+        
+        var request = URLRequest(url: requestURL,
+                                 timeoutInterval: 10.0)
+        request.allHTTPHeaderFields = headers
+        
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
+            if let error = error {
+                print("❌ There was an error in \(#function) ; \(error.localizedDescription) ❌")
+                completion(nil) ; return
+            }
+            
+            //            guard let httpResponse = response as? HTTPURLResponse else { completion(nil) ; return }
+            //            print(httpResponse as Any)
+            
+            guard let data = data else { completion(nil) ; return }
+            
+            do {
+                let tld = try JSONDecoder().decode(Songs.self, from: data)
+                let songs = tld.data
+                completion(songs)
             } catch {
                 print("❌ There was an error in \(#function) ; \(error.localizedDescription)❌")
                 completion(nil) ; return

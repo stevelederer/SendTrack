@@ -89,7 +89,7 @@
         <!--Song Detail View Controller-->
         <scene sceneID="0gn-1q-qTh">
             <objects>
-                <viewController id="fnq-im-x5E" customClass="SongDetailViewController" customModule="SendTrack" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="songDetailVC" id="fnq-im-x5E" customClass="SongDetailViewController" customModule="SendTrack" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rS6-Qp-RLx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
