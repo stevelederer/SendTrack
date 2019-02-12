@@ -12,7 +12,7 @@ class SpotifyController {
     
     static let baseSpotifyURL = URL(string: "https://api.spotify.com")
     
-    static func fetchSpotifySongs(withSearchTerm searchTerm: String, completion: @escaping ([SpotifySong]?) -> ()) {
+    static func fetchSpotifySongs(withSearchTerm searchTerm: String, completion: @escaping ([SpotifySong]?) -> Void) {
         APITokenController.getSpotifyAccessToken { (bearerToken) in
             guard let spotifyBearerToken = bearerToken else { return }
             let spotifyBearer = "Bearer \(spotifyBearerToken)"
@@ -39,8 +39,8 @@ class SpotifyController {
                     completion(nil) ; return
                 }
                 
-                guard let httpResponse = response as? HTTPURLResponse else { completion(nil) ; return }
-                print(httpResponse as Any)
+//                guard let httpResponse = response as? HTTPURLResponse else { completion(nil) ; return }
+//                print(httpResponse as Any)
                 
                 guard let data = data else { completion(nil) ; return }
                 
@@ -57,7 +57,55 @@ class SpotifyController {
         }
     }
     
-    static func matchSpotifySong(byISRC isrc: String, completion: @escaping ([SpotifySong]?) -> ()) {
+    static func fetchSpotifySong(fromSpotifyLink spotifyLink: String, completion: @escaping (SpotifySong?) -> Void) {
+        // incoming link format: https://open.spotify.com/track/7z0JDE4w67HXt5lEWsU2Hj?si=C450BIAmTCmiFoWe-eGeuA
+        APITokenController.getSpotifyAccessToken { (bearerToken) in
+            guard let spotifyBearerToken = bearerToken else { return }
+            let spotifyBearer = "Bearer \(spotifyBearerToken)"
+            
+            guard let incomingURL = URL(string: spotifyLink) else { return }
+            let spotifyID = incomingURL.lastPathComponent
+            
+            guard let url = baseSpotifyURL?.appendingPathComponent("v1").appendingPathComponent("tracks").appendingPathComponent(spotifyID) else { completion(nil) ; return }
+            
+            print(url)
+            
+            let components = URLComponents(url: url, resolvingAgainstBaseURL: true)
+            
+            guard let requestURL = components?.url else { completion(nil) ; return }
+            
+            let headers = ["Authorization" : spotifyBearer]
+            
+            var request = URLRequest(url: requestURL,
+                                     timeoutInterval: 10.0)
+            request.allHTTPHeaderFields = headers
+            
+            let session = URLSession.shared
+            let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+                if let error = error {
+                    print("❌ There was an error in \(#function) ; \(error.localizedDescription) ❌")
+                    completion(nil) ; return
+                }
+                
+//                guard let httpResponse = response as? HTTPURLResponse else { completion(nil) ; return }
+//                print(httpResponse as Any)
+                
+                guard let data = data else { completion(nil) ; return }
+                
+                do {
+                    let song = try JSONDecoder().decode(SpotifySong.self, from: data)
+                    completion(song)
+                } catch {
+                    print("❌ There was an error in \(#function) ; \(error.localizedDescription)❌")
+                    completion(nil) ; return
+                }
+            })
+            dataTask.resume()
+        }
+        
+    }
+    
+    static func matchSpotifySong(byISRC isrc: String, completion: @escaping ([SpotifySong]?) -> Void) {
         APITokenController.getSpotifyAccessToken { (bearerToken) in
             guard let spotifyBearerToken = bearerToken else { return }
             let spotifyBearer = "Bearer \(spotifyBearerToken)"
@@ -84,8 +132,8 @@ class SpotifyController {
                     completion(nil) ; return
                 }
                 
-                guard let httpResponse = response as? HTTPURLResponse else { completion(nil) ; return }
-                print(httpResponse as Any)
+//                guard let httpResponse = response as? HTTPURLResponse else { completion(nil) ; return }
+//                print(httpResponse as Any)
                 
                 guard let data = data else { completion(nil) ; return }
                 
@@ -102,7 +150,7 @@ class SpotifyController {
         }
     }
     
-    static func matchSpotifySong(bySongName songName: String, artistName: String, albumName: String, completion: @escaping ([SpotifySong]?) -> ()) {
+    static func matchSpotifySong(bySongName songName: String, artistName: String, albumName: String, completion: @escaping ([SpotifySong]?) -> Void) {
         APITokenController.getSpotifyAccessToken { (bearerToken) in
             guard let spotifyBearerToken = bearerToken else { return }
             let spotifyBearer = "Bearer \(spotifyBearerToken)"
@@ -130,8 +178,8 @@ class SpotifyController {
                     completion(nil) ; return
                 }
                 
-                guard let httpResponse = response as? HTTPURLResponse else { completion(nil) ; return }
-                print(httpResponse as Any)
+//                guard let httpResponse = response as? HTTPURLResponse else { completion(nil) ; return }
+//                print(httpResponse as Any)
                 
                 guard let data = data else { completion(nil) ; return }
                 

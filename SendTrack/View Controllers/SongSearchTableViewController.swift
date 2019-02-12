@@ -23,24 +23,28 @@ class SongSearchTableViewController: UITableViewController {
         setupNavBar()
     }
     
+    enum ServiceName: String {
+        case AppleMusic = "Apple Music"
+        case Spotify
+    }
+    
     func getPasteboardValue() {
         let pasteboardString: String? = UIPasteboard.general.string
         guard let theString = pasteboardString else { return }
         if theString.contains("https://itunes.apple.com") {
             print("apple music link in pasteboard: \(theString)")
-            presentClipboardAlert(withServiceName: "Apple Music", withClipboardLink: theString)
+            presentClipboardAlert(withServiceName: .AppleMusic, withClipboardLink: theString)
         } else if theString.contains("https://open.spotify.com/") {
             print("spotify link in pasteboard: \(theString)")
-            presentClipboardAlert(withServiceName: "Spotify", withClipboardLink: theString)
+            presentClipboardAlert(withServiceName: .Spotify, withClipboardLink: theString)
         }
     }
     
-    func presentClipboardAlert(withServiceName serviceName: String, withClipboardLink clipboardLink: String) {
-        let clipboardAlert = UIAlertController(title: "Would you like to search for the \(serviceName) song in your clipboard?", message: nil, preferredStyle: .alert)
-        #warning("properly handle yes action below")
+    func presentClipboardAlert(withServiceName serviceName: ServiceName, withClipboardLink clipboardLink: String) {
+        let clipboardAlert = UIAlertController(title: "Would you like to search for the \(serviceName.rawValue) song in your clipboard?", message: nil, preferredStyle: .alert)
         clipboardAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (search) in
-            if serviceName == "Apple Music" {
-                AppleMusicController.fetchAppleMusicSongs(fromAppleMusicLink: clipboardLink, completion: { (song) in
+            if serviceName == .AppleMusic {
+                AppleMusicController.fetchAppleMusicSong(fromAppleMusicLink: clipboardLink, completion: { (song) in
                     guard let fetchedSong = song else { return }
                     var steveSongs: [SteveSong] = []
                     if let newSong = SteveSong(appleSong: fetchedSong) {
@@ -48,13 +52,41 @@ class SongSearchTableViewController: UITableViewController {
                     }
                     
                     self.songs = steveSongs
+                    let songDetailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "songDetailVC") as! SongDetailViewController
+                    songDetailVC.song = self.songs.first
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
+                        self.navigationController?.pushViewController(songDetailVC, animated: true)
                         self.navigationItem.hidesSearchBarWhenScrolling = true
                     }
                 })
+            } else if serviceName == .Spotify {
+                SpotifyController.fetchSpotifySong(fromSpotifyLink: clipboardLink, completion: { (song) in
+                    guard let fetchedSong = song else { return }
+                    let spotifyISRC = fetchedSong.externalIds.songRecordingCode
+                    AppleMusicController.matchAppleMusicSong(byISRC: spotifyISRC, completion: { (songs) in
+                        guard let fetchedSongs = songs else { return }
+                        var steveSongs: [SteveSong] = []
+                        for song in fetchedSongs {
+                            if let newSong = SteveSong(appleSong: song) {
+                                steveSongs.append(newSong)
+                            }
+                        }
+                        self.songs = steveSongs
+                        if self.songs.count == 1 {
+                            let songDetailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "songDetailVC") as! SongDetailViewController
+                            songDetailVC.song = self.songs.first
+                            DispatchQueue.main.async {
+                                self.tableView.reloadData()
+                                self.navigationController?.pushViewController(songDetailVC, animated: true)
+                            }
+                        } else if self.songs.count > 1 {
+                            self.tableView.reloadData()
+                            self.navigationItem.hidesSearchBarWhenScrolling = true
+                        }
+                    })
+                })
             }
-            #warning("can i perform segue automatically?")
         }))
         clipboardAlert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
         self.present(clipboardAlert, animated: true, completion: nil)
