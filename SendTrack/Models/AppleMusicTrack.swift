@@ -25,8 +25,8 @@ struct Results: Codable {
 }
 
 struct Songs: Codable {
-    let href: String
-    let next: String
+    let href: String?
+    let next: String?
     let data: [AppleMusicSong]
     
     enum CodingKeys: String, CodingKey {
