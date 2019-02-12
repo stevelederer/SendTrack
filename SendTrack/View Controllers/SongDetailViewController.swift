@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import NotificationCenter
 
 class SongDetailViewController: UIViewController {
     
@@ -17,6 +18,8 @@ class SongDetailViewController: UIViewController {
     @IBOutlet weak var albumNameLabel: UILabel!
     @IBOutlet weak var appleLinkButton: UIButton!
     @IBOutlet weak var spotifyLinkButton: UIButton!
+    @IBOutlet weak var playPausePreviewButton: UIButton!
+    @IBOutlet weak var activitySpinner: UIActivityIndicatorView!
     
     var song: SteveSong?
     var dimension: Int = 0
@@ -24,11 +27,20 @@ class SongDetailViewController: UIViewController {
     lazy var player: AVPlayer = {
         return AVPlayer()
     }()
+    var isPlaying: Bool = false
+    
+    let messageComposer = MessageComposer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateViews()
         guard var song = song else { return }
+        activitySpinner.startAnimating()
+        activitySpinner.color = UIColor(hex: song.appleSongTextColor1)
+        spotifyLinkButton.isHidden = true
+        songArtworkImageView.layer.shadowOpacity = 1.0
+        songArtworkImageView.layer.shadowRadius = 10
+        songArtworkImageView.layer.shadowOffset = CGSize(width: 0, height: 5)
+        updateViews()
         SpotifyController.matchSpotifySong(byISRC: song.songRecordingCode) { (songs) in
             if let fetchedSongs = songs {
                 song.spotifySongLink = fetchedSongs.first?.externalUrls.spotifyLink
@@ -40,28 +52,17 @@ class SongDetailViewController: UIViewController {
                 })
             }
             if let spotifyLink = song.spotifySongLink {
+                DispatchQueue.main.async {
+                    self.spotifyLinkButton.isHidden = false
+                }
                 print("Spotify link: \(spotifyLink)")
+            } else {
+                DispatchQueue.main.async {
+                    self.spotifyLinkButton.isHidden = true
+                }
             }
             self.song = song
         }
-    }
-    
-    @IBAction func playPreviewButtonTapped(_ sender: UIButton) {
-        guard let previewURLString = song?.appleSongPreviewURL,
-            let previewURL = URL(string: previewURLString) else { return }
-        
-        print("playing \(previewURL)")
-        
-        let playerItem = AVPlayerItem(url: previewURL)
-        self.player = AVPlayer(playerItem: playerItem)
-        player.volume = 1.0
-        player.play()
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        dimension = Int(songArtworkImageView.frame.height)
-        songArtworkImageView.layer.cornerRadius = 10
     }
     
     func updateViews() {
@@ -80,9 +81,11 @@ class SongDetailViewController: UIViewController {
             if let image = image {
                 DispatchQueue.main.async {
                     self.songArtworkImageView.image = image
+                    self.activitySpinner.stopAnimating()
                 }
             }
         }
+        prepareToPlay()
     }
     
     func updateTextWith(labelColor: UIColor, buttonColor: UIColor) {
@@ -91,6 +94,52 @@ class SongDetailViewController: UIViewController {
         self.albumNameLabel.textColor = labelColor
         self.appleLinkButton.setTitleColor(buttonColor, for: .normal)
         self.spotifyLinkButton.setTitleColor(buttonColor, for: .normal)
+    }
+    
+    func prepareToPlay() {
+        guard let previewURLString = song?.appleSongPreviewURL, let previewURL = URL(string: previewURLString) else { return }
+        let asset = AVAsset(url: previewURL)
+        
+        let playerItem = AVPlayerItem(asset: asset)
+        
+        player = AVPlayer(playerItem: playerItem)
+        NotificationCenter.default.addObserver(self, selector: #selector(playerDidFinishPlaying), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: playerItem)
+        print("duration: \(asset.duration.seconds)")
+    }
+    
+    @IBAction func playPreviewButtonTapped(_ sender: UIButton) {
+        if !isPlaying {
+            player.volume = 1.0
+            player.play()
+            playPausePreviewButton.setTitle("Pause", for: .normal)
+        } else {
+            player.pause()
+            prepareToPlay()
+            playPausePreviewButton.setTitle("Play Preview", for: .normal)
+        }
+        self.isPlaying = !self.isPlaying
+    }
+    
+    @objc func playerDidFinishPlaying(note: Notification) {
+        playPausePreviewButton.setTitle("Play Preview", for: .normal)
+        self.isPlaying = false
+        prepareToPlay()
+    }
+    
+    @IBAction func appleMusicLinkButtonTapped(_ sender: UIButton) {
+        if (messageComposer.canSendText()) {
+            guard let song = self.song else { return }
+            let textMessageComposerVC = messageComposer.composeLinkMessage(withSong: song, linkType: MessageComposer.SongLinkType.Apple)
+            present(textMessageComposerVC, animated: true, completion: nil)
+        }
+    }
+    
+    @IBAction func spotifyLinkButtonTapped(_ sender: UIButton) {
+        if (messageComposer.canSendText()) {
+            guard let song = self.song else { return }
+            let textMessageComposerVC = messageComposer.composeLinkMessage(withSong: song, linkType: MessageComposer.SongLinkType.Spotify)
+            present(textMessageComposerVC, animated: true, completion: nil)
+        }
     }
     
 }

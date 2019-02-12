@@ -23,10 +23,8 @@ class SongTableViewCell: UITableViewCell {
         }
     }
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
     override func prepareForReuse() {
@@ -44,9 +42,9 @@ class SongTableViewCell: UITableViewCell {
         } else {
             AppleMusicController.fetchAppleMusicArtwork(forSong: song, withDimension: dimension) { (image) in
                 if let image = image {
-                    AppleMusicController.thumbnailImageCache.setObject(image, forKey: NSString(string: song.uuid))
                     DispatchQueue.main.async {
                         self.albumArtworkImageView.image = image
+                        AppleMusicController.thumbnailImageCache.setObject(image, forKey: NSString(string: song.uuid))
                     }
                 }
             }

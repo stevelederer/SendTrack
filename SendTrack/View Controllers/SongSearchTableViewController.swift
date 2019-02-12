@@ -13,7 +13,6 @@ class SongSearchTableViewController: UITableViewController {
     // MARK: - Properties
     
     var songs: [SteveSong] = []
-//    var shouldSearch = true
     
     // MARK: - View Lifecycle
     
@@ -65,6 +64,8 @@ class SongSearchTableViewController: UITableViewController {
     
 }
 
+// MARK: - UISearchBarDelegate Functions
+
 extension SongSearchTableViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -89,19 +90,14 @@ extension SongSearchTableViewController: UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        guard shouldSearch else { return }
-//        shouldSearch = false
-//        searchForSong(with: searchText)
         NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.searchForSong(_:)), object: nil)
-        perform(#selector(self.searchForSong(_:)), with: searchBar, afterDelay: 0.5)
-        
+        perform(#selector(self.searchForSong(_:)), with: searchBar, afterDelay: 0.5)        
     }
     
     @objc func searchForSong(_ searchBar: UISearchBar) {
         guard let searchTerm = searchBar.text, !searchTerm.isEmpty else { return }
         
         AppleMusicController.fetchAppleMusicSongs(with: searchTerm) { (songs) in
-//            guard let fetchedSongs = songs else { self.shouldSearch = true ; return }
             guard let fetchedSongs = songs else { return }
             var steveSongs: [SteveSong] = []
             for song in fetchedSongs {
@@ -113,7 +109,6 @@ extension SongSearchTableViewController: UISearchBarDelegate {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
                 self.navigationItem.hidesSearchBarWhenScrolling = true
-//                self.shouldSearch = true
             }
         }
     }
