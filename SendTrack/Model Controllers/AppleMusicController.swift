@@ -58,6 +58,54 @@ class AppleMusicController {
         dataTask.resume()
     }
     
+    static func fetchAppleMusicSongs(fromAppleMusicLink appleLink: String, completion: @escaping (AppleMusicSong?) -> ()) {
+        
+        //incoming link format: https://itunes.apple.com/us/album/strawberry-bubblegum/1441493446?i=1441493594
+        guard let appleMusicToken = APITokenController.getAppleMusicAccessToken() else { return }
+        let appleMusicBearer = "Bearer \(appleMusicToken)"
+        
+        guard let incomingURL = URL(string: appleLink),
+            let appleMusicID = incomingURL.query?.replacingOccurrences(of: "i=", with: "") else { return }
+        
+        guard let url = baseAppleMusicURL?.appendingPathComponent("v1").appendingPathComponent("catalog").appendingPathComponent("US").appendingPathComponent("songs").appendingPathComponent(appleMusicID) else { completion(nil) ; return }
+        
+        print(url)
+        
+        let components = URLComponents(url: url, resolvingAgainstBaseURL: true)
+        
+        guard let requestURL = components?.url else { completion(nil) ; return }
+        
+        let headers = ["Authorization" : appleMusicBearer]
+        
+        var request = URLRequest(url: requestURL,
+                                 timeoutInterval: 10.0)
+        request.allHTTPHeaderFields = headers
+        
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
+            if let error = error {
+                print("❌ There was an error in \(#function) ; \(error.localizedDescription) ❌")
+                completion(nil) ; return
+            }
+            
+//                        guard let httpResponse = response as? HTTPURLResponse else { completion(nil) ; return }
+//                        print(httpResponse as Any)
+            
+            guard let data = data else { completion(nil) ; return }
+            
+            do {
+                let tld = try JSONDecoder().decode(Songs.self, from: data)
+                let songs = tld.data
+                let song = songs.first
+                completion(song)
+            } catch {
+                print("❌ There was an error in \(#function) ; \(error.localizedDescription)❌")
+                completion(nil) ; return
+            }
+        })
+        dataTask.resume()
+    }
+    
     static func fetchAppleSearchHints(with searchTerm: String, completion: @escaping ([String]?) -> Void) {
         guard let appleMusicToken = APITokenController.getAppleMusicAccessToken() else { return }
         let appleMusicBearer = "Bearer \(appleMusicToken)"
