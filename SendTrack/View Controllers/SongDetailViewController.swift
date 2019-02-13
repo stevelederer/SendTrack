@@ -42,7 +42,8 @@ class SongDetailViewController: UIViewController {
         songArtworkImageView.layer.shadowOffset = CGSize(width: 0, height: 5)
         updateViews()
         SpotifyController.matchSpotifySong(byISRC: song.songRecordingCode) { (songs) in
-            if let fetchedSongs = songs {
+            guard let fetchedSongs = songs else { return }
+            if fetchedSongs.count >= 1 {
                 song.spotifySongLink = fetchedSongs.first?.externalUrls.spotifyLink
             } else {
                 SpotifyController.matchSpotifySong(bySongName: song.songName, artistName: song.artistName, albumName: song.albumName, completion: { (songs) in
@@ -51,17 +52,14 @@ class SongDetailViewController: UIViewController {
                     }
                 })
             }
-            if let spotifyLink = song.spotifySongLink {
-                DispatchQueue.main.async {
+            DispatchQueue.main.async {
+                if song.spotifySongLink != nil {
                     self.spotifyLinkButton.isHidden = false
-                }
-                print("Spotify link: \(spotifyLink)")
-            } else {
-                DispatchQueue.main.async {
+                    self.song = song
+                } else {
                     self.spotifyLinkButton.isHidden = true
                 }
             }
-            self.song = song
         }
     }
     
@@ -127,18 +125,24 @@ class SongDetailViewController: UIViewController {
     }
     
     @IBAction func appleMusicLinkButtonTapped(_ sender: UIButton) {
+        guard let song = self.song else { return }
         if (messageComposer.canSendText()) {
-            guard let song = self.song else { return }
             let textMessageComposerVC = messageComposer.composeLinkMessage(withSong: song, linkType: MessageComposer.SongLinkType.Apple)
             present(textMessageComposerVC, animated: true, completion: nil)
+        } else {
+            guard let linkText = song.appleSongLink else { return }
+            print("Apple Link: \(linkText)")
         }
     }
     
     @IBAction func spotifyLinkButtonTapped(_ sender: UIButton) {
+        guard let song = self.song else { return }
         if (messageComposer.canSendText()) {
-            guard let song = self.song else { return }
             let textMessageComposerVC = messageComposer.composeLinkMessage(withSong: song, linkType: MessageComposer.SongLinkType.Spotify)
             present(textMessageComposerVC, animated: true, completion: nil)
+        } else {
+            guard let linkText = song.spotifySongLink else { return }
+            print("Spotify Link: \(linkText)")
         }
     }
     
