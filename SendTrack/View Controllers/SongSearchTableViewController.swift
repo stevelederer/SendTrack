@@ -113,7 +113,6 @@ class SongSearchTableViewController: UITableViewController {
         return songs.count
     }
     
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "songCell", for: indexPath) as! SongTableViewCell
         let song = songs[indexPath.row]

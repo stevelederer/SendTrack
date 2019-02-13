@@ -16,30 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
-//        SpotifyController.fetchSpotifySongs(with: "your fine petting duck") { (tracks) in
-//            if let tracks = tracks {
-//                print("✅ tracks downloaded")
-//            } else {
-//                print("❌ tracks not downloaded")
-//            }
-//        }
-        
-//        AppleMusicController.fetchAppleMusicSongs(with: "sir duke") { (tracks) in
-//            if let tracks = tracks {
-//                print("✅ tracks downloaded")
-//            } else {
-//                print("❌ tracks not downloaded")
-//            }
-//        }
-        
-//        SpotifyController.fetchSpotifySong(byISRC: "SEAMA7343050") { (songs) in
-//            if let songs = songs {
-//                guard let firstSongName = songs.first?.songName else { return }
-//                print(firstSongName)
-//            }
-//        }
-        
         return true
     }
 
