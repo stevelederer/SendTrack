@@ -124,28 +124,32 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="LBb-D6-ZRQ">
-                                <rect key="frame" x="67.666666666666686" y="573.33333333333337" width="240" height="164.66666666666663"/>
+                                <rect key="frame" x="63" y="573.33333333333337" width="249" height="164.66666666666663"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" verticalHuggingPriority="1" verticalCompressionResistancePriority="1" translatesAutoresizingMaskIntoConstraints="NO" id="J9N-n7-Jdv">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="24.666666666666668"/>
+                                        <rect key="frame" x="4.6666666666666714" y="0.0" width="240" height="24.666666666666668"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WXN-rj-MfP">
-                                        <rect key="frame" x="71.999999999999986" y="46.666666666666629" width="96.000000000000014" height="24.666666666666671"/>
-                                        <state key="normal" title="(Apple Music)"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WXN-rj-MfP">
+                                        <rect key="frame" x="0.0" y="46.666666666666629" width="249" height="24.666666666666671"/>
+                                        <state key="normal" title="Share Apple Music Link" image="Apple_Music_Icon_30">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="appleMusicLinkButtonTapped:" destination="fnq-im-x5E" eventType="touchUpInside" id="Vqe-5p-jTR"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nDE-nR-DBa">
-                                        <rect key="frame" x="89.999999999999986" y="93.333333333333258" width="60.000000000000014" height="24.666666666666671"/>
-                                        <state key="normal" title="(Spotify)"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nDE-nR-DBa">
+                                        <rect key="frame" x="20.666666666666671" y="93.333333333333258" width="208" height="24.666666666666671"/>
+                                        <state key="normal" title="Share Spotify LInk" image="Spotify_Icon_RGB_Green_30">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="spotifyLinkButtonTapped:" destination="fnq-im-x5E" eventType="touchUpInside" id="eJ1-gZ-fka"/>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" verticalHuggingPriority="1" verticalCompressionResistancePriority="1" translatesAutoresizingMaskIntoConstraints="NO" id="Heg-JQ-q8a">
-                                        <rect key="frame" x="0.0" y="140" width="240" height="24.666666666666657"/>
+                                        <rect key="frame" x="4.6666666666666714" y="140" width="240" height="24.666666666666657"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                 </subviews>
@@ -211,4 +215,8 @@
             <point key="canvasLocation" x="150" y="255"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Apple_Music_Icon_30" width="60" height="60"/>
+        <image name="Spotify_Icon_RGB_Green_30" width="60" height="60"/>
+    </resources>
 </document>

@@ -13,6 +13,7 @@ class SongSearchTableViewController: UITableViewController {
     // MARK: - Properties
     
     var songs: [SteveSong] = []
+    var sharedIdentifier = "group.stevelederer.SendTrack"
     
     // MARK: - View Lifecycle
     
@@ -20,6 +21,7 @@ class SongSearchTableViewController: UITableViewController {
         super.viewDidLoad()
         getPasteboardValue()
         definesPresentationContext = true
+        fetchShareExtensionData()
         setupNavBar()
     }
     
@@ -44,52 +46,27 @@ class SongSearchTableViewController: UITableViewController {
         let clipboardAlert = UIAlertController(title: "Would you like to search for the \(serviceName.rawValue) song in your clipboard?", message: nil, preferredStyle: .alert)
         clipboardAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (search) in
             if serviceName == .AppleMusic {
-                AppleMusicController.fetchAppleMusicSong(fromAppleMusicLink: clipboardLink, completion: { (song) in
-                    guard let fetchedSong = song else { return }
-                    var steveSongs: [SteveSong] = []
-                    if let newSong = SteveSong(appleSong: fetchedSong) {
-                        steveSongs.append(newSong)
-                    }
-                    
-                    self.songs = steveSongs
-                    let songDetailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "songDetailVC") as! SongDetailViewController
-                    songDetailVC.song = self.songs.first
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                        self.navigationController?.pushViewController(songDetailVC, animated: true)
-                        self.navigationItem.hidesSearchBarWhenScrolling = true
-                    }
-                })
+                self.appleMusicLinkFetch(appleMusicLink: clipboardLink)
             } else if serviceName == .Spotify {
-                SpotifyController.fetchSpotifySong(fromSpotifyLink: clipboardLink, completion: { (song) in
-                    guard let fetchedSong = song else { return }
-                    let spotifyISRC = fetchedSong.externalIds.songRecordingCode
-                    AppleMusicController.matchAppleMusicSong(byISRC: spotifyISRC, completion: { (songs) in
-                        guard let fetchedSongs = songs else { return }
-                        var steveSongs: [SteveSong] = []
-                        for song in fetchedSongs {
-                            if let newSong = SteveSong(appleSong: song) {
-                                steveSongs.append(newSong)
-                            }
-                        }
-                        self.songs = steveSongs
-                        if self.songs.count == 1 {
-                            let songDetailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "songDetailVC") as! SongDetailViewController
-                            songDetailVC.song = self.songs.first
-                            DispatchQueue.main.async {
-                                self.tableView.reloadData()
-                                self.navigationController?.pushViewController(songDetailVC, animated: true)
-                            }
-                        } else if self.songs.count > 1 {
-                            self.tableView.reloadData()
-                            self.navigationItem.hidesSearchBarWhenScrolling = true
-                        }
-                    })
-                })
+                self.spotifyLinkFetch(spotifyLink: clipboardLink)
             }
         }))
         clipboardAlert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
         self.present(clipboardAlert, animated: true, completion: nil)
+    }
+    
+    func fetchShareExtensionData() {
+        if let prefs = UserDefaults(suiteName: sharedIdentifier) {
+            if let songLink = prefs.object(forKey: "songLink") as? String {
+                if songLink.contains("https://itunes.apple.com") {
+                    print("apple music link in pasteboard: \(songLink)")
+                    self.appleMusicLinkFetch(appleMusicLink: songLink)
+                } else if songLink.contains("https://open.spotify.com/") {
+                    print("spotify link in pasteboard: \(songLink)")
+                    self.spotifyLinkFetch(spotifyLink: songLink)
+                }
+            }
+        }
     }
     
     func setupNavBar() {
@@ -99,8 +76,54 @@ class SongSearchTableViewController: UITableViewController {
         navigationItem.hidesSearchBarWhenScrolling = false
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.autocapitalizationType = .words
-        searchController.searchBar.autocorrectionType = .yes
+        searchController.searchBar.autocorrectionType = .no
         searchController.searchBar.placeholder = "Search for a song..."
+    }
+    
+    func appleMusicLinkFetch(appleMusicLink: String) {
+        AppleMusicController.fetchAppleMusicSong(fromAppleMusicLink: appleMusicLink) { (song) in
+            guard let fetchedSong = song else { return }
+            var steveSongs: [SteveSong] = []
+            if let newSong = SteveSong(appleSong: fetchedSong) {
+                steveSongs.append(newSong)
+            }
+            self.songs = steveSongs
+            let songDetailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "songDetailVC") as! SongDetailViewController
+            songDetailVC.song = self.songs.first
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                self.navigationController?.pushViewController(songDetailVC, animated: true)
+                self.navigationItem.hidesSearchBarWhenScrolling = true
+            }
+        }
+    }
+    
+    func spotifyLinkFetch(spotifyLink: String) {
+        SpotifyController.fetchSpotifySong(fromSpotifyLink: spotifyLink) { (song) in
+            guard let fetchedSong = song else { return }
+            let spotifyISRC = fetchedSong.externalIds.songRecordingCode
+            AppleMusicController.matchAppleMusicSong(byISRC: spotifyISRC, completion: { (songs) in
+                guard let fetchedSongs = songs else { return }
+                var steveSongs: [SteveSong] = []
+                for song in fetchedSongs {
+                    if let newSong = SteveSong(appleSong: song) {
+                        steveSongs.append(newSong)
+                    }
+                }
+                self.songs = steveSongs
+                if self.songs.count == 1 {
+                    let songDetailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "songDetailVC") as! SongDetailViewController
+                    songDetailVC.song = self.songs.first
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                        self.navigationController?.pushViewController(songDetailVC, animated: true)
+                    }
+                } else if self.songs.count > 1 {
+                    self.tableView.reloadData()
+                    self.navigationItem.hidesSearchBarWhenScrolling = true
+                }
+            })
+        }
     }
     
     // MARK: - Table view data source
