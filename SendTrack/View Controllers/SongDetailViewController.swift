@@ -34,6 +34,8 @@ class SongDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         guard var song = song else { return }
+        appleLinkButton.imageView?.contentMode = .scaleAspectFit
+        spotifyLinkButton.imageView?.contentMode = .scaleAspectFit
         activitySpinner.startAnimating()
         activitySpinner.color = UIColor(hex: song.appleSongTextColor1)
         spotifyLinkButton.isHidden = true
