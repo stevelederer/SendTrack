@@ -16,6 +16,14 @@ struct AppleTrack: Codable { // TOP LEVEL DICTIONARY
     }
 }
 
+struct AppleTopTrack: Codable {
+    let chartResults: ChartResults
+    
+    enum CodingKeys: String, CodingKey {
+        case chartResults = "results"
+    }
+}
+
 struct Results: Codable {
     let appleSongResults: Songs
     
@@ -24,7 +32,27 @@ struct Results: Codable {
     }
 }
 
+struct ChartResults: Codable {
+    let appleTopSongResults: [TopSongs]
+    
+    enum CodingKeys: String, CodingKey {
+        case appleTopSongResults = "songs"
+    }
+}
+
 struct Songs: Codable {
+    let href: String?
+    let next: String?
+    let data: [AppleMusicSong]
+    
+    enum CodingKeys: String, CodingKey {
+        case href
+        case next
+        case data
+    }
+}
+
+struct TopSongs: Codable {
     let href: String?
     let next: String?
     let data: [AppleMusicSong]

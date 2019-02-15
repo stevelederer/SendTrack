@@ -58,6 +58,55 @@ class AppleMusicController {
         dataTask.resume()
     }
     
+    static func fetchAppleMusicTopCharts(completion: @escaping ([AppleMusicSong]?) -> Void) {
+        guard let appleMusicToken = APITokenController.getAppleMusicAccessToken() else { return }
+        let appleMusicBearer = "Bearer \(appleMusicToken)"
+        
+        guard let url = baseAppleMusicURL?.appendingPathComponent("v1").appendingPathComponent("catalog").appendingPathComponent("US").appendingPathComponent("charts") else { completion(nil) ; return }
+        
+        var components = URLComponents(url: url, resolvingAgainstBaseURL: true)
+        let typesQueryItem = URLQueryItem(name: "types", value: "songs")
+        components?.queryItems = [typesQueryItem]
+        
+        guard let requestURL = components?.url else { completion(nil) ; return }
+        
+        let headers = ["Authorization" : appleMusicBearer]
+        
+        var request = URLRequest(url: requestURL,
+                                 timeoutInterval: 10.0)
+        request.allHTTPHeaderFields = headers
+        
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
+            if let error = error {
+                print("❌ There was an error in \(#function) ; \(error.localizedDescription) ❌")
+                completion(nil) ; return
+            }
+            
+            //            guard let httpResponse = response as? HTTPURLResponse else { completion(nil) ; return }
+            //            print(httpResponse as Any)
+            
+            guard let data = data else { completion(nil) ; return }
+            
+            do {
+                let topLevelDictionary = try JSONDecoder().decode(AppleTopTrack.self, from: data)
+                let songs = topLevelDictionary.chartResults.appleTopSongResults
+                var fetchedTopSongs: [AppleMusicSong] = []
+                for item in songs {
+                    let songs = item.data
+                    for data in songs {
+                        fetchedTopSongs.append(data)
+                    }
+                }
+                completion(fetchedTopSongs)
+            } catch {
+                print("❌ There was an error in \(#function) ; \(error.localizedDescription)❌")
+                completion(nil) ; return
+            }
+        })
+        dataTask.resume()
+    }
+    
     static func fetchAppleMusicSong(fromAppleMusicLink appleLink: String, completion: @escaping (AppleMusicSong?) -> Void) {
         
         // incoming link format: https://itunes.apple.com/us/album/strawberry-bubblegum/1441493446?i=1441493594

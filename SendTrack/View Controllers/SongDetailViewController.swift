@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import AVFoundation
-import NotificationCenter
 
 class SongDetailViewController: UIViewController {
     
@@ -18,22 +16,20 @@ class SongDetailViewController: UIViewController {
     @IBOutlet weak var albumNameLabel: UILabel!
     @IBOutlet weak var appleLinkButton: UIButton!
     @IBOutlet weak var spotifyLinkButton: UIButton!
-    @IBOutlet weak var playPausePreviewButton: UIButton!
     @IBOutlet weak var activitySpinner: UIActivityIndicatorView!
+    @IBOutlet weak var playButtonBlurView: UIVisualEffectView!
+    @IBOutlet weak var playPauseButton: UIButton!
     
     var song: SteveSong?
     var dimension: Int = 0
-    
-    lazy var player: AVPlayer = {
-        return AVPlayer()
-    }()
-    var isPlaying: Bool = false
     
     let messageComposer = MessageComposer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         guard var song = song else { return }
+        playButtonBlurView.layer.masksToBounds = true
+        playButtonBlurView.layer.cornerRadius = playButtonBlurView.frame.height / 2
         appleLinkButton.imageView?.contentMode = .scaleAspectFit
         spotifyLinkButton.imageView?.contentMode = .scaleAspectFit
         activitySpinner.startAnimating()
@@ -76,7 +72,9 @@ class SongDetailViewController: UIViewController {
         self.songNameLabel.text = song.songName
         self.artistNameLabel.text = song.artistName
         self.albumNameLabel.text = song.albumName
+        PlayerController.shared.previewURLString = song.appleSongPreviewURL
         self.view.backgroundColor = UIColor(hex: song.appleSongArtworkBGColor)
+        checkBackgroundColor(song: song)
         AppleMusicController.fetchAppleMusicArtwork(forSong: song, withDimension: self.dimension) { (image) in
             if let image = image {
                 DispatchQueue.main.async {
@@ -85,7 +83,25 @@ class SongDetailViewController: UIViewController {
                 }
             }
         }
-        prepareToPlay()
+    }
+    
+    func checkBackgroundColor(song: SteveSong) {
+        guard let backgroundColor = self.view.backgroundColor else { return }
+        print("🤖🤖🤖 Background Color is: \(song.appleSongArtworkBGColor)")
+
+        if song.appleSongArtworkBGColor == "ffffff" { //background is white
+            self.playButtonBlurView.effect = UIBlurEffect(style: .dark)
+            self.spotifyLinkButton.setImage(UIImage(named: "Spotify_Icon_RGB_Green_30"), for: .normal)
+        } else if song.appleSongArtworkBGColor == "000000" { //background is black
+            self.playButtonBlurView.effect = UIBlurEffect(style: .light)
+            self.spotifyLinkButton.setImage(UIImage(named: "Spotify_Icon_RGB_Green_30"), for: .normal)
+        } else if backgroundColor.isLight { // background is light
+            self.playButtonBlurView.effect = UIBlurEffect(style: .dark)
+            self.spotifyLinkButton.setImage(UIImage(named: "Spotify_Icon_RGB_Black_30"), for: .normal)
+        } else if !backgroundColor.isLight { //background is dark
+            self.playButtonBlurView.effect = UIBlurEffect(style: .light)
+            self.spotifyLinkButton.setImage(UIImage(named: "Spotify_Icon_RGB_White_30"), for: .normal)
+        }
     }
     
     func updateTextWith(labelColor: UIColor, buttonColor: UIColor) {
@@ -96,34 +112,16 @@ class SongDetailViewController: UIViewController {
         self.spotifyLinkButton.setTitleColor(buttonColor, for: .normal)
     }
     
-    func prepareToPlay() {
-        guard let previewURLString = song?.appleSongPreviewURL, let previewURL = URL(string: previewURLString) else { return }
-        let asset = AVAsset(url: previewURL)
-        
-        let playerItem = AVPlayerItem(asset: asset)
-        
-        player = AVPlayer(playerItem: playerItem)
-        NotificationCenter.default.addObserver(self, selector: #selector(playerDidFinishPlaying), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: playerItem)
-        print("duration: \(asset.duration.seconds)")
+    @objc func updatePlayPauseButton() {
+        var buttonImageName: String
+        PlayerController.shared.isPlaying ? (buttonImageName = "pauseSquare") : (buttonImageName = "playSquare")
+        playPauseButton.setImage(UIImage(named: buttonImageName), for: .normal)
     }
     
-    @IBAction func playPreviewButtonTapped(_ sender: UIButton) {
-        if !isPlaying {
-            player.volume = 1.0
-            player.play()
-            playPausePreviewButton.setTitle("Pause", for: .normal)
-        } else {
-            player.pause()
-            prepareToPlay()
-            playPausePreviewButton.setTitle("Play Preview", for: .normal)
-        }
-        self.isPlaying = !self.isPlaying
-    }
-    
-    @objc func playerDidFinishPlaying(note: Notification) {
-        playPausePreviewButton.setTitle("Play Preview", for: .normal)
-        self.isPlaying = false
-        prepareToPlay()
+    @IBAction func playPauseButtonTapped(_ sender: UIButton) {
+        PlayerController.shared.playPause()
+        NotificationCenter.default.addObserver(self, selector: #selector(updatePlayPauseButton), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
+        updatePlayPauseButton()
     }
     
     @IBAction func appleMusicLinkButtonTapped(_ sender: UIButton) {
