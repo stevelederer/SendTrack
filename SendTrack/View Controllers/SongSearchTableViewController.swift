@@ -14,15 +14,22 @@ class SongSearchTableViewController: UITableViewController {
     
     var songs: [SteveSong] = []
     var sharedIdentifier = "group.stevelederer.SendTrack"
-    
+ 
     // MARK: - View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         getPasteboardValue()
         definesPresentationContext = true
-        fetchShareExtensionData()
         setupNavBar()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        if songs.count == 0 {
+            topSongsFetch()
+            self.navigationItem.title = "Top Songs"
+        }
     }
     
     enum ServiceName: String {
@@ -55,20 +62,6 @@ class SongSearchTableViewController: UITableViewController {
         self.present(clipboardAlert, animated: true, completion: nil)
     }
     
-    func fetchShareExtensionData() {
-        if let prefs = UserDefaults(suiteName: sharedIdentifier) {
-            if let songLink = prefs.object(forKey: "songLink") as? String {
-                if songLink.contains("https://itunes.apple.com") {
-                    print("apple music link in pasteboard: \(songLink)")
-                    self.appleMusicLinkFetch(appleMusicLink: songLink)
-                } else if songLink.contains("https://open.spotify.com/") {
-                    print("spotify link in pasteboard: \(songLink)")
-                    self.spotifyLinkFetch(spotifyLink: songLink)
-                }
-            }
-        }
-    }
-    
     func setupNavBar() {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.delegate = self
@@ -78,6 +71,23 @@ class SongSearchTableViewController: UITableViewController {
         searchController.searchBar.autocapitalizationType = .words
         searchController.searchBar.autocorrectionType = .no
         searchController.searchBar.placeholder = "Search for a song..."
+    }
+    
+    func topSongsFetch() {
+        AppleMusicController.fetchAppleMusicTopCharts { (songs) in
+            guard let fetchedSongs = songs else { return }
+            var steveSongs: [SteveSong] = []
+            for song in fetchedSongs {
+                if let newSong = SteveSong(appleSong: song) {
+                    steveSongs.append(newSong)
+                }
+            }
+            self.songs = steveSongs
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                self.navigationItem.hidesSearchBarWhenScrolling = true
+            }
+        }
     }
     
     func appleMusicLinkFetch(appleMusicLink: String) {
@@ -128,10 +138,6 @@ class SongSearchTableViewController: UITableViewController {
     
     // MARK: - Table view data source
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return songs.count
     }
@@ -139,6 +145,7 @@ class SongSearchTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "songCell", for: indexPath) as! SongTableViewCell
         let song = songs[indexPath.row]
+        cell.delegate = self
         cell.song = song
         return cell
     }
@@ -156,34 +163,40 @@ class SongSearchTableViewController: UITableViewController {
     
 }
 
+extension SongSearchTableViewController: SongTableViewCellDelegate {
+    func playPauseButtonTapped(songURLString: String) {
+        if PlayerController.shared.isPlaying && songURLString != PlayerController.shared.previewURLString {
+            PlayerController.shared.previewURLString = songURLString
+            PlayerController.shared.playPause()
+        } else if PlayerController.shared.isPlaying && songURLString == PlayerController.shared.previewURLString {
+            PlayerController.shared.playPause()
+        } else {
+            PlayerController.shared.previewURLString = songURLString
+            PlayerController.shared.playPause()
+        }
+        NotificationCenter.default.post(name: .playPauseNotification, object: nil, userInfo: nil)
+    }
+}
+
 // MARK: - UISearchBarDelegate Functions
 
 extension SongSearchTableViewController: UISearchBarDelegate {
     
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        self.navigationItem.title = "Search"
+    }
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        let searchTerm = searchBar.text ?? ""
         self.dismiss(animated: true, completion: nil)
         
-        AppleMusicController.fetchAppleMusicSongs(with: searchTerm) { (songs) in
-            guard let fetchedSongs = songs else { return }
-            var steveSongs: [SteveSong] = []
-            for song in fetchedSongs {
-                if let newSong = SteveSong(appleSong: song) {
-                    steveSongs.append(newSong)
-                }
-            }
-            self.songs = steveSongs
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-                self.navigationItem.hidesSearchBarWhenScrolling = true
-                searchBar.text = nil
-            }
-        }
+        searchForSong(searchBar)
+
+        searchBar.text = nil
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.searchForSong(_:)), object: nil)
-        perform(#selector(self.searchForSong(_:)), with: searchBar, afterDelay: 0.5)        
+        perform(#selector(self.searchForSong(_:)), with: searchBar, afterDelay: 0.5)
     }
     
     @objc func searchForSong(_ searchBar: UISearchBar) {

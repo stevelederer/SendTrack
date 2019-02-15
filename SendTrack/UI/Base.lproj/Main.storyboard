@@ -55,21 +55,61 @@
                                                 </label>
                                             </subviews>
                                         </stackView>
+                                        <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XSX-Om-kHI">
+                                            <rect key="frame" x="74" y="69" width="26.666666666666671" height="26.666666666666671"/>
+                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="rvI-7f-USt">
+                                                <rect key="frame" x="0.0" y="0.0" width="26.666666666666671" height="26.666666666666671"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uvt-JW-qvO">
+                                                        <rect key="frame" x="0.0" y="0.0" width="26.666666666666668" height="26.666666666666668"/>
+                                                        <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <connections>
+                                                            <action selector="playPauseButtonTapped:" destination="fnq-im-x5E" eventType="touchUpInside" id="7is-BZ-Hji"/>
+                                                            <action selector="playPauseButtonTapped:" destination="PdK-Au-ZTf" eventType="touchUpInside" id="p6R-Xt-8Fh"/>
+                                                        </connections>
+                                                    </button>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="playSquare" translatesAutoresizingMaskIntoConstraints="NO" id="q9U-nH-7gQ">
+                                                        <rect key="frame" x="5.6666666666666714" y="5.9999999999999991" width="15" height="14.666666666666664"/>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="q9U-nH-7gQ" secondAttribute="height" multiplier="1:1" id="Crl-BM-4u7"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                            </view>
+                                            <constraints>
+                                                <constraint firstItem="uvt-JW-qvO" firstAttribute="centerY" secondItem="XSX-Om-kHI" secondAttribute="centerY" id="8H7-g2-E3y"/>
+                                                <constraint firstItem="uvt-JW-qvO" firstAttribute="width" secondItem="XSX-Om-kHI" secondAttribute="width" id="ADD-bo-KLh"/>
+                                                <constraint firstItem="q9U-nH-7gQ" firstAttribute="centerY" secondItem="XSX-Om-kHI" secondAttribute="centerY" id="C8H-E3-dZj"/>
+                                                <constraint firstItem="uvt-JW-qvO" firstAttribute="height" secondItem="XSX-Om-kHI" secondAttribute="height" id="UEi-LT-haI"/>
+                                                <constraint firstItem="q9U-nH-7gQ" firstAttribute="centerX" secondItem="XSX-Om-kHI" secondAttribute="centerX" id="dGc-7M-Fbm"/>
+                                                <constraint firstItem="uvt-JW-qvO" firstAttribute="centerX" secondItem="XSX-Om-kHI" secondAttribute="centerX" id="fc9-lD-HYB"/>
+                                                <constraint firstAttribute="width" secondItem="XSX-Om-kHI" secondAttribute="height" multiplier="1:1" id="gtR-Ng-gdD"/>
+                                                <constraint firstItem="q9U-nH-7gQ" firstAttribute="width" secondItem="XSX-Om-kHI" secondAttribute="width" multiplier="0.56" id="oIq-b9-7By"/>
+                                            </constraints>
+                                            <blurEffect style="light"/>
+                                        </visualEffectView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="8eh-4H-3zv" firstAttribute="height" secondItem="IxR-jD-fhv" secondAttribute="height" id="8fI-dL-cUk"/>
                                         <constraint firstItem="8eh-4H-3zv" firstAttribute="leading" secondItem="IxR-jD-fhv" secondAttribute="trailing" constant="8" id="N4G-u5-Y6j"/>
                                         <constraint firstItem="8eh-4H-3zv" firstAttribute="centerY" secondItem="Qup-dA-lFK" secondAttribute="centerY" id="QCd-AE-lGQ"/>
                                         <constraint firstItem="IxR-jD-fhv" firstAttribute="height" secondItem="Qup-dA-lFK" secondAttribute="height" multiplier="0.8" id="UpK-E8-INx"/>
+                                        <constraint firstItem="XSX-Om-kHI" firstAttribute="trailing" secondItem="IxR-jD-fhv" secondAttribute="trailing" constant="-4" id="WV4-kU-ANg"/>
+                                        <constraint firstItem="XSX-Om-kHI" firstAttribute="bottom" secondItem="IxR-jD-fhv" secondAttribute="bottom" constant="-4" id="ehb-nv-Csf"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="8eh-4H-3zv" secondAttribute="trailing" constant="8" id="i1r-lL-whz"/>
                                         <constraint firstItem="IxR-jD-fhv" firstAttribute="leading" secondItem="Qup-dA-lFK" secondAttribute="leadingMargin" id="mBK-18-XJE"/>
                                         <constraint firstItem="IxR-jD-fhv" firstAttribute="centerY" secondItem="Qup-dA-lFK" secondAttribute="centerY" id="nAb-Ne-jqH"/>
+                                        <constraint firstItem="XSX-Om-kHI" firstAttribute="width" secondItem="IxR-jD-fhv" secondAttribute="width" multiplier="0.3" id="x3G-H6-x70"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="albumArtworkImageView" destination="IxR-jD-fhv" id="zPE-PS-gl0"/>
                                     <outlet property="albumNameLabel" destination="DNs-ga-1qH" id="zXI-Wa-1ko"/>
                                     <outlet property="artistNameLabel" destination="1VH-eS-Rmp" id="OOY-VZ-Yeg"/>
+                                    <outlet property="playButtonBlurView" destination="XSX-Om-kHI" id="Dtu-3T-tW8"/>
+                                    <outlet property="playButtonImageView" destination="q9U-nH-7gQ" id="Zbg-0M-urZ"/>
                                     <outlet property="songNameLabel" destination="U7F-ze-xDS" id="c8D-An-rwK"/>
                                     <segue destination="fnq-im-x5E" kind="show" identifier="toSongDetailView" id="ghL-kJ-R8l"/>
                                 </connections>
@@ -80,7 +120,13 @@
                             <outlet property="delegate" destination="SLh-cl-89t" id="sx2-Se-2MS"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Search" id="EGN-WY-XlC"/>
+                    <navigationItem key="navigationItem" title="Search" id="EGN-WY-XlC">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="icon_lite_small" id="zOU-dk-gdJ">
+                            <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-8"/>
+                            <inset key="largeContentSizeImageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="1"/>
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="isN-iY-Kmm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -124,14 +170,14 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="LBb-D6-ZRQ">
-                                <rect key="frame" x="63" y="573.33333333333337" width="249" height="164.66666666666663"/>
+                                <rect key="frame" x="67.666666666666686" y="573.33333333333337" width="240" height="164.66666666666663"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" verticalHuggingPriority="1" verticalCompressionResistancePriority="1" translatesAutoresizingMaskIntoConstraints="NO" id="J9N-n7-Jdv">
-                                        <rect key="frame" x="4.6666666666666714" y="0.0" width="240" height="24.666666666666668"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="24.666666666666668"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WXN-rj-MfP">
-                                        <rect key="frame" x="0.0" y="46.666666666666629" width="249" height="24.666666666666671"/>
+                                        <rect key="frame" x="10.333333333333329" y="46.666666666666629" width="219" height="24.666666666666671"/>
                                         <state key="normal" title="Share Apple Music Link" image="Apple_Music_Icon_30">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -140,7 +186,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nDE-nR-DBa">
-                                        <rect key="frame" x="20.666666666666671" y="93.333333333333258" width="208" height="24.666666666666671"/>
+                                        <rect key="frame" x="31" y="93.333333333333258" width="178" height="24.666666666666671"/>
                                         <state key="normal" title="Share Spotify LInk" image="Spotify_Icon_RGB_Green_30">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -149,26 +195,46 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" verticalHuggingPriority="1" verticalCompressionResistancePriority="1" translatesAutoresizingMaskIntoConstraints="NO" id="Heg-JQ-q8a">
-                                        <rect key="frame" x="4.6666666666666714" y="140" width="240" height="24.666666666666657"/>
+                                        <rect key="frame" x="0.0" y="140" width="240" height="24.666666666666657"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8sf-F4-s9X">
-                                <rect key="frame" x="126" y="536" width="124" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="PLAY PREVIEW"/>
-                                <connections>
-                                    <action selector="playPreviewButtonTapped:" destination="fnq-im-x5E" eventType="touchUpInside" id="Nkg-3v-3KY"/>
-                                </connections>
-                            </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Ug0-rG-7DU">
                                 <rect key="frame" x="169" y="241.66666666666663" width="37" height="37"/>
                             </activityIndicatorView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uU6-ix-vMp">
+                                <rect key="frame" x="271.66666666666669" y="344.33333333333331" width="50" height="50"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="IdN-Ky-TgG">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oef-4r-oCY">
+                                            <rect key="frame" x="12.333333333333314" y="12.333333333333371" width="25" height="25"/>
+                                            <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <inset key="imageEdgeInsets" minX="1" minY="0.0" maxX="-1" maxY="0.0"/>
+                                            <state key="normal" image="playSquare"/>
+                                            <connections>
+                                                <action selector="playPauseButtonTapped:" destination="fnq-im-x5E" eventType="touchUpInside" id="thg-2U-ULh"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="Oef-4r-oCY" firstAttribute="width" secondItem="uU6-ix-vMp" secondAttribute="width" multiplier="0.5" id="3oy-ER-vlG"/>
+                                    <constraint firstItem="Oef-4r-oCY" firstAttribute="centerY" secondItem="uU6-ix-vMp" secondAttribute="centerY" id="QY7-5Q-E3j"/>
+                                    <constraint firstAttribute="width" secondItem="uU6-ix-vMp" secondAttribute="height" multiplier="1:1" id="dZT-7o-2BL"/>
+                                    <constraint firstItem="Oef-4r-oCY" firstAttribute="height" secondItem="uU6-ix-vMp" secondAttribute="height" multiplier="0.5" id="kDU-ft-8S8"/>
+                                    <constraint firstItem="Oef-4r-oCY" firstAttribute="centerX" secondItem="uU6-ix-vMp" secondAttribute="centerX" id="mdi-Yk-IpE"/>
+                                </constraints>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="uU6-ix-vMp" firstAttribute="bottom" secondItem="Lwa-2T-NYG" secondAttribute="bottom" constant="-8" id="4LP-hC-pYC"/>
+                            <constraint firstItem="uU6-ix-vMp" firstAttribute="width" secondItem="Lwa-2T-NYG" secondAttribute="width" multiplier="0.176" id="66d-fY-2c6"/>
+                            <constraint firstItem="uU6-ix-vMp" firstAttribute="trailing" secondItem="Lwa-2T-NYG" secondAttribute="trailing" constant="-8" id="8Ue-1Q-5UB"/>
                             <constraint firstItem="Ug0-rG-7DU" firstAttribute="centerY" secondItem="Lwa-2T-NYG" secondAttribute="centerY" id="FZi-hl-5MX"/>
                             <constraint firstItem="UBv-4l-M3e" firstAttribute="bottom" secondItem="LBb-D6-ZRQ" secondAttribute="bottom" constant="40" id="GGi-vb-tf9"/>
                             <constraint firstItem="pKg-xJ-MMn" firstAttribute="centerX" secondItem="rS6-Qp-RLx" secondAttribute="centerX" id="ILF-kN-mwb"/>
@@ -188,7 +254,8 @@
                         <outlet property="albumNameLabel" destination="YPt-qX-BU9" id="jYn-PD-Yvw"/>
                         <outlet property="appleLinkButton" destination="WXN-rj-MfP" id="4bY-lg-vuN"/>
                         <outlet property="artistNameLabel" destination="Ziq-EQ-HST" id="dOH-8C-P2M"/>
-                        <outlet property="playPausePreviewButton" destination="8sf-F4-s9X" id="sL8-ln-TdK"/>
+                        <outlet property="playButtonBlurView" destination="uU6-ix-vMp" id="XOH-TQ-Rea"/>
+                        <outlet property="playPauseButton" destination="Oef-4r-oCY" id="l8l-44-bV1"/>
                         <outlet property="songArtworkImageView" destination="Lwa-2T-NYG" id="ndk-Xi-U8r"/>
                         <outlet property="songNameLabel" destination="7Un-jI-WCt" id="Z60-JI-yxc"/>
                         <outlet property="spotifyLinkButton" destination="nDE-nR-DBa" id="QcY-2z-xCo"/>
@@ -216,7 +283,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Apple_Music_Icon_30" width="60" height="60"/>
-        <image name="Spotify_Icon_RGB_Green_30" width="60" height="60"/>
+        <image name="Apple_Music_Icon_30" width="30" height="30"/>
+        <image name="Spotify_Icon_RGB_Green_30" width="30" height="30"/>
+        <image name="icon_lite_small" width="50" height="50"/>
+        <image name="playSquare" width="816" height="816"/>
     </resources>
 </document>
