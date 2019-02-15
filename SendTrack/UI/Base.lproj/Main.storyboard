@@ -125,12 +125,15 @@
                             <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-8"/>
                             <inset key="largeContentSizeImageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="1"/>
                             <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="SEp-Ym-9le" kind="presentation" id="cRt-oY-s60"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="isN-iY-Kmm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1068" y="254.92610837438426"/>
+            <point key="canvasLocation" x="1062" y="584"/>
         </scene>
         <!--Song Detail View Controller-->
         <scene sceneID="0gn-1q-qTh">
@@ -265,6 +268,31 @@
             </objects>
             <point key="canvasLocation" x="1926" y="255"/>
         </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="qSv-7j-ruf">
+            <objects>
+                <viewController id="SEp-Ym-9le" customClass="SettingsViewController" customModule="SendTrack" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2ye-wT-F19">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9h3-a8-Y7T">
+                                <rect key="frame" x="147" y="334" width="81" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="TIP PLEASE"/>
+                                <connections>
+                                    <action selector="consumable:" destination="SEp-Ym-9le" eventType="touchUpInside" id="nSc-iI-eHg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="SjJ-gW-aH9"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UIq-6O-9r1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1938" y="944"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="0Ls-P1-A2e">
             <objects>
@@ -279,7 +307,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1As-z8-0qg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="150" y="255"/>
+            <point key="canvasLocation" x="158" y="584"/>
         </scene>
     </scenes>
     <resources>
