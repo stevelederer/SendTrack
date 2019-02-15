@@ -88,7 +88,7 @@ class SongDetailViewController: UIViewController {
     func checkBackgroundColor(song: SteveSong) {
         guard let backgroundColor = self.view.backgroundColor else { return }
         print("🤖🤖🤖 Background Color is: \(song.appleSongArtworkBGColor)")
-
+        
         if song.appleSongArtworkBGColor == "ffffff" { //background is white
             self.playButtonBlurView.effect = UIBlurEffect(style: .dark)
             self.spotifyLinkButton.setImage(UIImage(named: "Spotify_Icon_RGB_Green_30"), for: .normal)
@@ -113,9 +113,18 @@ class SongDetailViewController: UIViewController {
     }
     
     @objc func updatePlayPauseButton() {
-        var buttonImageName: String
-        PlayerController.shared.isPlaying ? (buttonImageName = "pauseSquare") : (buttonImageName = "playSquare")
-        playPauseButton.setImage(UIImage(named: buttonImageName), for: .normal)
+        PlayerController.shared.isPlaying ? playPauseButtonUIChange(buttonImageName: "pauseSquare", rightimageInset: 0) : playPauseButtonUIChange(buttonImageName: "playSquare", rightimageInset: -1)
+    }
+    
+    func playPauseButtonUIChange(buttonImageName: String, rightimageInset: CGFloat) {
+        UIView.transition(with: self.playPauseButton,
+                          duration: 0.5,
+                          options: [.transitionFlipFromRight],
+                          animations: {
+                            self.playPauseButton.setImage(UIImage(named: buttonImageName), for: .normal)
+                            self.playPauseButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: rightimageInset)
+        },
+                          completion: nil)
     }
     
     @IBAction func playPauseButtonTapped(_ sender: UIButton) {

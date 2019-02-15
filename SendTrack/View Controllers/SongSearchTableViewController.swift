@@ -30,6 +30,7 @@ class SongSearchTableViewController: UITableViewController {
             topSongsFetch()
             self.navigationItem.title = "Top Songs"
         }
+        tableView.reloadData()
     }
     
     enum ServiceName: String {
@@ -147,6 +148,7 @@ class SongSearchTableViewController: UITableViewController {
         let song = songs[indexPath.row]
         cell.delegate = self
         cell.song = song
+        cell.updatePlayPauseButton()
         return cell
     }
     

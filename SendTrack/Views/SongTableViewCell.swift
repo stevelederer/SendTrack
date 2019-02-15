@@ -51,6 +51,7 @@ class SongTableViewCell: UITableViewCell {
         self.artistNameLabel.text = song.artistName
         self.albumNameLabel.text = song.albumName
         NotificationCenter.default.addObserver(self, selector: #selector(updatePlayPauseButton), name: .playPauseNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updatePlayPauseButton), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
         if let thumbnailImage = AppleMusicController.thumbnailImageCache.object(forKey: NSString(string: song.uuid)) {
             self.albumArtworkImageView.image = thumbnailImage
         } else {
@@ -81,9 +82,26 @@ class SongTableViewCell: UITableViewCell {
     
     @objc func updatePlayPauseButton() {
         if PlayerController.shared.isPlaying && PlayerController.shared.previewURLString == self.song?.appleSongPreviewURL {
-            playButtonImageView.image = UIImage(named: "pauseSquare")
+            UIView.transition(with: self.playButtonImageView,
+                              duration: 0.5,
+                              options: [.transitionFlipFromRight],
+                              animations: {
+                                self.playButtonImageView.image = UIImage(named: "pauseSquare")
+            },
+                              completion: nil)
         } else {
-            playButtonImageView.image = UIImage(named: "playSquare")
+            if playButtonImageView.image == UIImage(named: "pauseSquare") {
+                UIView.transition(with: self.playButtonImageView,
+                                  duration: 0.5,
+                                  options: [.transitionFlipFromRight],
+                                  animations: {
+                                    self.playButtonImageView.image = UIImage(named: "playSquare")
+                },
+                                  completion: nil)
+            } else {
+                playButtonImageView.image = UIImage(named: "playSquare")
+            }
+
         }
     }
     
