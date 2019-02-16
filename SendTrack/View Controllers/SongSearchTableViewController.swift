@@ -14,11 +14,17 @@ class SongSearchTableViewController: UITableViewController {
     
     var songs: [SteveSong] = []
     var sharedIdentifier = "group.stevelederer.SendTrack"
+    
+    let tableViewBackgroundColor = UIColor(hex: "4f9da6")
+    
+    lazy var timer = AutosearchTimer { [weak self] in self?.searchForSong()}
+    var searchTerm: String = ""
  
     // MARK: - View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.backgroundColor = tableViewBackgroundColor
         getPasteboardValue()
         definesPresentationContext = true
         setupNavBar()
@@ -27,9 +33,10 @@ class SongSearchTableViewController: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         if songs.count == 0 {
-            topSongsFetch()
             self.navigationItem.title = "Top Songs"
+            topSongsFetch()
         }
+        tableView.reloadData()
     }
     
     enum ServiceName: String {
@@ -68,7 +75,7 @@ class SongSearchTableViewController: UITableViewController {
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         searchController.dimsBackgroundDuringPresentation = false
-        searchController.searchBar.autocapitalizationType = .words
+        searchController.searchBar.autocapitalizationType = .sentences
         searchController.searchBar.autocorrectionType = .no
         searchController.searchBar.placeholder = "Search for a song..."
     }
@@ -85,7 +92,7 @@ class SongSearchTableViewController: UITableViewController {
             self.songs = steveSongs
             DispatchQueue.main.async {
                 self.tableView.reloadData()
-                self.navigationItem.hidesSearchBarWhenScrolling = true
+                self.navigationItem.hidesSearchBarWhenScrolling = false
             }
         }
     }
@@ -147,7 +154,28 @@ class SongSearchTableViewController: UITableViewController {
         let song = songs[indexPath.row]
         cell.delegate = self
         cell.song = song
+        cell.updatePlayPauseButton()
         return cell
+    }
+    
+    func animateTable() {
+        tableView.reloadData()
+        let cells = tableView.visibleCells
+        let tableViewHeight = tableView.frame.height
+        
+        for cell in cells {
+            cell.transform = CGAffineTransform(translationX: 0, y: tableViewHeight)
+        }
+        
+        var delayCounter: Double = 0
+        
+        for cell in cells {
+            UIView.animate(withDuration: 1.0, delay: delayCounter * 0.05, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
+                cell.transform = .identity
+            }, completion: nil)
+            
+            delayCounter += 1
+        }
     }
     
     // MARK: - Navigation
@@ -183,24 +211,31 @@ extension SongSearchTableViewController: SongTableViewCellDelegate {
 extension SongSearchTableViewController: UISearchBarDelegate {
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        self.navigationItem.title = "Search"
+        let fadeTextAnimation = CATransition()
+        fadeTextAnimation.duration = 0.2
+        fadeTextAnimation.type = .fade
+        navigationController?.navigationBar.layer.add(fadeTextAnimation, forKey: "fadeText")
+        navigationItem.title = "Search"
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         self.dismiss(animated: true, completion: nil)
+        guard let searchText = searchBar.text else { return }
+        searchTerm = searchText
         
-        searchForSong(searchBar)
+        searchForSong()
 
         searchBar.text = nil
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.searchForSong(_:)), object: nil)
-        perform(#selector(self.searchForSong(_:)), with: searchBar, afterDelay: 0.5)
+        guard let searchText = searchBar.text else { return }
+        searchTerm = searchText
+        timer.activate()
     }
     
-    @objc func searchForSong(_ searchBar: UISearchBar) {
-        guard let searchTerm = searchBar.text, !searchTerm.isEmpty else { return }
+    @objc func searchForSong() {
+        timer.cancel()
         
         AppleMusicController.fetchAppleMusicSongs(with: searchTerm) { (songs) in
             guard let fetchedSongs = songs else { return }
@@ -212,7 +247,8 @@ extension SongSearchTableViewController: UISearchBarDelegate {
             }
             self.songs = steveSongs
             DispatchQueue.main.async {
-                self.tableView.reloadData()
+//                self.tableView.reloadData()
+                self.animateTable()
                 self.navigationItem.hidesSearchBarWhenScrolling = true
             }
         }

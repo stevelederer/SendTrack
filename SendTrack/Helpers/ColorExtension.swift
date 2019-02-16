@@ -1,5 +1,5 @@
 //
-//  HexColor.swift
+//  ColorExtension.swift
 //  SendTrack
 //
 //  Created by Steve Lederer on 2/6/19.

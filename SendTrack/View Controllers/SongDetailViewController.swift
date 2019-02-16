@@ -10,6 +10,7 @@ import UIKit
 
 class SongDetailViewController: UIViewController {
     
+    @IBOutlet weak var artworkContainerView: UIView!
     @IBOutlet weak var songArtworkImageView: UIImageView!
     @IBOutlet weak var songNameLabel: UILabel!
     @IBOutlet weak var artistNameLabel: UILabel!
@@ -17,7 +18,7 @@ class SongDetailViewController: UIViewController {
     @IBOutlet weak var appleLinkButton: UIButton!
     @IBOutlet weak var spotifyLinkButton: UIButton!
     @IBOutlet weak var activitySpinner: UIActivityIndicatorView!
-    @IBOutlet weak var playButtonBlurView: UIVisualEffectView!
+    @IBOutlet weak var playButtonContainerView: UIView!
     @IBOutlet weak var playPauseButton: UIButton!
     
     var song: SteveSong?
@@ -28,16 +29,19 @@ class SongDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         guard var song = song else { return }
-        playButtonBlurView.layer.masksToBounds = true
-        playButtonBlurView.layer.cornerRadius = playButtonBlurView.frame.height / 2
+        self.navigationController?.navigationBar.tintColor = UIColor(hex: "4f9da6")
+        self.navigationItem.title = "Share"
+        playButtonContainerView.layer.masksToBounds = true
+        playButtonContainerView.layer.cornerRadius = playButtonContainerView.frame.height / 2
         appleLinkButton.imageView?.contentMode = .scaleAspectFit
         spotifyLinkButton.imageView?.contentMode = .scaleAspectFit
         activitySpinner.startAnimating()
         activitySpinner.color = UIColor(hex: song.appleSongTextColor1)
-        spotifyLinkButton.isHidden = true
-        songArtworkImageView.layer.shadowOpacity = 1.0
-        songArtworkImageView.layer.shadowRadius = 10
-        songArtworkImageView.layer.shadowOffset = CGSize(width: 0, height: 5)
+//        spotifyLinkButton.isHidden = true
+        songArtworkImageView.layer.cornerRadius = 7
+        artworkContainerView.layer.shadowOpacity = 0.55
+        artworkContainerView.layer.shadowRadius = 7.5
+        artworkContainerView.layer.shadowOffset = CGSize(width: 0, height: 5)
         updateViews()
         SpotifyController.matchSpotifySong(byISRC: song.songRecordingCode) { (songs) in
             guard let fetchedSongs = songs else { return }
@@ -88,19 +92,13 @@ class SongDetailViewController: UIViewController {
     func checkBackgroundColor(song: SteveSong) {
         guard let backgroundColor = self.view.backgroundColor else { return }
         print("🤖🤖🤖 Background Color is: \(song.appleSongArtworkBGColor)")
-
-        if song.appleSongArtworkBGColor == "ffffff" { //background is white
-            self.playButtonBlurView.effect = UIBlurEffect(style: .dark)
-            self.spotifyLinkButton.setImage(UIImage(named: "Spotify_Icon_RGB_Green_30"), for: .normal)
-        } else if song.appleSongArtworkBGColor == "000000" { //background is black
-            self.playButtonBlurView.effect = UIBlurEffect(style: .light)
-            self.spotifyLinkButton.setImage(UIImage(named: "Spotify_Icon_RGB_Green_30"), for: .normal)
-        } else if backgroundColor.isLight { // background is light
-            self.playButtonBlurView.effect = UIBlurEffect(style: .dark)
+        
+        if backgroundColor.isLight { // background is light
             self.spotifyLinkButton.setImage(UIImage(named: "Spotify_Icon_RGB_Black_30"), for: .normal)
+            self.appleLinkButton.setImage(UIImage(named: "Apple_Music_Icon_Black_30"), for: .normal)
         } else if !backgroundColor.isLight { //background is dark
-            self.playButtonBlurView.effect = UIBlurEffect(style: .light)
             self.spotifyLinkButton.setImage(UIImage(named: "Spotify_Icon_RGB_White_30"), for: .normal)
+            self.appleLinkButton.setImage(UIImage(named: "Apple_Music_Icon_White_30"), for: .normal)
         }
     }
     
@@ -113,9 +111,18 @@ class SongDetailViewController: UIViewController {
     }
     
     @objc func updatePlayPauseButton() {
-        var buttonImageName: String
-        PlayerController.shared.isPlaying ? (buttonImageName = "pauseSquare") : (buttonImageName = "playSquare")
-        playPauseButton.setImage(UIImage(named: buttonImageName), for: .normal)
+        PlayerController.shared.isPlaying ? playPauseButtonUIChange(buttonImageName: "pauseSquare", rightimageInset: 0) : playPauseButtonUIChange(buttonImageName: "playSquare", rightimageInset: -1)
+    }
+    
+    func playPauseButtonUIChange(buttonImageName: String, rightimageInset: CGFloat) {
+        UIView.transition(with: self.playPauseButton,
+                          duration: 0.4,
+                          options: [.transitionFlipFromRight],
+                          animations: {
+                            self.playPauseButton.setImage(UIImage(named: buttonImageName), for: .normal)
+                            self.playPauseButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: rightimageInset)
+        },
+                          completion: nil)
     }
     
     @IBAction func playPauseButtonTapped(_ sender: UIButton) {

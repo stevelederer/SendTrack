@@ -18,8 +18,7 @@ enum IAPHelperAlertType {
         switch self {
         case .disabled: return "Purchases are disabled on your device!"
         case .restored: return "You've successfully restored your purchase!"
-        case .purchased: return "You've successfully purchased this item"
-            
+        case .purchased: return "You've successfully completed your purchase! Thanks!"
         }
     }
 }
@@ -64,7 +63,7 @@ class IAPHelper: NSObject {
         SKPaymentQueue.default().restoreCompletedTransactions()
     }
     
-    // MARK: - Fetch available IAP producs
+    // MARK: - Fetch available IAP products
     
     func fetchAvailableProducts() {
         let productIdentifiers = NSSet(objects: CONSUMABLE_PURCHASE_PRODUCT_ID)
@@ -75,7 +74,9 @@ class IAPHelper: NSObject {
 }
 
 extension IAPHelper: SKProductsRequestDelegate, SKPaymentTransactionObserver {
+    
     // MARK: - Request IAP Products
+    
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
         if (response.products.count > 0) {
             iapProducts = response.products
@@ -85,7 +86,7 @@ extension IAPHelper: SKProductsRequestDelegate, SKPaymentTransactionObserver {
                 numberFormatter.numberStyle = .currency
                 numberFormatter.locale = product.priceLocale
                 let price1Str = numberFormatter.string(from: product.price)
-                print(product.localizedDescription + "\nfor just \(price1Str!)")
+                print(product.localizedDescription + " — Price = \(price1Str!)")
             }
         }
     }
@@ -95,6 +96,7 @@ extension IAPHelper: SKProductsRequestDelegate, SKPaymentTransactionObserver {
     }
     
     // MARK: - IAP Payment Queue
+    
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
         for transaction:AnyObject in transactions {
             if let trans = transaction as? SKPaymentTransaction {
