@@ -10,6 +10,8 @@ import UIKit
 
 class SettingsViewController: UIViewController {
     
+    let emailComposer = MessageComposer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         IAPHelper.shared.fetchAvailableProducts()
@@ -27,6 +29,13 @@ class SettingsViewController: UIViewController {
     
     @IBAction func consumable(_ sender: UIButton) {
         IAPHelper.shared.purchaseMyProduct(index: 0)
+    }
+    
+    @IBAction func contactUsButtonTapped(_ sender: UIButton) {
+        if (self.emailComposer.canSendEmail()) {
+            let emailComposerVC = self.emailComposer.composeEmail()
+            self.present(emailComposerVC, animated: true, completion: nil)
+        }
     }
     
     

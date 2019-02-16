@@ -13,7 +13,6 @@ class SongSearchTableViewController: UITableViewController {
     // MARK: - Properties
     
     var songs: [SteveSong] = []
-    var sharedIdentifier = "group.stevelederer.SendTrack"
     
     let tableViewBackgroundColor = UIColor(hex: "4f9da6")
     
@@ -25,17 +24,17 @@ class SongSearchTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.backgroundColor = tableViewBackgroundColor
-        getPasteboardValue()
         definesPresentationContext = true
         setupNavBar()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        if songs.count == 0 {
-            self.navigationItem.title = "Top Songs"
-            topSongsFetch()
-        }
+        getPasteboardValue()
+//        if songs.count == 0 {
+//            self.navigationItem.title = "Top Songs"
+//            topSongsFetch()
+//        }
         tableView.reloadData()
     }
     
@@ -80,22 +79,22 @@ class SongSearchTableViewController: UITableViewController {
         searchController.searchBar.placeholder = "Search for a song..."
     }
     
-    func topSongsFetch() {
-        AppleMusicController.fetchAppleMusicTopCharts { (songs) in
-            guard let fetchedSongs = songs else { return }
-            var steveSongs: [SteveSong] = []
-            for song in fetchedSongs {
-                if let newSong = SteveSong(appleSong: song) {
-                    steveSongs.append(newSong)
-                }
-            }
-            self.songs = steveSongs
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-                self.navigationItem.hidesSearchBarWhenScrolling = false
-            }
-        }
-    }
+//    func topSongsFetch() {
+//        AppleMusicController.fetchAppleMusicTopCharts { (songs) in
+//            guard let fetchedSongs = songs else { return }
+//            var steveSongs: [SteveSong] = []
+//            for song in fetchedSongs {
+//                if let newSong = SteveSong(appleSong: song) {
+//                    steveSongs.append(newSong)
+//                }
+//            }
+//            self.songs = steveSongs
+//            DispatchQueue.main.async {
+//                self.tableView.reloadData()
+//                self.navigationItem.hidesSearchBarWhenScrolling = false
+//            }
+//        }
+//    }
     
     func appleMusicLinkFetch(appleMusicLink: String) {
         AppleMusicController.fetchAppleMusicSong(fromAppleMusicLink: appleMusicLink) { (song) in
@@ -204,6 +203,7 @@ extension SongSearchTableViewController: SongTableViewCellDelegate {
         }
         NotificationCenter.default.post(name: .playPauseNotification, object: nil, userInfo: nil)
     }
+    
 }
 
 // MARK: - UISearchBarDelegate Functions
@@ -253,4 +253,5 @@ extension SongSearchTableViewController: UISearchBarDelegate {
             }
         }
     }
+    
 }

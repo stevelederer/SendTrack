@@ -1,27 +1,24 @@
 //
-//  SongTableViewCell.swift
+//  TopSongCollectionViewCell.swift
 //  SendTrack
 //
-//  Created by Steve Lederer on 2/7/19.
+//  Created by Steve Lederer on 2/15/19.
 //  Copyright © 2019 Steve Lederer. All rights reserved.
 //
 
 import UIKit
 
-protocol SongTableViewCellDelegate: class {
+protocol TopSongCollectionViewCellDelegate: class {
     func playPauseButtonTapped(songURLString: String)
 }
 
-class SongTableViewCell: UITableViewCell {
-    
-    @IBOutlet weak var songCellView: UIView!
-    @IBOutlet weak var albumArtworkImageView: UIImageView!
-    @IBOutlet weak var songNameLabel: UILabel!
-    @IBOutlet weak var artistNameLabel: UILabel!
-//    @IBOutlet weak var albumNameLabel: UILabel!
-    @IBOutlet weak var playButtonImageView: UIImageView!
-    @IBOutlet weak var playButtonContainerView: UIView!
+class TopSongCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var cellActivitySpinner: UIActivityIndicatorView!
+    @IBOutlet weak var albumArtworkImageView: UIImageView!
+    @IBOutlet weak var songCellView: UIView!
+    @IBOutlet weak var playButtonContainerView: UIView!
+    @IBOutlet weak var playButtonImageView: UIImageView!
+    @IBOutlet weak var songNameLabel: UILabel!
     
     var dimension = 0
     var song: SteveSong? {
@@ -29,11 +26,10 @@ class SongTableViewCell: UITableViewCell {
             cellActivitySpinner.startAnimating()
             dimension = Int(albumArtworkImageView.frame.height)
             updateViews()
-
         }
     }
     
-    weak var delegate: SongTableViewCellDelegate?
+    weak var delegate: TopSongCollectionViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -46,23 +42,17 @@ class SongTableViewCell: UITableViewCell {
     }
     
     func setupCell() {
-        self.backgroundColor = .clear
+//        self.backgroundColor = .clear
         songCellView.layer.cornerRadius = 7
         playButtonContainerView.layer.masksToBounds = true
         playButtonContainerView.layer.cornerRadius = playButtonContainerView.frame.height / 2
         playButtonImageView.tintColor = UIColor.white
         albumArtworkImageView.layer.cornerRadius = 5
-//        let bgColorView = UIView()
-//        bgColorView.backgroundColor = UIColor(hex: "AACFD3")
-//        self.selectedBackgroundView = bgColorView
     }
-
+    
     func updateViews() {
         guard let song = song else { return }
-//        checkBackgroundColor(song: song)
         self.songNameLabel.text = song.songName
-        self.artistNameLabel.text = song.artistName
-//        self.albumNameLabel.text = song.albumName
         NotificationCenter.default.addObserver(self, selector: #selector(updatePlayPauseButton), name: .playPauseNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updatePlayPauseButton), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
         if let thumbnailImage = AppleMusicController.thumbnailImageCache.object(forKey: NSString(string: song.uuid)) {
@@ -81,15 +71,6 @@ class SongTableViewCell: UITableViewCell {
         }
     }
     
-//    func checkBackgroundColor(song: SteveSong) {
-//        let backgroundColor = UIColor(hex: song.appleSongArtworkBGColor)
-//        if backgroundColor.isLight { // background is light
-//            self.playButtonBlurView.effect = UIBlurEffect(style: .dark)
-//        } else { // background is dark
-//            self.playButtonBlurView.effect = UIBlurEffect(style: .light)
-//        }
-//    }
-    
     @IBAction func playPauseButtonTapped(_ sender: UIButton) {
         guard let songPreviewURLString = self.song?.appleSongPreviewURL else { return }
         delegate?.playPauseButtonTapped(songURLString: songPreviewURLString)
@@ -99,7 +80,7 @@ class SongTableViewCell: UITableViewCell {
         if PlayerController.shared.isPlaying && PlayerController.shared.previewURLString == self.song?.appleSongPreviewURL {
             UIView.transition(with: self.playButtonImageView,
                               duration: 0.5,
-                              options: [.transitionFlipFromRight],
+                              options: .transitionFlipFromRight,
                               animations: {
                                 self.playButtonImageView.image = UIImage(named: "pauseSquare")
             },
@@ -108,7 +89,7 @@ class SongTableViewCell: UITableViewCell {
             if playButtonImageView.image == UIImage(named: "pauseSquare") {
                 UIView.transition(with: self.playButtonImageView,
                                   duration: 0.5,
-                                  options: [.transitionFlipFromRight],
+                                  options: .transitionFlipFromRight,
                                   animations: {
                                     self.playButtonImageView.image = UIImage(named: "playSquare")
                 },
@@ -116,8 +97,6 @@ class SongTableViewCell: UITableViewCell {
             } else {
                 playButtonImageView.image = UIImage(named: "playSquare")
             }
-
         }
     }
-    
 }
