@@ -18,7 +18,7 @@ enum IAPHelperAlertType {
         switch self {
         case .disabled: return "Purchases are disabled on your device!"
         case .restored: return "You've successfully restored your purchase!"
-        case .purchased: return "You've successfully completed your purchase! Thanks!"
+        case .purchased: return "Thank you very much!😀"
         }
     }
 }
