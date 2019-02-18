@@ -26,6 +26,33 @@
 		1BB5B050220CF32900D82A90 /* AppleMusicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5B04F220CF32900D82A90 /* AppleMusicController.swift */; };
 		1BB5B057220D24F300D82A90 /* SongTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5B056220D24F300D82A90 /* SongTableViewCell.swift */; };
 		1BB5B059220D2A8600D82A90 /* SongSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5B058220D2A8600D82A90 /* SongSearchTableViewController.swift */; };
+		1BB9A01A221A7A300075A216 /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BB9A019221A7A300075A216 /* Messages.framework */; };
+		1BB9A01D221A7A300075A216 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB9A01C221A7A300075A216 /* MessagesViewController.swift */; };
+		1BB9A020221A7A300075A216 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BB9A01E221A7A300075A216 /* MainInterface.storyboard */; };
+		1BB9A022221A7A310075A216 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BB9A021221A7A310075A216 /* Assets.xcassets */; };
+		1BB9A026221A7A310075A216 /* SendTrack-Message-Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 1BB9A018221A7A300075A216 /* SendTrack-Message-Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		1BB9A02D221A7C0C0075A216 /* TopSongMessagesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB9A02C221A7C0C0075A216 /* TopSongMessagesCollectionViewController.swift */; };
+		1BB9A02E221A7CA50075A216 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1D9F8D220BCD3800DFC5B1 /* ColorExtension.swift */; };
+		1BB9A02F221A7CAE0075A216 /* SteveSong.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B06A75E220BD92100000E81 /* SteveSong.swift */; };
+		1BB9A031221A7CF90075A216 /* AppleMusicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5B04F220CF32900D82A90 /* AppleMusicController.swift */; };
+		1BB9A032221A7D200075A216 /* TopSongCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE2FADA2217964C00EFB85F /* TopSongCollectionViewCell.swift */; };
+		1BB9A033221A7D510075A216 /* AppleMusicTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1D9F8A220B9F3500DFC5B1 /* AppleMusicTrack.swift */; };
+		1BB9A034221A7D540075A216 /* ApiKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B06A765220BE5C300000E81 /* ApiKeys.swift */; };
+		1BB9A035221A7D560075A216 /* AutosearchTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE2FAD6221772DD00EFB85F /* AutosearchTimer.swift */; };
+		1BB9A036221A7D670075A216 /* SpotifyAccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B06A767220BF0A900000E81 /* SpotifyAccessToken.swift */; };
+		1BB9A037221A7D6A0075A216 /* SpotifyTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B344C89220B983B00360865 /* SpotifyTrack.swift */; };
+		1BB9A038221A7D730075A216 /* APITokenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B06A761220BDFE600000E81 /* APITokenController.swift */; };
+		1BB9A039221A7D780075A216 /* PlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEF9E432215E73500E7E1DA /* PlayerController.swift */; };
+		1BB9A03A221A7D7A0075A216 /* SpotifyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5B04D220CB9BF00D82A90 /* SpotifyController.swift */; };
+		1BB9A03B221A7D7D0075A216 /* AppleMusicUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6C89582218BC1900ECD216 /* AppleMusicUserController.swift */; };
+		1BB9A03C221A7D8A0075A216 /* SongDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6554F6220D32E10067C52D /* SongDetailViewController.swift */; };
+		1BB9A03D221A7D8D0075A216 /* SongSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5B058220D2A8600D82A90 /* SongSearchTableViewController.swift */; };
+		1BB9A03E221A7D8F0075A216 /* TopSongsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE2FAD82217946000EFB85F /* TopSongsCollectionViewController.swift */; };
+		1BB9A03F221A7D920075A216 /* SongTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5B056220D24F300D82A90 /* SongTableViewCell.swift */; };
+		1BB9A040221A819A0075A216 /* Notification.Name+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEF9E4522163B3000E7E1DA /* Notification.Name+Extension.swift */; };
+		1BB9A041221A81A70075A216 /* MessageComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD5BA0F22123574007C0FE9 /* MessageComposer.swift */; };
+		1BB9A042221A85D60075A216 /* MusicKit.p8 in Resources */ = {isa = PBXBuildFile; fileRef = 1BB5B04B220CB47F00D82A90 /* MusicKit.p8 */; };
+		1BB9A043221A86530075A216 /* APIKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B06A763220BE3A400000E81 /* APIKeys.plist */; };
 		1BD5BA1022123574007C0FE9 /* MessageComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD5BA0F22123574007C0FE9 /* MessageComposer.swift */; };
 		1BE2FAD7221772DD00EFB85F /* AutosearchTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE2FAD6221772DD00EFB85F /* AutosearchTimer.swift */; };
 		1BE2FAD92217946000EFB85F /* TopSongsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE2FAD82217946000EFB85F /* TopSongsCollectionViewController.swift */; };
@@ -35,8 +62,19 @@
 		1BEF9E4C221672A500E7E1DA /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BEF9E4B221672A500E7E1DA /* StoreKit.framework */; };
 		1BEF9E50221673F700E7E1DA /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEF9E4F221673F700E7E1DA /* IAPHelper.swift */; };
 		1BEF9E52221679B900E7E1DA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEF9E51221679B900E7E1DA /* SettingsViewController.swift */; };
+		1D04C43944A69C6D63898100 /* Pods_SendTrack_Message_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FA45DED1AEFD8F43851FEE6 /* Pods_SendTrack_Message_Extension.framework */; };
 		304A48AFEFF8D96C42CB7C5A /* Pods_SendTrack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44CEB1E1581570FA50FFC46E /* Pods_SendTrack.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1BB9A024221A7A310075A216 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1B344C68220B949A00360865 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1BB9A017221A7A300075A216;
+			remoteInfo = "SendTrack-Message-Extension";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		1BC33DAB2214E0FD0091B1C4 /* Embed App Extensions */ = {
@@ -45,6 +83,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				1BB9A026221A7A310075A216 /* SendTrack-Message-Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -74,6 +113,15 @@
 		1BB5B04F220CF32900D82A90 /* AppleMusicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMusicController.swift; sourceTree = "<group>"; };
 		1BB5B056220D24F300D82A90 /* SongTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTableViewCell.swift; sourceTree = "<group>"; };
 		1BB5B058220D2A8600D82A90 /* SongSearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongSearchTableViewController.swift; sourceTree = "<group>"; };
+		1BB9A018221A7A300075A216 /* SendTrack-Message-Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "SendTrack-Message-Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1BB9A019221A7A300075A216 /* Messages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Messages.framework; path = System/Library/Frameworks/Messages.framework; sourceTree = SDKROOT; };
+		1BB9A01C221A7A300075A216 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		1BB9A01F221A7A300075A216 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		1BB9A021221A7A310075A216 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1BB9A023221A7A310075A216 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1BB9A02A221A7A630075A216 /* SendTrack-Message-Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "SendTrack-Message-Extension.entitlements"; sourceTree = "<group>"; };
+		1BB9A02B221A7A6C0075A216 /* SendTrack.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SendTrack.entitlements; sourceTree = "<group>"; };
+		1BB9A02C221A7C0C0075A216 /* TopSongMessagesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopSongMessagesCollectionViewController.swift; sourceTree = "<group>"; };
 		1BD5BA0F22123574007C0FE9 /* MessageComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageComposer.swift; sourceTree = "<group>"; };
 		1BE2FAD6221772DD00EFB85F /* AutosearchTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutosearchTimer.swift; sourceTree = "<group>"; };
 		1BE2FAD82217946000EFB85F /* TopSongsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopSongsCollectionViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +133,9 @@
 		1BEF9E51221679B900E7E1DA /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		44CEB1E1581570FA50FFC46E /* Pods_SendTrack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SendTrack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52A47DC296C86C4126B99164 /* Pods-SendTrack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SendTrack.release.xcconfig"; path = "Pods/Target Support Files/Pods-SendTrack/Pods-SendTrack.release.xcconfig"; sourceTree = "<group>"; };
+		9FA45DED1AEFD8F43851FEE6 /* Pods_SendTrack_Message_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SendTrack_Message_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A326D4C5F925DB11CA3C036C /* Pods-SendTrack-Message-Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SendTrack-Message-Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-SendTrack-Message-Extension/Pods-SendTrack-Message-Extension.release.xcconfig"; sourceTree = "<group>"; };
+		F95D058F08CC1E8CD6F9B7FC /* Pods-SendTrack-Message-Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SendTrack-Message-Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SendTrack-Message-Extension/Pods-SendTrack-Message-Extension.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +145,15 @@
 			files = (
 				304A48AFEFF8D96C42CB7C5A /* Pods_SendTrack.framework in Frameworks */,
 				1BEF9E4C221672A500E7E1DA /* StoreKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1BB9A015221A7A300075A216 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1BB9A01A221A7A300075A216 /* Messages.framework in Frameworks */,
+				1D04C43944A69C6D63898100 /* Pods_SendTrack_Message_Extension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				1B344C72220B949A00360865 /* SendTrack */,
+				1BB9A01B221A7A300075A216 /* SendTrack-Message-Extension */,
 				1B344C71220B949A00360865 /* Products */,
 				8D497FCF075305165E69BFAA /* Pods */,
 				C19AAA87FB558BF793E96F88 /* Frameworks */,
@@ -139,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				1B344C70220B949A00360865 /* SendTrack.app */,
+				1BB9A018221A7A300075A216 /* SendTrack-Message-Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -146,6 +208,7 @@
 		1B344C72220B949A00360865 /* SendTrack */ = {
 			isa = PBXGroup;
 			children = (
+				1BB9A02B221A7A6C0075A216 /* SendTrack.entitlements */,
 				1B1D9F8C220BCD2900DFC5B1 /* Helpers */,
 				1B344C88220B980A00360865 /* Models */,
 				1B06A760220BDFC300000E81 /* Model Controllers */,
@@ -209,11 +272,26 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		1BB9A01B221A7A300075A216 /* SendTrack-Message-Extension */ = {
+			isa = PBXGroup;
+			children = (
+				1BB9A02A221A7A630075A216 /* SendTrack-Message-Extension.entitlements */,
+				1BB9A01C221A7A300075A216 /* MessagesViewController.swift */,
+				1BB9A01E221A7A300075A216 /* MainInterface.storyboard */,
+				1BB9A021221A7A310075A216 /* Assets.xcassets */,
+				1BB9A023221A7A310075A216 /* Info.plist */,
+				1BB9A02C221A7C0C0075A216 /* TopSongMessagesCollectionViewController.swift */,
+			);
+			path = "SendTrack-Message-Extension";
+			sourceTree = "<group>";
+		};
 		8D497FCF075305165E69BFAA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				0489D482B39B2F6F806B2EC3 /* Pods-SendTrack.debug.xcconfig */,
 				52A47DC296C86C4126B99164 /* Pods-SendTrack.release.xcconfig */,
+				F95D058F08CC1E8CD6F9B7FC /* Pods-SendTrack-Message-Extension.debug.xcconfig */,
+				A326D4C5F925DB11CA3C036C /* Pods-SendTrack-Message-Extension.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -223,6 +301,8 @@
 			children = (
 				1BEF9E4B221672A500E7E1DA /* StoreKit.framework */,
 				44CEB1E1581570FA50FFC46E /* Pods_SendTrack.framework */,
+				1BB9A019221A7A300075A216 /* Messages.framework */,
+				9FA45DED1AEFD8F43851FEE6 /* Pods_SendTrack_Message_Extension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -244,11 +324,30 @@
 			buildRules = (
 			);
 			dependencies = (
+				1BB9A025221A7A310075A216 /* PBXTargetDependency */,
 			);
 			name = SendTrack;
 			productName = SendTrack;
 			productReference = 1B344C70220B949A00360865 /* SendTrack.app */;
 			productType = "com.apple.product-type.application";
+		};
+		1BB9A017221A7A300075A216 /* SendTrack-Message-Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1BB9A029221A7A310075A216 /* Build configuration list for PBXNativeTarget "SendTrack-Message-Extension" */;
+			buildPhases = (
+				1F45E719162AF4414D01C70D /* [CP] Check Pods Manifest.lock */,
+				1BB9A014221A7A300075A216 /* Sources */,
+				1BB9A015221A7A300075A216 /* Frameworks */,
+				1BB9A016221A7A300075A216 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SendTrack-Message-Extension";
+			productName = "SendTrack-Message-Extension";
+			productReference = 1BB9A018221A7A300075A216 /* SendTrack-Message-Extension.appex */;
+			productType = "com.apple.product-type.app-extension.messages";
 		};
 /* End PBXNativeTarget section */
 
@@ -264,9 +363,17 @@
 						CreatedOnToolsVersion = 10.1;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
-								enabled = 0;
+								enabled = 1;
 							};
 							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+						};
+					};
+					1BB9A017221A7A300075A216 = {
+						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
 							};
 						};
@@ -287,6 +394,7 @@
 			projectRoot = "";
 			targets = (
 				1B344C6F220B949A00360865 /* SendTrack */,
+				1BB9A017221A7A300075A216 /* SendTrack-Message-Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -304,9 +412,42 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1BB9A016221A7A300075A216 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1BB9A022221A7A310075A216 /* Assets.xcassets in Resources */,
+				1BB9A043221A86530075A216 /* APIKeys.plist in Resources */,
+				1BB9A020221A7A300075A216 /* MainInterface.storyboard in Resources */,
+				1BB9A042221A85D60075A216 /* MusicKit.p8 in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1F45E719162AF4414D01C70D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SendTrack-Message-Extension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		F843033B0D9DD18EC664FF00 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -337,7 +478,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SendTrack/Pods-SendTrack-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-SendTrack/Pods-SendTrack-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/CupertinoJWT/CupertinoJWT.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -348,7 +489,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SendTrack/Pods-SendTrack-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SendTrack/Pods-SendTrack-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -383,7 +524,43 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1BB9A014221A7A300075A216 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1BB9A03A221A7D7A0075A216 /* SpotifyController.swift in Sources */,
+				1BB9A036221A7D670075A216 /* SpotifyAccessToken.swift in Sources */,
+				1BB9A040221A819A0075A216 /* Notification.Name+Extension.swift in Sources */,
+				1BB9A03C221A7D8A0075A216 /* SongDetailViewController.swift in Sources */,
+				1BB9A03E221A7D8F0075A216 /* TopSongsCollectionViewController.swift in Sources */,
+				1BB9A02F221A7CAE0075A216 /* SteveSong.swift in Sources */,
+				1BB9A038221A7D730075A216 /* APITokenController.swift in Sources */,
+				1BB9A03B221A7D7D0075A216 /* AppleMusicUserController.swift in Sources */,
+				1BB9A02E221A7CA50075A216 /* ColorExtension.swift in Sources */,
+				1BB9A041221A81A70075A216 /* MessageComposer.swift in Sources */,
+				1BB9A03D221A7D8D0075A216 /* SongSearchTableViewController.swift in Sources */,
+				1BB9A035221A7D560075A216 /* AutosearchTimer.swift in Sources */,
+				1BB9A01D221A7A300075A216 /* MessagesViewController.swift in Sources */,
+				1BB9A033221A7D510075A216 /* AppleMusicTrack.swift in Sources */,
+				1BB9A039221A7D780075A216 /* PlayerController.swift in Sources */,
+				1BB9A032221A7D200075A216 /* TopSongCollectionViewCell.swift in Sources */,
+				1BB9A03F221A7D920075A216 /* SongTableViewCell.swift in Sources */,
+				1BB9A031221A7CF90075A216 /* AppleMusicController.swift in Sources */,
+				1BB9A034221A7D540075A216 /* ApiKeys.swift in Sources */,
+				1BB9A037221A7D6A0075A216 /* SpotifyTrack.swift in Sources */,
+				1BB9A02D221A7C0C0075A216 /* TopSongMessagesCollectionViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1BB9A025221A7A310075A216 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1BB9A017221A7A300075A216 /* SendTrack-Message-Extension */;
+			targetProxy = 1BB9A024221A7A310075A216 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		1B344C77220B949A00360865 /* Main.storyboard */ = {
@@ -400,6 +577,14 @@
 				1B344C7D220B949B00360865 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		1BB9A01E221A7A300075A216 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1BB9A01F221A7A300075A216 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -527,6 +712,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SendTrack/SendTrack.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 56CLV9J785;
 				INFOPLIST_FILE = "$(SRCROOT)/SendTrack/Resources/Info.plist";
@@ -547,6 +733,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SendTrack/SendTrack.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 56CLV9J785;
 				INFOPLIST_FILE = "$(SRCROOT)/SendTrack/Resources/Info.plist";
@@ -556,6 +743,50 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.stevelederer.SendTrack;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		1BB9A027221A7A310075A216 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F95D058F08CC1E8CD6F9B7FC /* Pods-SendTrack-Message-Extension.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				CODE_SIGN_ENTITLEMENTS = "SendTrack-Message-Extension/SendTrack-Message-Extension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 56CLV9J785;
+				INFOPLIST_FILE = "SendTrack-Message-Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.stevelederer.SendTrack.SendTrack-Message-Extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1BB9A028221A7A310075A216 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A326D4C5F925DB11CA3C036C /* Pods-SendTrack-Message-Extension.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				CODE_SIGN_ENTITLEMENTS = "SendTrack-Message-Extension/SendTrack-Message-Extension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 56CLV9J785;
+				INFOPLIST_FILE = "SendTrack-Message-Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.stevelederer.SendTrack.SendTrack-Message-Extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -578,6 +809,15 @@
 			buildConfigurations = (
 				1B344C83220B949B00360865 /* Debug */,
 				1B344C84220B949B00360865 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1BB9A029221A7A310075A216 /* Build configuration list for PBXNativeTarget "SendTrack-Message-Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1BB9A027221A7A310075A216 /* Debug */,
+				1BB9A028221A7A310075A216 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
