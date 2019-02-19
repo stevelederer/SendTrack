@@ -37,7 +37,6 @@ class SongDetailViewController: UIViewController {
         spotifyLinkButton.imageView?.contentMode = .scaleAspectFit
         activitySpinner.startAnimating()
         activitySpinner.color = UIColor(hex: song.appleSongTextColor1)
-//        spotifyLinkButton.isHidden = true
         songArtworkImageView.layer.cornerRadius = 7
         artworkContainerView.layer.shadowOpacity = 0.55
         artworkContainerView.layer.shadowRadius = 7.5

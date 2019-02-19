@@ -164,6 +164,7 @@ class SpotifyController {
             components?.queryItems = [searchTermQueryItem, typeQueryItem]
             
             guard let requestURL = components?.url else { completion(nil) ; return }
+            print("😱😱😱😱 URL to inspect: \(requestURL.absoluteString)")
             
             let headers = ["Authorization" : spotifyBearer]
             
