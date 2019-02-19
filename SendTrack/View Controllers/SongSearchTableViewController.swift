@@ -16,7 +16,7 @@ class SongSearchTableViewController: UITableViewController {
     
     let tableViewBackgroundColor = UIColor(hex: "4f9da6")
     
-    lazy var timer = AutosearchTimer { [weak self] in self?.searchForSong()}
+    lazy var timer = AutosearchTimer { [weak self] in self?.searchForSong() }
     var searchTerm: String = ""
  
     // MARK: - View Lifecycle

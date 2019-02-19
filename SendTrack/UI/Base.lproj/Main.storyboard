@@ -351,7 +351,7 @@
         <!--Top Songs-->
         <scene sceneID="ebz-gm-PaA">
             <objects>
-                <collectionViewController id="GBQ-Mq-QWO" customClass="TopSongsCollectionViewController" customModule="SendTrack" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="TopSongsCollectionViewController" id="GBQ-Mq-QWO" customClass="TopSongsCollectionViewController" customModule="SendTrack" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="vVp-BS-bLq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -543,7 +543,7 @@
         <image name="playSquare" width="816" height="816"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cRt-oY-s60"/>
-        <segue reference="ghL-kJ-R8l"/>
+        <segue reference="Jbl-dc-pjt"/>
+        <segue reference="ck8-oH-3qo"/>
     </inferredMetricsTieBreakers>
 </document>

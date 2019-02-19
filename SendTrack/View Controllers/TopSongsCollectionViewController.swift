@@ -27,7 +27,6 @@ class TopSongsCollectionViewController: UICollectionViewController {
         super.viewDidAppear(true)
         topSongsFetch()
         collectionView.reloadItems(at: collectionView.indexPathsForVisibleItems)
-//        collectionView.reloadData()
     }
     
     func topSongsFetch() {
