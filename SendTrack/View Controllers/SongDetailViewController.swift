@@ -23,20 +23,20 @@ class SongDetailViewController: UIViewController {
     
     var song: SteveSong?
     var dimension: Int = 0
-    
-    let messageComposer = MessageComposer()
+        
+    override func viewDidLayoutSubviews() {
+        playButtonContainerView.layer.cornerRadius = playButtonContainerView.frame.height / 2
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         guard var song = song else { return }
         self.navigationController?.navigationBar.tintColor = UIColor(hex: "4f9da6")
         self.navigationItem.title = "Share"
-        playButtonContainerView.layer.masksToBounds = true
-        playButtonContainerView.layer.cornerRadius = playButtonContainerView.frame.height / 2
         appleLinkButton.imageView?.contentMode = .scaleAspectFit
         spotifyLinkButton.imageView?.contentMode = .scaleAspectFit
-        activitySpinner.startAnimating()
         activitySpinner.color = UIColor(hex: song.appleSongTextColor1)
+        activitySpinner.startAnimating()
         songArtworkImageView.layer.cornerRadius = 7
         artworkContainerView.layer.shadowOpacity = 0.55
         artworkContainerView.layer.shadowRadius = 7.5
@@ -46,20 +46,29 @@ class SongDetailViewController: UIViewController {
             guard let fetchedSongs = songs else { return }
             if fetchedSongs.count >= 1 {
                 song.spotifySongLink = fetchedSongs.first?.externalUrls.spotifyLink
+                self.setSpotifyLink(for: song)
             } else {
                 SpotifyController.matchSpotifySong(bySongName: song.songName, artistName: song.artistName, albumName: song.albumName, completion: { (songs) in
                     if let fetchedSongs = songs {
                         song.spotifySongLink = fetchedSongs.first?.externalUrls.spotifyLink
+                        self.setSpotifyLink(for: song)
                     }
                 })
             }
-            DispatchQueue.main.async {
-                if song.spotifySongLink != nil {
-                    self.spotifyLinkButton.isHidden = false
-                    self.song = song
-                } else {
+        }
+    }
+    
+    fileprivate func setSpotifyLink(for song: SteveSong) {
+        DispatchQueue.main.async {
+            self.song = song
+            if song.spotifySongLink != nil {
+                self.spotifyLinkButton.isHidden = false
+            } else {
+                UIView.transition(with: self.spotifyLinkButton, duration: 0.1, options: .transitionCrossDissolve, animations: {
+                    self.spotifyLinkButton.setTitle("", for: .normal)
+                    self.spotifyLinkButton.setImage(nil, for: .normal)
                     self.spotifyLinkButton.isHidden = true
-                }
+                }, completion: nil)
             }
         }
     }
@@ -68,16 +77,17 @@ class SongDetailViewController: UIViewController {
         guard isViewLoaded else { return }
         dimension = Int(songArtworkImageView.frame.height)
         guard let song = song else { return }
+        playPauseButtonUIChange(buttonImageName: "playSquare", rightimageInset: -1)
         self.songArtworkImageView.image = AppleMusicController.thumbnailImageCache.object(forKey: NSString(string: song.uuid))
-        let textColor = UIColor(hex: song.appleSongTextColor1)
-        let linkColor = UIColor(hex: song.appleSongTextColor2)
-        updateTextWith(labelColor: textColor, buttonColor: linkColor)
+//        let textColor = UIColor(hex: song.appleSongTextColor1)
+//        let linkColor = UIColor(hex: song.appleSongTextColor2)
+//        updateTextWith(labelColor: textColor, buttonColor: linkColor)
         self.songNameLabel.text = song.songName
         self.artistNameLabel.text = song.artistName
         self.albumNameLabel.text = song.albumName
         PlayerController.shared.previewURLString = song.appleSongPreviewURL
-        self.view.backgroundColor = UIColor(hex: song.appleSongArtworkBGColor)
-        checkBackgroundColor(song: song)
+//        self.view.backgroundColor = UIColor(hex: song.appleSongArtworkBGColor)
+//        checkBackgroundColor(song: song)
         AppleMusicController.fetchAppleMusicArtwork(forSong: song, withDimension: self.dimension) { (image) in
             if let image = image {
                 DispatchQueue.main.async {
@@ -88,26 +98,26 @@ class SongDetailViewController: UIViewController {
         }
     }
     
-    func checkBackgroundColor(song: SteveSong) {
-        guard let backgroundColor = self.view.backgroundColor else { return }
-        print("🤖🤖🤖 Background Color is: \(song.appleSongArtworkBGColor)")
-        
-        if backgroundColor.isLight { // background is light
-            self.spotifyLinkButton.setImage(UIImage(named: "Spotify_Icon_RGB_Black_30"), for: .normal)
-            self.appleLinkButton.setImage(UIImage(named: "Apple_Music_Icon_Black_30"), for: .normal)
-        } else if !backgroundColor.isLight { //background is dark
-            self.spotifyLinkButton.setImage(UIImage(named: "Spotify_Icon_RGB_White_30"), for: .normal)
-            self.appleLinkButton.setImage(UIImage(named: "Apple_Music_Icon_White_30"), for: .normal)
-        }
-    }
+//    func checkBackgroundColor(song: SteveSong) {
+//        guard let backgroundColor = self.view.backgroundColor else { return }
+//        print("🤖🤖🤖 Background Color is: \(song.appleSongArtworkBGColor)")
+//
+//        if backgroundColor.isLight { // background is light
+//            self.spotifyLinkButton.setImage(UIImage(named: "Spotify_Icon_RGB_Black_30"), for: .normal)
+//            self.appleLinkButton.setImage(UIImage(named: "Apple_Music_Icon_Black_30"), for: .normal)
+//        } else if !backgroundColor.isLight { //background is dark
+//            self.spotifyLinkButton.setImage(UIImage(named: "Spotify_Icon_RGB_White_30"), for: .normal)
+//            self.appleLinkButton.setImage(UIImage(named: "Apple_Music_Icon_White_30"), for: .normal)
+//        }
+//    }
     
-    func updateTextWith(labelColor: UIColor, buttonColor: UIColor) {
-        self.songNameLabel.textColor = labelColor
-        self.artistNameLabel.textColor = labelColor
-        self.albumNameLabel.textColor = labelColor
-        self.appleLinkButton.setTitleColor(buttonColor, for: .normal)
-        self.spotifyLinkButton.setTitleColor(buttonColor, for: .normal)
-    }
+//    func updateTextWith(labelColor: UIColor, buttonColor: UIColor) {
+//        self.songNameLabel.textColor = labelColor
+//        self.artistNameLabel.textColor = labelColor
+//        self.albumNameLabel.textColor = labelColor
+//        self.appleLinkButton.setTitleColor(buttonColor, for: .normal)
+//        self.spotifyLinkButton.setTitleColor(buttonColor, for: .normal)
+//    }
     
     @objc func updatePlayPauseButton() {
         PlayerController.shared.isPlaying ? playPauseButtonUIChange(buttonImageName: "pauseSquare", rightimageInset: 0) : playPauseButtonUIChange(buttonImageName: "playSquare", rightimageInset: -1)
@@ -115,7 +125,7 @@ class SongDetailViewController: UIViewController {
     
     func playPauseButtonUIChange(buttonImageName: String, rightimageInset: CGFloat) {
         UIView.transition(with: self.playPauseButton,
-                          duration: 0.4,
+                          duration: 0.3,
                           options: [.transitionFlipFromRight],
                           animations: {
                             self.playPauseButton.setImage(UIImage(named: buttonImageName), for: .normal)
@@ -132,24 +142,22 @@ class SongDetailViewController: UIViewController {
     
     @IBAction func appleMusicLinkButtonTapped(_ sender: UIButton) {
         guard let song = self.song else { return }
-        if (messageComposer.canSendText()) {
-            let textMessageComposerVC = messageComposer.composeLinkMessage(withSong: song, linkType: MessageComposer.SongLinkType.Apple)
-            present(textMessageComposerVC, animated: true, completion: nil)
-        } else {
-            guard let linkText = song.appleSongLink else { return }
-            print("Apple Link: \(linkText)")
+        if let songURLString = song.appleSongLink {
+            presentShareSheet(withURL: songURLString)
         }
     }
     
     @IBAction func spotifyLinkButtonTapped(_ sender: UIButton) {
         guard let song = self.song else { return }
-        if (messageComposer.canSendText()) {
-            let textMessageComposerVC = messageComposer.composeLinkMessage(withSong: song, linkType: MessageComposer.SongLinkType.Spotify)
-            present(textMessageComposerVC, animated: true, completion: nil)
-        } else {
-            guard let linkText = song.spotifySongLink else { return }
-            print("Spotify Link: \(linkText)")
+        if let songURLString = song.spotifySongLink {
+            presentShareSheet(withURL: songURLString)
         }
+    }
+    
+    func presentShareSheet(withURL urlToShare: String) {
+        let items: [Any] = [urlToShare]
+        let shareSheet = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        present(shareSheet, animated: true)
     }
     
 }

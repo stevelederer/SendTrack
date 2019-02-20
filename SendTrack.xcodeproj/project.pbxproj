@@ -12,6 +12,7 @@
 		1B06A764220BE3A400000E81 /* APIKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B06A763220BE3A400000E81 /* APIKeys.plist */; };
 		1B06A766220BE5C300000E81 /* ApiKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B06A765220BE5C300000E81 /* ApiKeys.swift */; };
 		1B06A768220BF0A900000E81 /* SpotifyAccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B06A767220BF0A900000E81 /* SpotifyAccessToken.swift */; };
+		1B1C9F21221CC4C80084099E /* SendTrackTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1C9F20221CC4C80084099E /* SendTrackTabBarController.swift */; };
 		1B1D9F8B220B9F3500DFC5B1 /* AppleMusicTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1D9F8A220B9F3500DFC5B1 /* AppleMusicTrack.swift */; };
 		1B1D9F8E220BCD3800DFC5B1 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1D9F8D220BCD3800DFC5B1 /* ColorExtension.swift */; };
 		1B344C74220B949A00360865 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B344C73220B949A00360865 /* AppDelegate.swift */; };
@@ -99,6 +100,7 @@
 		1B06A763220BE3A400000E81 /* APIKeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = APIKeys.plist; sourceTree = "<group>"; };
 		1B06A765220BE5C300000E81 /* ApiKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKeys.swift; sourceTree = "<group>"; };
 		1B06A767220BF0A900000E81 /* SpotifyAccessToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyAccessToken.swift; sourceTree = "<group>"; };
+		1B1C9F20221CC4C80084099E /* SendTrackTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendTrackTabBarController.swift; sourceTree = "<group>"; };
 		1B1D9F8A220B9F3500DFC5B1 /* AppleMusicTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMusicTrack.swift; sourceTree = "<group>"; };
 		1B1D9F8D220BCD3800DFC5B1 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		1B344C70220B949A00360865 /* SendTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SendTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -242,6 +244,7 @@
 				1B6554F6220D32E10067C52D /* SongDetailViewController.swift */,
 				1BB5B058220D2A8600D82A90 /* SongSearchTableViewController.swift */,
 				1BE2FAD82217946000EFB85F /* TopSongsCollectionViewController.swift */,
+				1B1C9F20221CC4C80084099E /* SendTrackTabBarController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -534,6 +537,7 @@
 				1BEF9E50221673F700E7E1DA /* IAPHelper.swift in Sources */,
 				1BEF9E52221679B900E7E1DA /* SettingsViewController.swift in Sources */,
 				1B1D9F8B220B9F3500DFC5B1 /* AppleMusicTrack.swift in Sources */,
+				1B1C9F21221CC4C80084099E /* SendTrackTabBarController.swift in Sources */,
 				1B6C89592218BC1900ECD216 /* AppleMusicUserController.swift in Sources */,
 				1B06A768220BF0A900000E81 /* SpotifyAccessToken.swift in Sources */,
 				1BE2FAD7221772DD00EFB85F /* AutosearchTimer.swift in Sources */,

@@ -14,17 +14,18 @@ class TopSongsCollectionViewController: UICollectionViewController {
     
     var songs: [SteveSong] = []
 
-    let collectionViewBackgroundColor = UIColor(hex: "4f9da6")
+    let collectionViewBackgroundColor = UIColor(hex: "f9f9f9")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = self
         collectionView.backgroundColor = collectionViewBackgroundColor
+        topSongsFetch()
         definesPresentationContext = true
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         topSongsFetch()
         collectionView.reloadItems(at: collectionView.indexPathsForVisibleItems)
     }

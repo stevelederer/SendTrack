@@ -10,10 +10,13 @@ import UIKit
 
 class SettingsViewController: UIViewController {
     
+    @IBOutlet weak var contactUsButton: UIButton!
+    
     let emailComposer = MessageComposer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        contactUsButton.layer.cornerRadius = 10
         IAPHelper.shared.fetchAvailableProducts()
         
         IAPHelper.shared.purchaseStatusBlock = {[weak self] (type) in

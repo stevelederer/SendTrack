@@ -46,8 +46,8 @@ class TopSongCollectionViewCell: UICollectionViewCell {
         songCellView.layer.cornerRadius = 7
         playButtonContainerView.layer.masksToBounds = true
         playButtonContainerView.layer.cornerRadius = playButtonContainerView.frame.height / 2
-        playButtonImageView.tintColor = UIColor.white
-        albumArtworkImageView.layer.cornerRadius = 5
+        playButtonImageView.tintColor = UIColor(hex: "ff5959")
+        albumArtworkImageView.layer.cornerRadius = 7
     }
     
     func updateViews() {
@@ -79,7 +79,7 @@ class TopSongCollectionViewCell: UICollectionViewCell {
     @objc func updatePlayPauseButton() {
         if PlayerController.shared.isPlaying && PlayerController.shared.previewURLString == self.song?.appleSongPreviewURL {
             UIView.transition(with: self.playButtonImageView,
-                              duration: 0.5,
+                              duration: 0.3,
                               options: .transitionFlipFromRight,
                               animations: {
                                 self.playButtonImageView.image = UIImage(named: "pauseSquare")
@@ -88,7 +88,7 @@ class TopSongCollectionViewCell: UICollectionViewCell {
         } else {
             if playButtonImageView.image == UIImage(named: "pauseSquare") {
                 UIView.transition(with: self.playButtonImageView,
-                                  duration: 0.5,
+                                  duration: 0.3,
                                   options: .transitionFlipFromRight,
                                   animations: {
                                     self.playButtonImageView.image = UIImage(named: "playSquare")
