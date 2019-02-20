@@ -18,7 +18,7 @@ class SongTableViewCell: UITableViewCell {
     @IBOutlet weak var albumArtworkImageView: UIImageView!
     @IBOutlet weak var songNameLabel: UILabel!
     @IBOutlet weak var artistNameLabel: UILabel!
-    @IBOutlet weak var albumNameLabel: UILabel!
+//    @IBOutlet weak var albumNameLabel: UILabel!
     @IBOutlet weak var playButtonImageView: UIImageView!
     @IBOutlet weak var playButtonContainerView: UIView!
     @IBOutlet weak var cellActivitySpinner: UIActivityIndicatorView!
@@ -50,7 +50,7 @@ class SongTableViewCell: UITableViewCell {
         songCellView.layer.cornerRadius = 7
         playButtonContainerView.layer.masksToBounds = true
         playButtonContainerView.layer.cornerRadius = playButtonContainerView.frame.height / 2
-        playButtonImageView.tintColor = UIColor.white
+        playButtonImageView.tintColor = UIColor(hex: "ff5959")
         albumArtworkImageView.layer.cornerRadius = 5
 //        let bgColorView = UIView()
 //        bgColorView.backgroundColor = UIColor(hex: "AACFD3")
@@ -62,7 +62,7 @@ class SongTableViewCell: UITableViewCell {
 //        checkBackgroundColor(song: song)
         self.songNameLabel.text = song.songName
         self.artistNameLabel.text = song.artistName
-        self.albumNameLabel.text = song.albumName
+//        self.albumNameLabel.text = song.albumName
         NotificationCenter.default.addObserver(self, selector: #selector(updatePlayPauseButton), name: .playPauseNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updatePlayPauseButton), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
         if let thumbnailImage = AppleMusicController.thumbnailImageCache.object(forKey: NSString(string: song.uuid)) {
@@ -98,7 +98,7 @@ class SongTableViewCell: UITableViewCell {
     @objc func updatePlayPauseButton() {
         if PlayerController.shared.isPlaying && PlayerController.shared.previewURLString == self.song?.appleSongPreviewURL {
             UIView.transition(with: self.playButtonImageView,
-                              duration: 0.5,
+                              duration: 0.3,
                               options: [.transitionFlipFromRight],
                               animations: {
                                 self.playButtonImageView.image = UIImage(named: "pauseSquare")
@@ -107,7 +107,7 @@ class SongTableViewCell: UITableViewCell {
         } else {
             if playButtonImageView.image == UIImage(named: "pauseSquare") {
                 UIView.transition(with: self.playButtonImageView,
-                                  duration: 0.5,
+                                  duration: 0.3,
                                   options: [.transitionFlipFromRight],
                                   animations: {
                                     self.playButtonImageView.image = UIImage(named: "playSquare")

@@ -10,8 +10,13 @@ import UIKit
 
 class SettingsViewController: UIViewController {
     
+    @IBOutlet weak var contactUsButton: UIButton!
+    
+    let emailComposer = MessageComposer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        contactUsButton.layer.cornerRadius = 10
         IAPHelper.shared.fetchAvailableProducts()
         
         IAPHelper.shared.purchaseStatusBlock = {[weak self] (type) in
@@ -27,6 +32,13 @@ class SettingsViewController: UIViewController {
     
     @IBAction func consumable(_ sender: UIButton) {
         IAPHelper.shared.purchaseMyProduct(index: 0)
+    }
+    
+    @IBAction func contactUsButtonTapped(_ sender: UIButton) {
+        if (self.emailComposer.canSendEmail()) {
+            let emailComposerVC = self.emailComposer.composeEmail()
+            self.present(emailComposerVC, animated: true, completion: nil)
+        }
     }
     
     

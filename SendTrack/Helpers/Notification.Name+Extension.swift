@@ -10,4 +10,8 @@ import Foundation
 
 extension Notification.Name {
     static let playPauseNotification = Notification.Name("playPauseNotification")
+    
+    static let expandMessageView = Notification.Name("expandMessageView")
+    
+    static let messageViewIsExpanded = Notification.Name("messageViewIsExpanded")
 }

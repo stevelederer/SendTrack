@@ -66,7 +66,8 @@ class AppleMusicController {
         
         var components = URLComponents(url: url, resolvingAgainstBaseURL: true)
         let typesQueryItem = URLQueryItem(name: "types", value: "songs")
-        components?.queryItems = [typesQueryItem]
+        let limitQueryItem = URLQueryItem(name: "limit", value: "21")
+        components?.queryItems = [typesQueryItem, limitQueryItem]
         
         guard let requestURL = components?.url else { completion(nil) ; return }
         

@@ -159,11 +159,13 @@ class SpotifyController {
             
             var components = URLComponents(url: url, resolvingAgainstBaseURL: true)
             let searchTerm = "album:\"\(albumName)\" artist:\"\(artistName)\" track:\"\(songName)\""
-            let searchTermQueryItem = URLQueryItem(name: "q", value: searchTerm)
+            let editedSearchTerm = searchTerm.replacingOccurrences(of: "’", with: "")
+            let searchTermQueryItem = URLQueryItem(name: "q", value: editedSearchTerm)
             let typeQueryItem = URLQueryItem(name: "type", value: "track")
             components?.queryItems = [searchTermQueryItem, typeQueryItem]
             
             guard let requestURL = components?.url else { completion(nil) ; return }
+            print("😱😱😱😱 URL to inspect: \(requestURL.absoluteString)")
             
             let headers = ["Authorization" : spotifyBearer]
             

@@ -39,6 +39,12 @@ class PlayerController {
         guard let previewURL = self.previewURL else { return }
         let asset = AVAsset(url: previewURL)
         
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, mode: .default, options: .duckOthers)
+        } catch {
+            print("❌ There was an error in \(#function) ; \(error.localizedDescription)❌")
+        }
+        
         let playerItem = AVPlayerItem(asset: asset)
         
         self.player = AVPlayer(playerItem: playerItem)

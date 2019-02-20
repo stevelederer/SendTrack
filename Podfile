@@ -2,9 +2,14 @@
 # platform :ios, '9.0'
 
 target 'SendTrack' do
-  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
-  use_frameworks!
+    # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+    use_frameworks!
+    
+    # Pods for SendTrack
+    pod 'CupertinoJWT'
+end
 
-  # Pods for SendTrack
-pod 'CupertinoJWT'
+target 'SendTrack-Message-Extension' do
+    use_frameworks!
+    pod 'CupertinoJWT'
 end

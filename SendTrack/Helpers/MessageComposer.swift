@@ -9,7 +9,8 @@
 import Foundation
 import MessageUI
 
-class MessageComposer: NSObject, MFMessageComposeViewControllerDelegate {
+class MessageComposer: NSObject, MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate {
+    
     
     // MARK: - Text Message Functions
     
@@ -40,4 +41,36 @@ class MessageComposer: NSObject, MFMessageComposeViewControllerDelegate {
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
         controller.dismiss(animated: true, completion: nil)
     }
+    
+    // MARK: - email functions
+    
+    func canSendEmail() -> Bool {
+        return MFMailComposeViewController.canSendMail()
+    }
+    
+    func getEmailAddress() -> String? {
+        guard let filePath = Bundle.main.path(forResource: "APIKeys", ofType: "plist") else { return nil }
+        let plist = NSDictionary(contentsOfFile: filePath)
+        guard let emailAddresss: String = plist?.object(forKey: "supportEmailAddress") as? String else { return nil }
+        
+        return emailAddresss
+    }
+    
+    func composeEmail() -> MFMailComposeViewController {
+        let appVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
+        let buildNumber = Bundle.main.infoDictionary!["CFBundleVersion"] as! String
+        let emailComposeVC = MFMailComposeViewController()
+        if let emailAddress = getEmailAddress() {
+            emailComposeVC.mailComposeDelegate = self as MFMailComposeViewControllerDelegate
+            emailComposeVC.setToRecipients([emailAddress])
+            emailComposeVC.setSubject("SendTrack Feedback")
+            emailComposeVC.setMessageBody("SendTrack Version Number: \(appVersion)\n SendTrack Build Number: \(buildNumber)\n\n*** Please write your message below this line ***\n\n\n", isHTML: false)
+        }
+        return emailComposeVC
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
 }
