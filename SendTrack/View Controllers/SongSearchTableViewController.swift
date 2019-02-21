@@ -18,6 +18,8 @@ class SongSearchTableViewController: UITableViewController {
     
     lazy var timer = AutosearchTimer { [weak self] in self?.searchForSong() }
     var searchTerm: String = ""
+    
+    var previousStringFromPasteboard: String = ""
  
     // MARK: - View Lifecycle
     
@@ -44,20 +46,20 @@ class SongSearchTableViewController: UITableViewController {
     }
     
     func getPasteboardValue() {
-        let pasteboardString: String? = UIPasteboard.general.string
-        guard let theString = pasteboardString else { return }
-        if theString.contains("https://itunes.apple.com") {
-            print("apple music link in pasteboard: \(theString)")
-            presentClipboardAlert(withServiceName: .AppleMusic, withClipboardLink: theString)
-        } else if theString.contains("https://open.spotify.com/") {
-            print("spotify link in pasteboard: \(theString)")
-            presentClipboardAlert(withServiceName: .Spotify, withClipboardLink: theString)
+        guard let pasteboardString = UIPasteboard.general.string, pasteboardString != previousStringFromPasteboard else { return }
+        if pasteboardString.contains("https://itunes.apple.com") {
+            print("apple music link in pasteboard: \(pasteboardString)")
+            presentClipboardAlert(withServiceName: .AppleMusic, withClipboardLink: pasteboardString)
+        } else if pasteboardString.contains("https://open.spotify.com/") {
+            print("spotify link in pasteboard: \(pasteboardString)")
+            presentClipboardAlert(withServiceName: .Spotify, withClipboardLink: pasteboardString)
         }
     }
     
     func presentClipboardAlert(withServiceName serviceName: ServiceName, withClipboardLink clipboardLink: String) {
         let clipboardAlert = UIAlertController(title: "Would you like to search for the \(serviceName.rawValue) song in your clipboard?", message: nil, preferredStyle: .alert)
         clipboardAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (search) in
+            self.previousStringFromPasteboard = clipboardLink
             if serviceName == .AppleMusic {
                 self.appleMusicLinkFetch(appleMusicLink: clipboardLink)
             } else if serviceName == .Spotify {
