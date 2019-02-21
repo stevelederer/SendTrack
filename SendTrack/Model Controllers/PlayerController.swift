@@ -32,11 +32,15 @@ class PlayerController {
     var isPlaying: Bool = false
     
     lazy var player: AVPlayer = {
-        return AVPlayer()
+        let player = AVPlayer()
+        return player
     }()
+    var playerItem: AVPlayerItem!
+    var timeObserverToken: Any?
     
     func prepareToPlay() {
         guard let previewURL = self.previewURL else { return }
+        
         let asset = AVAsset(url: previewURL)
         
         do {
@@ -45,19 +49,43 @@ class PlayerController {
             print("❌ There was an error in \(#function) ; \(error.localizedDescription)❌")
         }
         
-        let playerItem = AVPlayerItem(asset: asset)
+        self.playerItem = AVPlayerItem(asset: asset)
         
         self.player = AVPlayer(playerItem: playerItem)
         NotificationCenter.default.addObserver(self, selector: #selector(playerDidFinishPlaying), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: playerItem)
-        print("duration \(asset.duration.seconds)")
+        
+    }
+    
+    func addPeriodicTimeObserver() {
+        // Notify every half second
+        let timeScale = CMTimeScale(NSEC_PER_SEC)
+        let time = CMTime(seconds: 0.1, preferredTimescale: timeScale)
+        let duration = playerItem.asset.duration.seconds
+        timeObserverToken = player.addPeriodicTimeObserver(forInterval: time,
+                                                           queue: .main) {
+                                                            [weak self] time in
+                                                            // update player transport UI
+                                                            let percentPlayed: CGFloat = CGFloat(time.seconds / duration)
+                                                            let percentPlayedDict: [String : CGFloat] = ["percentPlayed" : percentPlayed]
+                                                            NotificationCenter.default.post(name: .playerTimeChangeNotification, object: nil, userInfo: percentPlayedDict)
+        }
+    }
+    
+    func removePeriodicTimeObserver() {
+        if let timeObserverToken = timeObserverToken {
+            player.removeTimeObserver(timeObserverToken)
+            self.timeObserverToken = nil
+        }
     }
     
     func playPause() {
         if !isPlaying {
             player.volume = 1.0
             player.play()
+            addPeriodicTimeObserver()
             print("▶️ playing!")
         } else {
+            removePeriodicTimeObserver()
             player.pause()
             prepareToPlay()
             print("⏸ Paused!")
@@ -67,8 +95,11 @@ class PlayerController {
     }
     
     @objc func playerDidFinishPlaying() {
+        removePeriodicTimeObserver()
         isPlaying = false
         prepareToPlay()
     }
+    
+    
     
 }

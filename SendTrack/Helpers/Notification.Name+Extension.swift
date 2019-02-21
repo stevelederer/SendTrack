@@ -14,4 +14,6 @@ extension Notification.Name {
     static let expandMessageView = Notification.Name("expandMessageView")
     
     static let messageViewIsExpanded = Notification.Name("messageViewIsExpanded")
+    
+    static let playerTimeChangeNotification = Notification.Name("playerTimeChangeNotification")
 }
