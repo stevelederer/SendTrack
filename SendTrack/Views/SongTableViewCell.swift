@@ -36,6 +36,7 @@ class SongTableViewCell: UITableViewCell {
     weak var delegate: SongTableViewCellDelegate?
     
     override func awakeFromNib() {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updatePlayerProgress(_:)), name: .playerTimeChangeNotification, object: nil)
         super.awakeFromNib()
         setupCell()
     }
@@ -81,14 +82,52 @@ class SongTableViewCell: UITableViewCell {
         }
     }
     
-//    func checkBackgroundColor(song: SteveSong) {
-//        let backgroundColor = UIColor(hex: song.appleSongArtworkBGColor)
-//        if backgroundColor.isLight { // background is light
-//            self.playButtonBlurView.effect = UIBlurEffect(style: .dark)
-//        } else { // background is dark
-//            self.playButtonBlurView.effect = UIBlurEffect(style: .light)
-//        }
-//    }
+    let progressCircleLayer = CAShapeLayer()
+    
+    @objc func updatePlayerProgress(_ notification: Notification) {
+        if PlayerController.shared.previewURLString == self.song?.appleSongPreviewURL {
+            let circleCenter = playButtonImageView.center
+            progressCircleLayer.opacity = 1.0
+            progressCircleLayer.strokeEnd = 1.0
+            progressCircleLayer.strokeColor = UIColor(hex: "ff5959").cgColor
+            progressCircleLayer.lineWidth = 4
+            let radius = (self.playButtonContainerView.frame.height / 2)
+            progressCircleLayer.fillColor = UIColor.clear.cgColor
+            progressCircleLayer.lineCap = CAShapeLayerLineCap.round
+            self.playButtonContainerView.layer.addSublayer(progressCircleLayer)
+            
+            if let percentPlayed = notification.userInfo?["percentPlayed"] as? CGFloat {
+                let startAngle = -CGFloat.pi / 2
+                let endAngle = percentPlayed * (2 * CGFloat.pi) + startAngle
+                let circularPath = UIBezierPath(arcCenter: circleCenter,
+                                                radius: radius,
+                                                startAngle: startAngle,
+                                                endAngle: endAngle,
+                                                clockwise: true)
+                progressCircleLayer.path = circularPath.cgPath
+                progressCircleLayer.opacity = 1.0
+            }
+        }
+        
+    }
+    
+    func removePlayerProgress() {
+        CATransaction.begin()
+        let removeProgressAnimation = CABasicAnimation(keyPath: "strokeEnd")
+        removeProgressAnimation.toValue = 0
+        removeProgressAnimation.duration = 0.5
+        removeProgressAnimation.fillMode = CAMediaTimingFillMode.forwards
+        CATransaction.setCompletionBlock {
+            UIView.animate(withDuration: 0.2, delay: 0, options: .transitionCrossDissolve, animations: {
+                self.progressCircleLayer.opacity = 0
+            }, completion: { (remove) in
+                self.progressCircleLayer.removeFromSuperlayer()
+            })
+        }
+        self.progressCircleLayer.strokeEnd = 0
+        progressCircleLayer.add(removeProgressAnimation, forKey: "removeProgressCircle")
+        CATransaction.commit()
+    }
     
     @IBAction func playPauseButtonTapped(_ sender: UIButton) {
         guard let songPreviewURLString = self.song?.appleSongPreviewURL else { return }
@@ -106,6 +145,7 @@ class SongTableViewCell: UITableViewCell {
                               completion: nil)
         } else {
             if playButtonImageView.image == UIImage(named: "pauseSquare") {
+                removePlayerProgress()
                 UIView.transition(with: self.playButtonImageView,
                                   duration: 0.3,
                                   options: [.transitionFlipFromRight],
@@ -115,6 +155,7 @@ class SongTableViewCell: UITableViewCell {
                                   completion: nil)
             } else {
                 playButtonImageView.image = UIImage(named: "playSquare")
+                removePlayerProgress()
             }
 
         }

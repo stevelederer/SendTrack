@@ -44,12 +44,15 @@ class PlayerController {
         let asset = AVAsset(url: previewURL)
         
         do {
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, mode: .default, options: .duckOthers)
+//            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, mode: .default, options: .duckOthers)
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+//            try AVAudioSession.sharedInstance().setActive(true)
         } catch {
             print("❌ There was an error in \(#function) ; \(error.localizedDescription)❌")
         }
         
         self.playerItem = AVPlayerItem(asset: asset)
+        removePeriodicTimeObserver()
         
         self.player = AVPlayer(playerItem: playerItem)
         NotificationCenter.default.addObserver(self, selector: #selector(playerDidFinishPlaying), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: playerItem)
@@ -57,7 +60,6 @@ class PlayerController {
     }
     
     func addPeriodicTimeObserver() {
-        // Notify every half second
         let timeScale = CMTimeScale(NSEC_PER_SEC)
         let time = CMTime(seconds: 0.1, preferredTimescale: timeScale)
         let duration = playerItem.asset.duration.seconds
@@ -85,8 +87,8 @@ class PlayerController {
             addPeriodicTimeObserver()
             print("▶️ playing!")
         } else {
-            removePeriodicTimeObserver()
             player.pause()
+            removePeriodicTimeObserver()
             prepareToPlay()
             print("⏸ Paused!")
         }
@@ -95,8 +97,8 @@ class PlayerController {
     }
     
     @objc func playerDidFinishPlaying() {
-        removePeriodicTimeObserver()
         isPlaying = false
+        removePeriodicTimeObserver()
         prepareToPlay()
     }
     

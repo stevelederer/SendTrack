@@ -21,8 +21,6 @@ class SongDetailViewController: UIViewController {
     @IBOutlet weak var playButtonContainerView: UIView!
     @IBOutlet weak var playPauseButton: UIButton!
     
-    let progressCircleLayer = CAShapeLayer()
-    
     var song: SteveSong?
     var dimension: Int = 0
         
@@ -80,7 +78,9 @@ class SongDetailViewController: UIViewController {
         guard isViewLoaded else { return }
         dimension = Int(songArtworkImageView.frame.height)
         guard let song = song else { return }
-        playPauseButtonUIChange(buttonImageName: "playSquare", rightimageInset: -1)
+//        playPauseButtonUIChange(buttonImageName: "playSquare", rightimageInset: -1)
+        self.playPauseButton.setImage(UIImage(named: "playSquare"), for: .normal)
+        self.playPauseButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -1)
         self.songArtworkImageView.image = AppleMusicController.thumbnailImageCache.object(forKey: NSString(string: song.uuid))
 //        let textColor = UIColor(hex: song.appleSongTextColor1)
 //        let linkColor = UIColor(hex: song.appleSongTextColor2)
@@ -101,16 +101,18 @@ class SongDetailViewController: UIViewController {
         }
     }
     
-    let trackLayer = CAShapeLayer()
+    let progressCircleLayer = CAShapeLayer()
     
     @objc func updatePlayerProgress(_ notification: Notification) {
         let circleCenter = playPauseButton.center
-        trackLayer.strokeColor = UIColor(hex: "ff5959").cgColor
-        trackLayer.lineWidth = 4
-        let radius = (playButtonContainerView.frame.height / 2) - (trackLayer.lineWidth / 2)
-        trackLayer.fillColor = UIColor.clear.cgColor
-        trackLayer.lineCap = CAShapeLayerLineCap.round
-        playButtonContainerView.layer.addSublayer(trackLayer)
+        progressCircleLayer.opacity = 1.0
+        progressCircleLayer.strokeEnd = 1.0
+        progressCircleLayer.strokeColor = UIColor(hex: "ff5959").cgColor
+        progressCircleLayer.lineWidth = 4
+        let radius = (playButtonContainerView.frame.height / 2)
+        progressCircleLayer.fillColor = UIColor.clear.cgColor
+        progressCircleLayer.lineCap = CAShapeLayerLineCap.round
+        playButtonContainerView.layer.addSublayer(progressCircleLayer)
         
         if let percentPlayed = notification.userInfo?["percentPlayed"] as? CGFloat {
             let startAngle = -CGFloat.pi / 2
@@ -120,22 +122,26 @@ class SongDetailViewController: UIViewController {
                                             startAngle: startAngle,
                                             endAngle: endAngle,
                                             clockwise: true)
-            trackLayer.path = circularPath.cgPath
+            progressCircleLayer.path = circularPath.cgPath
+            progressCircleLayer.opacity = 1.0
         }
     }
     
     func removePlayerProgress() {
         CATransaction.begin()
         let removeProgressAnimation = CABasicAnimation(keyPath: "strokeEnd")
-        
         removeProgressAnimation.toValue = 0
         removeProgressAnimation.duration = 0.5
         removeProgressAnimation.fillMode = CAMediaTimingFillMode.forwards
         CATransaction.setCompletionBlock {
-            self.trackLayer.removeFromSuperlayer()
+            UIView.animate(withDuration: 0.2, delay: 0, options: .transitionCrossDissolve, animations: {
+                self.progressCircleLayer.opacity = 0
+            }, completion: { (remove) in
+                self.progressCircleLayer.removeFromSuperlayer()
+            })
         }
-        
-        trackLayer.add(removeProgressAnimation, forKey: "removeProgressCircle")
+        self.progressCircleLayer.strokeEnd = 0
+        progressCircleLayer.add(removeProgressAnimation, forKey: "removeProgressCircle")
         CATransaction.commit()
     }
     

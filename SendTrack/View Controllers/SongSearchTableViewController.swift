@@ -19,8 +19,6 @@ class SongSearchTableViewController: UITableViewController {
     lazy var timer = AutosearchTimer { [weak self] in self?.searchForSong() }
     var searchTerm: String = ""
     
-    var previousStringFromPasteboard: String = ""
- 
     // MARK: - View Lifecycle
     
     override func viewDidLoad() {
@@ -33,10 +31,6 @@ class SongSearchTableViewController: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         getPasteboardValue()
-//        if songs.count == 0 {
-//            self.navigationItem.title = "Top Songs"
-//            topSongsFetch()
-//        }
         tableView.reloadData()
     }
     
@@ -46,7 +40,7 @@ class SongSearchTableViewController: UITableViewController {
     }
     
     func getPasteboardValue() {
-        guard let pasteboardString = UIPasteboard.general.string, pasteboardString != previousStringFromPasteboard else { return }
+        guard let pasteboardString = UIPasteboard.general.string, pasteboardString != UserDefaults.standard.string(forKey: "previousStringFromPasteboard") else { return }
         if pasteboardString.contains("https://itunes.apple.com") {
             print("apple music link in pasteboard: \(pasteboardString)")
             presentClipboardAlert(withServiceName: .AppleMusic, withClipboardLink: pasteboardString)
@@ -59,7 +53,7 @@ class SongSearchTableViewController: UITableViewController {
     func presentClipboardAlert(withServiceName serviceName: ServiceName, withClipboardLink clipboardLink: String) {
         let clipboardAlert = UIAlertController(title: "Would you like to search for the \(serviceName.rawValue) song in your clipboard?", message: nil, preferredStyle: .alert)
         clipboardAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (search) in
-            self.previousStringFromPasteboard = clipboardLink
+            UserDefaults.standard.set(clipboardLink, forKey: "previousStringFromPasteboard")
             if serviceName == .AppleMusic {
                 self.appleMusicLinkFetch(appleMusicLink: clipboardLink)
             } else if serviceName == .Spotify {
@@ -226,7 +220,6 @@ extension SongSearchTableViewController: UISearchBarDelegate {
             }
             self.songs = steveSongs
             DispatchQueue.main.async {
-//                self.tableView.reloadData()
                 self.animateTable()
                 self.navigationItem.hidesSearchBarWhenScrolling = true
             }

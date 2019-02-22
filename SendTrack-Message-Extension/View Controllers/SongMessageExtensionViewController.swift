@@ -16,9 +16,7 @@ class SongMessageExtensionViewController: UIViewController {
     @IBOutlet weak var songSearchBar: UISearchBar!
     
     var songs: [SteveSong] = []
-    
-    let collectionViewBackgroundColor = UIColor(hex: "4f9da6")
-    
+        
     lazy var timer = AutosearchTimer { [weak self] in self?.searchForSong() }
     var searchTerm: String = ""
     
@@ -28,7 +26,6 @@ class SongMessageExtensionViewController: UIViewController {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-        songCollectionView.backgroundColor = collectionViewBackgroundColor
         songCollectionView.dataSource = self
         definesPresentationContext = true
     }
