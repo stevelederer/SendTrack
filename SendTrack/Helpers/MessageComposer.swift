@@ -11,7 +11,6 @@ import MessageUI
 
 class MessageComposer: NSObject, MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate {
     
-    
     // MARK: - Text Message Functions
     
     enum SongLinkType: String {
