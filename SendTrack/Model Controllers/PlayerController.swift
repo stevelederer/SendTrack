@@ -46,7 +46,6 @@ class PlayerController {
         do {
 //            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, mode: .default, options: .duckOthers)
             try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
-//            try AVAudioSession.sharedInstance().setActive(true)
         } catch {
             print("❌ There was an error in \(#function) ; \(error.localizedDescription)❌")
         }
@@ -101,7 +100,5 @@ class PlayerController {
         removePeriodicTimeObserver()
         prepareToPlay()
     }
-    
-    
     
 }
