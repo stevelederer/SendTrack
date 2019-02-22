@@ -43,7 +43,6 @@ class TopSongCollectionViewCell: UICollectionViewCell {
     }
     
     func setupCell() {
-//        self.backgroundColor = .clear
         songCellView.layer.cornerRadius = 7
         playButtonContainerView.layer.masksToBounds = true
         playButtonContainerView.layer.cornerRadius = playButtonContainerView.frame.height / 2
@@ -149,4 +148,5 @@ class TopSongCollectionViewCell: UICollectionViewCell {
             }
         }
     }
+    
 }

@@ -21,6 +21,7 @@ enum IAPHelperAlertType {
         case .purchased: return "Thank you very much!😀"
         }
     }
+    
 }
 
 class IAPHelper: NSObject {
@@ -71,6 +72,7 @@ class IAPHelper: NSObject {
         productsRequest.delegate = self
         productsRequest.start()
     }
+    
 }
 
 extension IAPHelper: SKProductsRequestDelegate, SKPaymentTransactionObserver {
@@ -119,4 +121,5 @@ extension IAPHelper: SKProductsRequestDelegate, SKPaymentTransactionObserver {
             }
         }
     }
+    
 }

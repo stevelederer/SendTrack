@@ -64,7 +64,7 @@
 		1BEF9E4622163B3000E7E1DA /* Notification.Name+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEF9E4522163B3000E7E1DA /* Notification.Name+Extension.swift */; };
 		1BEF9E4C221672A500E7E1DA /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BEF9E4B221672A500E7E1DA /* StoreKit.framework */; };
 		1BEF9E50221673F700E7E1DA /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEF9E4F221673F700E7E1DA /* IAPHelper.swift */; };
-		1BEF9E52221679B900E7E1DA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEF9E51221679B900E7E1DA /* SettingsViewController.swift */; };
+		1BEF9E52221679B900E7E1DA /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEF9E51221679B900E7E1DA /* AboutViewController.swift */; };
 		1D04C43944A69C6D63898100 /* Pods_SendTrack_Message_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FA45DED1AEFD8F43851FEE6 /* Pods_SendTrack_Message_Extension.framework */; };
 		304A48AFEFF8D96C42CB7C5A /* Pods_SendTrack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44CEB1E1581570FA50FFC46E /* Pods_SendTrack.framework */; };
 /* End PBXBuildFile section */
@@ -134,7 +134,7 @@
 		1BEF9E4522163B3000E7E1DA /* Notification.Name+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification.Name+Extension.swift"; sourceTree = "<group>"; };
 		1BEF9E4B221672A500E7E1DA /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		1BEF9E4F221673F700E7E1DA /* IAPHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPHelper.swift; sourceTree = "<group>"; };
-		1BEF9E51221679B900E7E1DA /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		1BEF9E51221679B900E7E1DA /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		44CEB1E1581570FA50FFC46E /* Pods_SendTrack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SendTrack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52A47DC296C86C4126B99164 /* Pods-SendTrack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SendTrack.release.xcconfig"; path = "Pods/Target Support Files/Pods-SendTrack/Pods-SendTrack.release.xcconfig"; sourceTree = "<group>"; };
 		9FA45DED1AEFD8F43851FEE6 /* Pods_SendTrack_Message_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SendTrack_Message_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -240,7 +240,7 @@
 		1B344C86220B94BA00360865 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				1BEF9E51221679B900E7E1DA /* SettingsViewController.swift */,
+				1BEF9E51221679B900E7E1DA /* AboutViewController.swift */,
 				1B6554F6220D32E10067C52D /* SongDetailViewController.swift */,
 				1BB5B058220D2A8600D82A90 /* SongSearchTableViewController.swift */,
 				1BE2FAD82217946000EFB85F /* TopSongsCollectionViewController.swift */,
@@ -535,7 +535,7 @@
 				1B06A762220BDFE600000E81 /* APITokenController.swift in Sources */,
 				1B06A75F220BD92100000E81 /* SteveSong.swift in Sources */,
 				1BEF9E50221673F700E7E1DA /* IAPHelper.swift in Sources */,
-				1BEF9E52221679B900E7E1DA /* SettingsViewController.swift in Sources */,
+				1BEF9E52221679B900E7E1DA /* AboutViewController.swift in Sources */,
 				1B1D9F8B220B9F3500DFC5B1 /* AppleMusicTrack.swift in Sources */,
 				1B1C9F21221CC4C80084099E /* SendTrackTabBarController.swift in Sources */,
 				1B6C89592218BC1900ECD216 /* AppleMusicUserController.swift in Sources */,

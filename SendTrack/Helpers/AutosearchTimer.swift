@@ -50,4 +50,5 @@ class AutosearchTimer {
         cancel()
         callback()
     }
+    
 }

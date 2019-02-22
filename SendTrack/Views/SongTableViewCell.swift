@@ -18,7 +18,6 @@ class SongTableViewCell: UITableViewCell {
     @IBOutlet weak var albumArtworkImageView: UIImageView!
     @IBOutlet weak var songNameLabel: UILabel!
     @IBOutlet weak var artistNameLabel: UILabel!
-//    @IBOutlet weak var albumNameLabel: UILabel!
     @IBOutlet weak var playButtonImageView: UIImageView!
     @IBOutlet weak var playButtonContainerView: UIView!
     @IBOutlet weak var cellActivitySpinner: UIActivityIndicatorView!
@@ -63,7 +62,6 @@ class SongTableViewCell: UITableViewCell {
 //        checkBackgroundColor(song: song)
         self.songNameLabel.text = song.songName
         self.artistNameLabel.text = song.artistName
-//        self.albumNameLabel.text = song.albumName
         NotificationCenter.default.addObserver(self, selector: #selector(updatePlayPauseButton), name: .playPauseNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updatePlayPauseButton), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
         if let thumbnailImage = AppleMusicController.thumbnailImageCache.object(forKey: NSString(string: song.uuid)) {
