@@ -208,6 +208,12 @@ class SongDetailViewController: UIViewController {
         let items: [Any] = [urlToShare]
         let shareSheet = UIActivityViewController(activityItems: items, applicationActivities: nil)
         present(shareSheet, animated: true)
+        
+        if let popoverController = shareSheet.popoverPresentationController {
+            popoverController.sourceView = self.view
+            popoverController.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
+            popoverController.permittedArrowDirections = []
+        }
     }
     
 }
