@@ -23,9 +23,25 @@ class SongDetailViewController: UIViewController {
     
     var song: SteveSong?
     var dimension: Int = 0
-        
+    
     override func viewDidLayoutSubviews() {
-        playButtonContainerView.layer.cornerRadius = playButtonContainerView.frame.height / 2
+        updatePlayPauseButtonCornerRadius()
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        updatePlayPauseButtonCornerRadius()
+    }
+    
+    func updatePlayPauseButtonCornerRadius() {
+        UIView.transition(with: self.playButtonContainerView,
+                          duration: 0.01,
+                          options: [.transitionCrossDissolve],
+                          animations: {
+                            self.playButtonContainerView.layoutIfNeeded()
+                            self.playButtonContainerView.layer.cornerRadius = self.playButtonContainerView.frame.height / 2
+        },
+                          completion: nil)
     }
     
     override func viewDidLoad() {
@@ -82,6 +98,7 @@ class SongDetailViewController: UIViewController {
         self.playPauseButton.setImage(UIImage(named: "playSquare"), for: .normal)
         self.playPauseButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -1)
         self.songArtworkImageView.image = AppleMusicController.thumbnailImageCache.object(forKey: NSString(string: song.uuid))
+        self.activitySpinner.color = UIColor(hex: song.appleSongTextColor1)
 //        let textColor = UIColor(hex: song.appleSongTextColor1)
 //        let linkColor = UIColor(hex: song.appleSongTextColor2)
 //        updateTextWith(labelColor: textColor, buttonColor: linkColor)
@@ -108,7 +125,7 @@ class SongDetailViewController: UIViewController {
         progressCircleLayer.opacity = 1.0
         progressCircleLayer.strokeEnd = 1.0
         progressCircleLayer.strokeColor = UIColor(hex: "ff5959").cgColor
-        progressCircleLayer.lineWidth = 4
+        progressCircleLayer.lineWidth = playButtonContainerView.frame.height * 0.089
         let radius = (playButtonContainerView.frame.height / 2)
         progressCircleLayer.fillColor = UIColor.clear.cgColor
         progressCircleLayer.lineCap = CAShapeLayerLineCap.round
@@ -192,28 +209,30 @@ class SongDetailViewController: UIViewController {
     
     @IBAction func appleMusicLinkButtonTapped(_ sender: UIButton) {
         guard let song = self.song else { return }
-        if let songURLString = song.appleSongLink {
-            presentShareSheet(withURL: songURLString)
+        if let appleSongURLString = song.appleSongLink {
+            presentShareSheet(withURL: appleSongURLString, fromButton: appleLinkButton)
         }
     }
     
     @IBAction func spotifyLinkButtonTapped(_ sender: UIButton) {
         guard let song = self.song else { return }
-        if let songURLString = song.spotifySongLink {
-            presentShareSheet(withURL: songURLString)
+        if let spotifySongURLString = song.spotifySongLink {
+            presentShareSheet(withURL: spotifySongURLString, fromButton: spotifyLinkButton)
         }
     }
     
-    func presentShareSheet(withURL urlToShare: String) {
+    func presentShareSheet(withURL urlToShare: String, fromButton buttonTapped: UIView) {
         let items: [Any] = [urlToShare]
         let shareSheet = UIActivityViewController(activityItems: items, applicationActivities: nil)
-        present(shareSheet, animated: true)
-        
-        if let popoverController = shareSheet.popoverPresentationController {
-            popoverController.sourceView = self.view
-            popoverController.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
-            popoverController.permittedArrowDirections = []
+        shareSheet.popoverPresentationController?.sourceView = buttonTapped
+        let xPosition: CGFloat
+        if buttonTapped == appleLinkButton {
+            xPosition = buttonTapped.bounds.minX
+        } else {
+            xPosition = buttonTapped.bounds.maxX
         }
+        shareSheet.popoverPresentationController?.sourceRect = CGRect(x: xPosition, y: buttonTapped.bounds.minY, width: 0, height: 0)
+        present(shareSheet, animated: true)
     }
     
 }

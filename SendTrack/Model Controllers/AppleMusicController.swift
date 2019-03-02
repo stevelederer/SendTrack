@@ -242,7 +242,7 @@ class AppleMusicController {
     }
     
     static func fetchAppleMusicArtwork(forSong song: SteveSong, withDimension dimension: Int, completion: @escaping (UIImage?) -> Void) {
-        let dimensionComponent: String = "\(dimension)x\(dimension)bb.jpeg"
+        let dimensionComponent: String = "\(dimension*2)x\(dimension*2)bb.jpeg"
         guard let artworkPath = song.appleSongArtworkURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
             let artworkURL = URL(string: artworkPath)?.deletingLastPathComponent().appendingPathComponent(dimensionComponent) else { completion(nil) ; return }
         

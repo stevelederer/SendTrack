@@ -44,7 +44,7 @@ class TopSongCollectionViewCell: UICollectionViewCell {
     
     func setupCell() {
         songCellView.layer.cornerRadius = 7
-        playButtonContainerView.layer.masksToBounds = true
+//        playButtonContainerView.layer.masksToBounds = true
         playButtonContainerView.layer.cornerRadius = playButtonContainerView.frame.height / 2
         playButtonImageView.tintColor = UIColor(hex: "ff5959")
         albumArtworkImageView.layer.cornerRadius = 7
@@ -55,6 +55,7 @@ class TopSongCollectionViewCell: UICollectionViewCell {
         self.songNameLabel.text = song.songName
         NotificationCenter.default.addObserver(self, selector: #selector(updatePlayPauseButton), name: .playPauseNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updatePlayPauseButton), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
+        self.cellActivitySpinner.color = UIColor(hex: song.appleSongTextColor1)
         if let thumbnailImage = AppleMusicController.thumbnailImageCache.object(forKey: NSString(string: song.uuid)) {
             self.albumArtworkImageView.image = thumbnailImage
             self.cellActivitySpinner.stopAnimating()
@@ -79,7 +80,7 @@ class TopSongCollectionViewCell: UICollectionViewCell {
             progressCircleLayer.opacity = 1.0
             progressCircleLayer.strokeEnd = 1.0
             progressCircleLayer.strokeColor = UIColor(hex: "ff5959").cgColor
-            progressCircleLayer.lineWidth = 4
+            progressCircleLayer.lineWidth = playButtonContainerView.frame.height * 0.1
             let radius = (self.playButtonContainerView.frame.height / 2)
             progressCircleLayer.fillColor = UIColor.clear.cgColor
             progressCircleLayer.lineCap = CAShapeLayerLineCap.round
