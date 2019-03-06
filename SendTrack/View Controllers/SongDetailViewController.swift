@@ -51,7 +51,7 @@ class SongDetailViewController: UIViewController {
         self.navigationItem.title = "Share"
         appleLinkButton.imageView?.contentMode = .scaleAspectFit
         spotifyLinkButton.imageView?.contentMode = .scaleAspectFit
-        NotificationCenter.default.addObserver(self, selector: #selector(self.updatePlayerProgress(_:)), name: .playerTimeChangeNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateProgressIndicator(_:)), name: .playerTimeChangeNotification, object: nil)
         activitySpinner.color = UIColor(hex: song.appleSongTextColor1)
         activitySpinner.startAnimating()
         songArtworkImageView.layer.cornerRadius = 7
@@ -105,7 +105,8 @@ class SongDetailViewController: UIViewController {
         self.songNameLabel.text = song.songName
         self.artistNameLabel.text = song.artistName
         self.albumNameLabel.text = song.albumName
-        PlayerController.shared.previewURLString = song.appleSongPreviewURL
+        NotificationCenter.default.addObserver(self, selector: #selector(updatePlayPauseButton), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
+        updatePlayPauseButton()
 //        self.view.backgroundColor = UIColor(hex: song.appleSongArtworkBGColor)
 //        checkBackgroundColor(song: song)
         AppleMusicController.fetchAppleMusicArtwork(forSong: song, withDimension: self.dimension) { (image) in
@@ -118,18 +119,18 @@ class SongDetailViewController: UIViewController {
         }
     }
     
-    let progressCircleLayer = CAShapeLayer()
+    let progressIndicatorLayer = CAShapeLayer()
     
-    @objc func updatePlayerProgress(_ notification: Notification) {
+    @objc func updateProgressIndicator(_ notification: Notification) {
         let circleCenter = playPauseButton.center
-        progressCircleLayer.opacity = 1.0
-        progressCircleLayer.strokeEnd = 1.0
-        progressCircleLayer.strokeColor = UIColor(hex: "ff5959").cgColor
-        progressCircleLayer.lineWidth = playButtonContainerView.frame.height * 0.089
+        progressIndicatorLayer.opacity = 1.0
+        progressIndicatorLayer.strokeEnd = 1.0
+        progressIndicatorLayer.strokeColor = UIColor(hex: "ff5959").cgColor
+        progressIndicatorLayer.lineWidth = playButtonContainerView.frame.height * 0.089
         let radius = (playButtonContainerView.frame.height / 2)
-        progressCircleLayer.fillColor = UIColor.clear.cgColor
-        progressCircleLayer.lineCap = CAShapeLayerLineCap.round
-        playButtonContainerView.layer.addSublayer(progressCircleLayer)
+        progressIndicatorLayer.fillColor = UIColor.clear.cgColor
+        progressIndicatorLayer.lineCap = CAShapeLayerLineCap.round
+        playButtonContainerView.layer.addSublayer(progressIndicatorLayer)
         
         if let percentPlayed = notification.userInfo?["percentPlayed"] as? CGFloat {
             let startAngle = -CGFloat.pi / 2
@@ -139,26 +140,26 @@ class SongDetailViewController: UIViewController {
                                             startAngle: startAngle,
                                             endAngle: endAngle,
                                             clockwise: true)
-            progressCircleLayer.path = circularPath.cgPath
-            progressCircleLayer.opacity = 1.0
+            progressIndicatorLayer.path = circularPath.cgPath
+            progressIndicatorLayer.opacity = 1.0
         }
     }
     
-    func removePlayerProgress() {
+    func clearProgressIndicator() {
         CATransaction.begin()
-        let removeProgressAnimation = CABasicAnimation(keyPath: "strokeEnd")
-        removeProgressAnimation.toValue = 0
-        removeProgressAnimation.duration = 0.5
-        removeProgressAnimation.fillMode = CAMediaTimingFillMode.forwards
+        let clearProgressAnimation = CABasicAnimation(keyPath: "strokeEnd")
+        clearProgressAnimation.toValue = 0
+        clearProgressAnimation.duration = 0.5
+        clearProgressAnimation.fillMode = CAMediaTimingFillMode.forwards
         CATransaction.setCompletionBlock {
             UIView.animate(withDuration: 0.2, delay: 0, options: .transitionCrossDissolve, animations: {
-                self.progressCircleLayer.opacity = 0
+                self.progressIndicatorLayer.opacity = 0
             }, completion: { (remove) in
-                self.progressCircleLayer.removeFromSuperlayer()
+                self.progressIndicatorLayer.removeFromSuperlayer()
             })
         }
-        self.progressCircleLayer.strokeEnd = 0
-        progressCircleLayer.add(removeProgressAnimation, forKey: "removeProgressCircle")
+        self.progressIndicatorLayer.strokeEnd = 0
+        progressIndicatorLayer.add(clearProgressAnimation, forKey: "removeProgressCircle")
         CATransaction.commit()
     }
     
@@ -184,12 +185,18 @@ class SongDetailViewController: UIViewController {
 //    }
     
     @objc func updatePlayPauseButton() {
-        PlayerController.shared.isPlaying ? playPauseButtonUIChange(buttonImageName: "pauseSquare", rightimageInset: 0) : playPauseButtonUIChange(buttonImageName: "playSquare", rightimageInset: -1)
+        guard let songURLString = song?.appleSongPreviewURL else { return }
+        if PlayerController.shared.isPlaying && songURLString == PlayerController.shared.previewURLString {
+            playPauseButtonUIChange(buttonImageName: "pauseSquare", rightimageInset: 0)
+        } else {
+            playPauseButtonUIChange(buttonImageName: "playSquare", rightimageInset: -1)
+        }
+//        PlayerController.shared.isPlaying ? playPauseButtonUIChange(buttonImageName: "pauseSquare", rightimageInset: 0) : playPauseButtonUIChange(buttonImageName: "playSquare", rightimageInset: -1)
     }
     
     func playPauseButtonUIChange(buttonImageName: String, rightimageInset: CGFloat) {
         if buttonImageName == "playSquare" {
-            removePlayerProgress()
+            clearProgressIndicator()
         }
         UIView.transition(with: self.playPauseButton,
                           duration: 0.5,
@@ -202,8 +209,11 @@ class SongDetailViewController: UIViewController {
     }
     
     @IBAction func playPauseButtonTapped(_ sender: UIButton) {
+        guard let songURLString = song?.appleSongPreviewURL else { return }
+        if songURLString != PlayerController.shared.previewURLString {
+            PlayerController.shared.previewURLString = songURLString
+        }
         PlayerController.shared.playPause()
-        NotificationCenter.default.addObserver(self, selector: #selector(updatePlayPauseButton), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
         updatePlayPauseButton()
     }
     

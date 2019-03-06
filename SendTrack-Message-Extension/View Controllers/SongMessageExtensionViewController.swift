@@ -84,6 +84,7 @@ extension SongMessageExtensionViewController: UICollectionViewDataSource {
         let song = songs[indexPath.row]
         cell.delegate = self
         cell.song = song
+        cell.playButtonContainerView.layer.cornerRadius = cell.playButtonContainerView.frame.height / 2
         cell.updatePlayPauseButton()
         return cell
     }
@@ -182,7 +183,7 @@ extension SongMessageExtensionViewController: TopSongCollectionViewCellDelegate 
             PlayerController.shared.previewURLString = songURLString
             PlayerController.shared.playPause()
         }
-        NotificationCenter.default.post(name: .playPauseNotification, object: nil, userInfo: nil)
+        NotificationCenter.default.post(name: .playPauseButtonTappedNotification, object: nil, userInfo: nil)
     }
     
 }
@@ -190,4 +191,14 @@ extension SongMessageExtensionViewController: TopSongCollectionViewCellDelegate 
 protocol SongMessageExtensionViewControllerDelegate: class {
     func didSelectSongItem(link: String)
     func viewShouldExpand()
+}
+
+extension SongMessageExtensionViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if self.view.traitCollection.horizontalSizeClass == UIUserInterfaceSizeClass.regular {
+            return CGSize(width: 240, height: 320)
+        } else {
+            return CGSize(width: 115, height: 160)
+        }
+    }
 }

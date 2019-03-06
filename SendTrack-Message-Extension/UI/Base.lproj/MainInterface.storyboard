@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ObA-dk-sSI">
-    <device id="retina5_9" orientation="portrait">
+    <device id="ipad11_0rounded" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -32,11 +32,11 @@
             <objects>
                 <viewController storyboardIdentifier="SongMessageExtensionViewController" id="3Vm-f3-sdv" customClass="SongMessageExtensionViewController" customModule="SendTrack_Message_Extension" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PWz-gS-2fK">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" fixedFrame="YES" placeholder="Search for a Song..." translatesAutoresizingMaskIntoConstraints="NO" id="yAc-ij-8ql">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                                <rect key="frame" x="0.0" y="0.0" width="834" height="56"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -44,7 +44,7 @@
                                 </connections>
                             </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1ZL-R0-TqQ">
-                                <rect key="frame" x="0.0" y="56" width="375" height="756"/>
+                                <rect key="frame" x="0.0" y="56" width="834" height="1138"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gy0-qt-IRs">
@@ -65,26 +65,26 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="115" height="160"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mNB-uy-jlb">
-                                                            <rect key="frame" x="1.6666666666666643" y="0.0" width="112" height="112"/>
+                                                            <rect key="frame" x="1.5" y="0.0" width="112" height="112"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="mNB-uy-jlb" secondAttribute="height" multiplier="1:1" id="0Fr-eR-tIQ"/>
                                                             </constraints>
                                                         </imageView>
                                                         <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="qeJ-cX-eOE">
-                                                            <rect key="frame" x="47.666666666666664" y="46" width="19.999999999999993" height="20"/>
+                                                            <rect key="frame" x="47.5" y="46" width="20" height="20"/>
                                                         </activityIndicatorView>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gf2-xV-qP2">
-                                                            <rect key="frame" x="76" y="74.333333333333329" width="33.666666666666657" height="33.666666666666671"/>
+                                                            <rect key="frame" x="76" y="74.5" width="33.5" height="33.5"/>
                                                             <subviews>
                                                                 <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ppv-FB-eag">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="33.666666666666664" height="33.666666666666664"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="33.5" height="33.5"/>
                                                                     <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <connections>
                                                                         <action selector="playPauseButtonTapped:" destination="pnV-MR-jhO" eventType="touchUpInside" id="xf5-xe-YhQ"/>
                                                                     </connections>
                                                                 </button>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="playSquare" translatesAutoresizingMaskIntoConstraints="NO" id="6QA-h6-LVq">
-                                                                    <rect key="frame" x="7.3333333333333304" y="7.3333333333333428" width="18.666666666666671" height="19"/>
+                                                                    <rect key="frame" x="7.5" y="7.5" width="18.5" height="18.5"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="6QA-h6-LVq" secondAttribute="height" multiplier="1:1" id="TYO-gp-UXq"/>
                                                                     </constraints>
@@ -108,10 +108,13 @@
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(song name label is two lines)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wk7-MV-x3j">
-                                                            <rect key="frame" x="1.6666666666666643" y="115" width="112" height="42"/>
+                                                            <rect key="frame" x="1.5" y="115" width="112" height="42"/>
                                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
+                                                            <variation key="widthClass=regular">
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
+                                                            </variation>
                                                         </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

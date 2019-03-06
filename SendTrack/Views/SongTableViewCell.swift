@@ -35,7 +35,7 @@ class SongTableViewCell: UITableViewCell {
     weak var delegate: SongTableViewCellDelegate?
     
     override func awakeFromNib() {
-        NotificationCenter.default.addObserver(self, selector: #selector(self.updatePlayerProgress(_:)), name: .playerTimeChangeNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateProgressIndicator(_:)), name: .playerTimeChangeNotification, object: nil)
         super.awakeFromNib()
         setupCell()
     }
@@ -62,8 +62,8 @@ class SongTableViewCell: UITableViewCell {
 //        checkBackgroundColor(song: song)
         self.songNameLabel.text = song.songName
         self.artistNameLabel.text = song.artistName
-        NotificationCenter.default.addObserver(self, selector: #selector(updatePlayPauseButton), name: .playPauseNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(updatePlayPauseButton), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updatePlayPauseButton), name: .playPauseButtonTappedNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(clearProgressIndicator), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
         self.cellActivitySpinner.color = UIColor(hex: song.appleSongTextColor1)
         if let thumbnailImage = AppleMusicController.thumbnailImageCache.object(forKey: NSString(string: song.uuid)) {
             self.albumArtworkImageView.image = thumbnailImage
@@ -81,19 +81,19 @@ class SongTableViewCell: UITableViewCell {
         }
     }
     
-    let progressCircleLayer = CAShapeLayer()
+    let progressIndicatorLayer = CAShapeLayer()
     
-    @objc func updatePlayerProgress(_ notification: Notification) {
+    @objc func updateProgressIndicator(_ notification: Notification) {
         if PlayerController.shared.previewURLString == self.song?.appleSongPreviewURL {
             let circleCenter = playButtonImageView.center
-            progressCircleLayer.opacity = 1.0
-            progressCircleLayer.strokeEnd = 1.0
-            progressCircleLayer.strokeColor = UIColor(hex: "ff5959").cgColor
-            progressCircleLayer.lineWidth = playButtonContainerView.frame.height * 0.1
+            progressIndicatorLayer.opacity = 1.0
+            progressIndicatorLayer.strokeEnd = 1.0
+            progressIndicatorLayer.strokeColor = UIColor(hex: "ff5959").cgColor
+            progressIndicatorLayer.lineWidth = playButtonContainerView.frame.height * 0.1
             let radius = (self.playButtonContainerView.frame.height / 2)
-            progressCircleLayer.fillColor = UIColor.clear.cgColor
-            progressCircleLayer.lineCap = CAShapeLayerLineCap.round
-            self.playButtonContainerView.layer.addSublayer(progressCircleLayer)
+            progressIndicatorLayer.fillColor = UIColor.clear.cgColor
+            progressIndicatorLayer.lineCap = CAShapeLayerLineCap.round
+            self.playButtonContainerView.layer.addSublayer(progressIndicatorLayer)
             
             if let percentPlayed = notification.userInfo?["percentPlayed"] as? CGFloat {
                 let startAngle = -CGFloat.pi / 2
@@ -103,28 +103,36 @@ class SongTableViewCell: UITableViewCell {
                                                 startAngle: startAngle,
                                                 endAngle: endAngle,
                                                 clockwise: true)
-                progressCircleLayer.path = circularPath.cgPath
-                progressCircleLayer.opacity = 1.0
+                progressIndicatorLayer.path = circularPath.cgPath
+                progressIndicatorLayer.opacity = 1.0
             }
         }
         
     }
     
-    func removePlayerProgress() {
+    @objc func clearProgressIndicator() {
+        if playButtonImageView.image == UIImage(named: "pauseSquare") {
+            UIView.transition(with: self.playButtonImageView,
+                              duration: 0.3,
+                              options: [.transitionFlipFromRight],
+                              animations: {
+                                self.playButtonImageView.image = UIImage(named: "playSquare")
+            }, completion: nil)
+        }
         CATransaction.begin()
-        let removeProgressAnimation = CABasicAnimation(keyPath: "strokeEnd")
-        removeProgressAnimation.toValue = 0
-        removeProgressAnimation.duration = 0.5
-        removeProgressAnimation.fillMode = CAMediaTimingFillMode.forwards
+        let clearProgressAnimation = CABasicAnimation(keyPath: "strokeEnd")
+        clearProgressAnimation.toValue = 0
+        clearProgressAnimation.duration = 0.5
+        clearProgressAnimation.fillMode = CAMediaTimingFillMode.forwards
         CATransaction.setCompletionBlock {
             UIView.animate(withDuration: 0.2, delay: 0, options: .transitionCrossDissolve, animations: {
-                self.progressCircleLayer.opacity = 0
+                self.progressIndicatorLayer.opacity = 0
             }, completion: { (remove) in
-                self.progressCircleLayer.removeFromSuperlayer()
+                self.progressIndicatorLayer.removeFromSuperlayer()
             })
         }
-        self.progressCircleLayer.strokeEnd = 0
-        progressCircleLayer.add(removeProgressAnimation, forKey: "removeProgressCircle")
+        self.progressIndicatorLayer.strokeEnd = 0
+        progressIndicatorLayer.add(clearProgressAnimation, forKey: "removeProgressCircle")
         CATransaction.commit()
     }
     
@@ -140,21 +148,19 @@ class SongTableViewCell: UITableViewCell {
                               options: [.transitionFlipFromRight],
                               animations: {
                                 self.playButtonImageView.image = UIImage(named: "pauseSquare")
-            },
-                              completion: nil)
+            }, completion: nil)
         } else {
             if playButtonImageView.image == UIImage(named: "pauseSquare") {
-                removePlayerProgress()
+                clearProgressIndicator()
                 UIView.transition(with: self.playButtonImageView,
                                   duration: 0.3,
                                   options: [.transitionFlipFromRight],
                                   animations: {
                                     self.playButtonImageView.image = UIImage(named: "playSquare")
-                },
-                                  completion: nil)
+                }, completion: nil)
             } else {
                 playButtonImageView.image = UIImage(named: "playSquare")
-                removePlayerProgress()
+                clearProgressIndicator()
             }
 
         }
