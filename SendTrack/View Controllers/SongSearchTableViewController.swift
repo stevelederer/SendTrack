@@ -182,7 +182,7 @@ extension SongSearchTableViewController: SongTableViewCellDelegate {
             PlayerController.shared.previewURLString = songURLString
             PlayerController.shared.playPause()
         }
-        NotificationCenter.default.post(name: .playPauseNotification, object: nil, userInfo: nil)
+        NotificationCenter.default.post(name: .playPauseButtonTappedNotification, object: nil, userInfo: nil)
     }
     
 }

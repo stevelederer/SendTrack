@@ -80,7 +80,8 @@ class PlayerController {
     }
     
     func playPause() {
-        if !isPlaying {
+        isPlaying = !isPlaying
+        if isPlaying {
             player.volume = 1.0
             player.play()
             addPeriodicTimeObserver()
@@ -91,7 +92,6 @@ class PlayerController {
             prepareToPlay()
             print("⏸ Paused!")
         }
-        isPlaying = !isPlaying
         print("👉👉👉👉 is playing?: \(isPlaying)")
     }
     

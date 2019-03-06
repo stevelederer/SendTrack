@@ -84,6 +84,7 @@ extension SongMessageExtensionViewController: UICollectionViewDataSource {
         let song = songs[indexPath.row]
         cell.delegate = self
         cell.song = song
+        cell.playButtonContainerView.layer.cornerRadius = cell.playButtonContainerView.frame.height / 2
         cell.updatePlayPauseButton()
         return cell
     }
@@ -121,12 +122,8 @@ extension SongMessageExtensionViewController: UICollectionViewDelegate {
                     linkTypeActionSheet.addAction(spotifyLinkAction)
                 }
                 linkTypeActionSheet.addAction(cancelAction)
-                
-                if let popoverController = linkTypeActionSheet.popoverPresentationController {
-                    popoverController.sourceView = self.view
-                    popoverController.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
-                    popoverController.permittedArrowDirections = []
-                }
+                linkTypeActionSheet.popoverPresentationController?.sourceView = cell
+                linkTypeActionSheet.popoverPresentationController?.sourceRect = CGRect(x: cell.bounds.midX, y: cell.bounds.midY, width: 0, height: 0)
                 
                 self.present(linkTypeActionSheet, animated: true, completion: nil)
             }
@@ -186,7 +183,7 @@ extension SongMessageExtensionViewController: TopSongCollectionViewCellDelegate 
             PlayerController.shared.previewURLString = songURLString
             PlayerController.shared.playPause()
         }
-        NotificationCenter.default.post(name: .playPauseNotification, object: nil, userInfo: nil)
+        NotificationCenter.default.post(name: .playPauseButtonTappedNotification, object: nil, userInfo: nil)
     }
     
 }
@@ -194,4 +191,14 @@ extension SongMessageExtensionViewController: TopSongCollectionViewCellDelegate 
 protocol SongMessageExtensionViewControllerDelegate: class {
     func didSelectSongItem(link: String)
     func viewShouldExpand()
+}
+
+extension SongMessageExtensionViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if self.view.traitCollection.horizontalSizeClass == UIUserInterfaceSizeClass.regular {
+            return CGSize(width: 240, height: 320)
+        } else {
+            return CGSize(width: 115, height: 160)
+        }
+    }
 }

@@ -243,6 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				1BEF9E51221679B900E7E1DA /* AboutViewController.swift */,
+				1BF7B69A2220819500F1E9D4 /* LegalTermsViewController.swift */,
 				1B1C9F20221CC4C80084099E /* SendTrackTabBarController.swift */,
 				1B6554F6220D32E10067C52D /* SongDetailViewController.swift */,
 				1BB5B058220D2A8600D82A90 /* SongSearchTableViewController.swift */,
@@ -255,7 +256,6 @@
 			isa = PBXGroup;
 			children = (
 				1B344C77220B949A00360865 /* Main.storyboard */,
-				1BF7B69A2220819500F1E9D4 /* LegalTermsViewController.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";

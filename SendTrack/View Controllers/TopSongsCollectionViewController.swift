@@ -64,7 +64,6 @@ class TopSongsCollectionViewController: UICollectionViewController {
         return 1
     }
 
-
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return songs.count
     }
@@ -74,6 +73,7 @@ class TopSongsCollectionViewController: UICollectionViewController {
         let song = songs[indexPath.row]
         cell.delegate = self
         cell.song = song
+        cell.playButtonContainerView.layer.cornerRadius = cell.playButtonContainerView.frame.height / 2
         cell.updatePlayPauseButton()
         return cell
     }
@@ -91,7 +91,18 @@ extension TopSongsCollectionViewController: TopSongCollectionViewCellDelegate {
             PlayerController.shared.previewURLString = songURLString
             PlayerController.shared.playPause()
         }
-        NotificationCenter.default.post(name: .playPauseNotification, object: nil, userInfo: nil)
+        NotificationCenter.default.post(name: .playPauseButtonTappedNotification, object: nil, userInfo: nil)
     }
     
+}
+
+extension TopSongsCollectionViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if self.view.traitCollection.horizontalSizeClass == UIUserInterfaceSizeClass.regular {
+            return CGSize(width: 250, height: 320)
+        } else {
+            return CGSize(width: 125, height: 160)
+        }
+    }
+
 }
