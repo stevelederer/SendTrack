@@ -393,6 +393,7 @@
 				TargetAttributes = {
 					1B344C6F220B949A00360865 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -404,6 +405,7 @@
 					};
 					1BB9A017221A7A300075A216 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -759,7 +761,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.stevelederer.SendTrack;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -781,7 +783,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.stevelederer.SendTrack;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -803,7 +805,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.stevelederer.SendTrack.SendTrack-Message-Extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -825,7 +827,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.stevelederer.SendTrack.SendTrack-Message-Extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

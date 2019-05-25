@@ -6,7 +6,7 @@
 //  Copyright © 2019 Steve Lederer. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 struct AppleTrack: Codable { // TOP LEVEL DICTIONARY
     let results: Results
