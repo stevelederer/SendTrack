@@ -248,7 +248,7 @@
                                         <viewLayoutGuide key="safeArea" id="cgv-6Z-V8o"/>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="752" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="LBb-D6-ZRQ">
-                                        <rect key="frame" x="85.666666666666686" y="510.99999999999994" width="171.66666666666663" height="89.333333333333314"/>
+                                        <rect key="frame" x="85.666666666666671" y="510.99999999999994" width="171.66666666666663" height="89.333333333333314"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jR0-EG-WkZ">
                                                 <rect key="frame" x="0.0" y="0.0" width="171.66666666666666" height="31.333333333333332"/>
@@ -293,7 +293,7 @@
                                             </stackView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="200" id="6ck-tS-qqz"/>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="300" id="6ck-tS-qqz"/>
                                         </constraints>
                                     </stackView>
                                     <view contentMode="scaleToFill" horizontalHuggingPriority="1" verticalHuggingPriority="1" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" translatesAutoresizingMaskIntoConstraints="NO" id="rqr-TC-8vL">
@@ -347,20 +347,20 @@
                                 <rect key="frame" x="37.666666666666657" y="41.333333333333314" width="300" height="690.33333333333348"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="248" verticalCompressionResistancePriority="748" image="FullSendTrackIcon" translatesAutoresizingMaskIntoConstraints="NO" id="diY-nq-qyG">
-                                        <rect key="frame" x="47.333333333333343" y="0.0" width="205" height="205.33333333333334"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="300.00000000000091" height="300"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="diY-nq-qyG" secondAttribute="height" multiplier="1:1" id="cSJ-iU-G3t"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SYu-IQ-mLs">
-                                        <rect key="frame" x="0.33333333333334281" y="221.33333333333334" width="299.33333333333326" height="81.333333333333343"/>
+                                        <rect key="frame" x="0.33333333333334281" y="316" width="299.33333333333326" height="81.333333333333314"/>
                                         <string key="text">Thank you very much for using SendTrack! If you have any questions or concerns please feel free to contact us by tapping the button below:</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RRK-fp-QwM">
-                                        <rect key="frame" x="60" y="318.66666666666669" width="180" height="39"/>
+                                        <rect key="frame" x="60" y="413.33333333333337" width="180" height="57"/>
                                         <color key="backgroundColor" red="0.30980392159999998" green="0.61568627450000002" blue="0.65098039220000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="200" id="dVf-ML-mOr"/>
@@ -375,13 +375,13 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="If you like SendTrack and want to support ongoing development, tap the button below to send us $1" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9rU-4Z-wtN">
-                                        <rect key="frame" x="1" y="373.66666666666669" width="298" height="61"/>
+                                        <rect key="frame" x="1" y="486.33333333333326" width="298" height="61"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9h3-a8-Y7T">
-                                        <rect key="frame" x="116.33333333333334" y="450.66666666666669" width="67" height="239.66666666666669"/>
+                                        <rect key="frame" x="116.33333333333334" y="563.33333333333326" width="67" height="127"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="62"/>
                                         <state key="normal" title="💵">
                                             <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
