@@ -7,14 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B0E288ECB84C96C296BA926 /* Pods_SendTrack_Message_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3349BBDFC4A60D90650B80D /* Pods_SendTrack_Message_Extension.framework */; };
 		1B06A75F220BD92100000E81 /* SteveSong.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B06A75E220BD92100000E81 /* SteveSong.swift */; };
 		1B06A762220BDFE600000E81 /* APITokenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B06A761220BDFE600000E81 /* APITokenController.swift */; };
-		1B06A764220BE3A400000E81 /* APIKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B06A763220BE3A400000E81 /* APIKeys.plist */; };
 		1B06A766220BE5C300000E81 /* ApiKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B06A765220BE5C300000E81 /* ApiKeys.swift */; };
 		1B06A768220BF0A900000E81 /* SpotifyAccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B06A767220BF0A900000E81 /* SpotifyAccessToken.swift */; };
 		1B1C9F21221CC4C80084099E /* SendTrackTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1C9F20221CC4C80084099E /* SendTrackTabBarController.swift */; };
 		1B1D9F8B220B9F3500DFC5B1 /* AppleMusicTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1D9F8A220B9F3500DFC5B1 /* AppleMusicTrack.swift */; };
 		1B1D9F8E220BCD3800DFC5B1 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1D9F8D220BCD3800DFC5B1 /* ColorExtension.swift */; };
+		1B223FC32324A74200B24F60 /* APIKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B06A763220BE3A400000E81 /* APIKeys.plist */; };
 		1B344C74220B949A00360865 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B344C73220B949A00360865 /* AppDelegate.swift */; };
 		1B344C79220B949A00360865 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B344C77220B949A00360865 /* Main.storyboard */; };
 		1B344C7B220B949B00360865 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B344C7A220B949B00360865 /* Assets.xcassets */; };
@@ -66,8 +67,7 @@
 		1BEF9E50221673F700E7E1DA /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEF9E4F221673F700E7E1DA /* IAPHelper.swift */; };
 		1BEF9E52221679B900E7E1DA /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEF9E51221679B900E7E1DA /* AboutViewController.swift */; };
 		1BF7B69B2220819500F1E9D4 /* LegalTermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF7B69A2220819500F1E9D4 /* LegalTermsViewController.swift */; };
-		1D04C43944A69C6D63898100 /* Pods_SendTrack_Message_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FA45DED1AEFD8F43851FEE6 /* Pods_SendTrack_Message_Extension.framework */; };
-		304A48AFEFF8D96C42CB7C5A /* Pods_SendTrack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44CEB1E1581570FA50FFC46E /* Pods_SendTrack.framework */; };
+		EC48FBBEBC61425C61C678C0 /* Pods_SendTrack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C79813947310F114D476DCB7 /* Pods_SendTrack.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,7 +95,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0489D482B39B2F6F806B2EC3 /* Pods-SendTrack.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SendTrack.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SendTrack/Pods-SendTrack.debug.xcconfig"; sourceTree = "<group>"; };
+		0B2F33E6967C25A2F569C222 /* Pods-SendTrack.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SendTrack.debug.xcconfig"; path = "Target Support Files/Pods-SendTrack/Pods-SendTrack.debug.xcconfig"; sourceTree = "<group>"; };
 		1B06A75E220BD92100000E81 /* SteveSong.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SteveSong.swift; sourceTree = "<group>"; };
 		1B06A761220BDFE600000E81 /* APITokenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITokenController.swift; sourceTree = "<group>"; };
 		1B06A763220BE3A400000E81 /* APIKeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = APIKeys.plist; sourceTree = "<group>"; };
@@ -137,11 +137,11 @@
 		1BEF9E4F221673F700E7E1DA /* IAPHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPHelper.swift; sourceTree = "<group>"; };
 		1BEF9E51221679B900E7E1DA /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		1BF7B69A2220819500F1E9D4 /* LegalTermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LegalTermsViewController.swift; path = "SendTrack/View Controllers/LegalTermsViewController.swift"; sourceTree = SOURCE_ROOT; };
-		44CEB1E1581570FA50FFC46E /* Pods_SendTrack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SendTrack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		52A47DC296C86C4126B99164 /* Pods-SendTrack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SendTrack.release.xcconfig"; path = "Pods/Target Support Files/Pods-SendTrack/Pods-SendTrack.release.xcconfig"; sourceTree = "<group>"; };
-		9FA45DED1AEFD8F43851FEE6 /* Pods_SendTrack_Message_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SendTrack_Message_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A326D4C5F925DB11CA3C036C /* Pods-SendTrack-Message-Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SendTrack-Message-Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-SendTrack-Message-Extension/Pods-SendTrack-Message-Extension.release.xcconfig"; sourceTree = "<group>"; };
-		F95D058F08CC1E8CD6F9B7FC /* Pods-SendTrack-Message-Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SendTrack-Message-Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SendTrack-Message-Extension/Pods-SendTrack-Message-Extension.debug.xcconfig"; sourceTree = "<group>"; };
+		5BF49B45930011EBFB05B090 /* Pods-SendTrack-Message-Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SendTrack-Message-Extension.release.xcconfig"; path = "Target Support Files/Pods-SendTrack-Message-Extension/Pods-SendTrack-Message-Extension.release.xcconfig"; sourceTree = "<group>"; };
+		810D95255D757FFB80610C9E /* Pods-SendTrack-Message-Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SendTrack-Message-Extension.debug.xcconfig"; path = "Target Support Files/Pods-SendTrack-Message-Extension/Pods-SendTrack-Message-Extension.debug.xcconfig"; sourceTree = "<group>"; };
+		C79813947310F114D476DCB7 /* Pods_SendTrack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SendTrack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5F1D0D723D0987F15AF9455 /* Pods-SendTrack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SendTrack.release.xcconfig"; path = "Target Support Files/Pods-SendTrack/Pods-SendTrack.release.xcconfig"; sourceTree = "<group>"; };
+		E3349BBDFC4A60D90650B80D /* Pods_SendTrack_Message_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SendTrack_Message_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,8 +149,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				304A48AFEFF8D96C42CB7C5A /* Pods_SendTrack.framework in Frameworks */,
 				1BEF9E4C221672A500E7E1DA /* StoreKit.framework in Frameworks */,
+				EC48FBBEBC61425C61C678C0 /* Pods_SendTrack.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,7 +159,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BB9A01A221A7A300075A216 /* Messages.framework in Frameworks */,
-				1D04C43944A69C6D63898100 /* Pods_SendTrack_Message_Extension.framework in Frameworks */,
+				0B0E288ECB84C96C296BA926 /* Pods_SendTrack_Message_Extension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,8 +197,8 @@
 				1B344C72220B949A00360865 /* SendTrack */,
 				1BB9A01B221A7A300075A216 /* SendTrack-Message-Extension */,
 				1B344C71220B949A00360865 /* Products */,
-				8D497FCF075305165E69BFAA /* Pods */,
 				C19AAA87FB558BF793E96F88 /* Frameworks */,
+				2AC747E03A6A442636E97296 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -317,24 +317,25 @@
 			path = "SendTrack-Message-Extension";
 			sourceTree = "<group>";
 		};
-		8D497FCF075305165E69BFAA /* Pods */ = {
+		2AC747E03A6A442636E97296 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				0489D482B39B2F6F806B2EC3 /* Pods-SendTrack.debug.xcconfig */,
-				52A47DC296C86C4126B99164 /* Pods-SendTrack.release.xcconfig */,
-				F95D058F08CC1E8CD6F9B7FC /* Pods-SendTrack-Message-Extension.debug.xcconfig */,
-				A326D4C5F925DB11CA3C036C /* Pods-SendTrack-Message-Extension.release.xcconfig */,
+				0B2F33E6967C25A2F569C222 /* Pods-SendTrack.debug.xcconfig */,
+				D5F1D0D723D0987F15AF9455 /* Pods-SendTrack.release.xcconfig */,
+				810D95255D757FFB80610C9E /* Pods-SendTrack-Message-Extension.debug.xcconfig */,
+				5BF49B45930011EBFB05B090 /* Pods-SendTrack-Message-Extension.release.xcconfig */,
 			);
 			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		C19AAA87FB558BF793E96F88 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				1BEF9E4B221672A500E7E1DA /* StoreKit.framework */,
-				44CEB1E1581570FA50FFC46E /* Pods_SendTrack.framework */,
 				1BB9A019221A7A300075A216 /* Messages.framework */,
-				9FA45DED1AEFD8F43851FEE6 /* Pods_SendTrack_Message_Extension.framework */,
+				C79813947310F114D476DCB7 /* Pods_SendTrack.framework */,
+				E3349BBDFC4A60D90650B80D /* Pods_SendTrack_Message_Extension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -346,12 +347,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1B344C82220B949B00360865 /* Build configuration list for PBXNativeTarget "SendTrack" */;
 			buildPhases = (
-				F843033B0D9DD18EC664FF00 /* [CP] Check Pods Manifest.lock */,
+				44130EB14AA420E0C252F035 /* [CP] Check Pods Manifest.lock */,
 				1B344C6C220B949A00360865 /* Sources */,
 				1B344C6D220B949A00360865 /* Frameworks */,
 				1B344C6E220B949A00360865 /* Resources */,
-				FEE116716875E074DE655C79 /* [CP] Embed Pods Frameworks */,
 				1BC33DAB2214E0FD0091B1C4 /* Embed App Extensions */,
+				99C0239FC38EDEE442D1EE08 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -367,7 +368,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1BB9A029221A7A310075A216 /* Build configuration list for PBXNativeTarget "SendTrack-Message-Extension" */;
 			buildPhases = (
-				1F45E719162AF4414D01C70D /* [CP] Check Pods Manifest.lock */,
+				E031637E92F3FB90E4F22989 /* [CP] Check Pods Manifest.lock */,
 				1BB9A014221A7A300075A216 /* Sources */,
 				1BB9A015221A7A300075A216 /* Frameworks */,
 				1BB9A016221A7A300075A216 /* Resources */,
@@ -438,8 +439,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B223FC32324A74200B24F60 /* APIKeys.plist in Resources */,
 				1B344C7E220B949B00360865 /* LaunchScreen.storyboard in Resources */,
-				1B06A764220BE3A400000E81 /* APIKeys.plist in Resources */,
 				1B344C7B220B949B00360865 /* Assets.xcassets in Resources */,
 				1B344C79220B949A00360865 /* Main.storyboard in Resources */,
 				1BB5B04C220CB47F00D82A90 /* MusicKit.p8 in Resources */,
@@ -462,29 +463,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1F45E719162AF4414D01C70D /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SendTrack-Message-Extension-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F843033B0D9DD18EC664FF00 /* [CP] Check Pods Manifest.lock */ = {
+		44130EB14AA420E0C252F035 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -506,7 +485,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FEE116716875E074DE655C79 /* [CP] Embed Pods Frameworks */ = {
+		99C0239FC38EDEE442D1EE08 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -521,6 +500,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SendTrack/Pods-SendTrack-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E031637E92F3FB90E4F22989 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SendTrack-Message-Extension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -741,7 +742,7 @@
 		};
 		1B344C83220B949B00360865 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0489D482B39B2F6F806B2EC3 /* Pods-SendTrack.debug.xcconfig */;
+			baseConfigurationReference = 0B2F33E6967C25A2F569C222 /* Pods-SendTrack.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -764,7 +765,7 @@
 		};
 		1B344C84220B949B00360865 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 52A47DC296C86C4126B99164 /* Pods-SendTrack.release.xcconfig */;
+			baseConfigurationReference = D5F1D0D723D0987F15AF9455 /* Pods-SendTrack.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -787,13 +788,14 @@
 		};
 		1BB9A027221A7A310075A216 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F95D058F08CC1E8CD6F9B7FC /* Pods-SendTrack-Message-Extension.debug.xcconfig */;
+			baseConfigurationReference = 810D95255D757FFB80610C9E /* Pods-SendTrack-Message-Extension.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
 				CODE_SIGN_ENTITLEMENTS = "SendTrack-Message-Extension/Resources/SendTrack-Message-Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 56CLV9J785;
 				INFOPLIST_FILE = "$(SRCROOT)/SendTrack-Message-Extension/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -809,13 +811,14 @@
 		};
 		1BB9A028221A7A310075A216 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A326D4C5F925DB11CA3C036C /* Pods-SendTrack-Message-Extension.release.xcconfig */;
+			baseConfigurationReference = 5BF49B45930011EBFB05B090 /* Pods-SendTrack-Message-Extension.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
 				CODE_SIGN_ENTITLEMENTS = "SendTrack-Message-Extension/Resources/SendTrack-Message-Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 56CLV9J785;
 				INFOPLIST_FILE = "$(SRCROOT)/SendTrack-Message-Extension/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
