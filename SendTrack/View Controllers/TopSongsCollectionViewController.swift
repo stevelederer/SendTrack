@@ -14,12 +14,12 @@ class TopSongsCollectionViewController: UICollectionViewController {
     
     var songs: [SteveSong] = []
 
-    let collectionViewBackgroundColor = UIColor(hex: "f9f9f9")
+//    let collectionViewBackgroundColor = UIColor(hex: "f9f9f9")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = self
-        collectionView.backgroundColor = collectionViewBackgroundColor
+//        collectionView.backgroundColor = collectionViewBackgroundColor
         topSongsFetch()
         definesPresentationContext = true
     }
