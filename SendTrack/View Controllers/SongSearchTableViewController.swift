@@ -14,7 +14,7 @@ class SongSearchTableViewController: UITableViewController {
     
     var songs: [SteveSong] = []
     
-    let tableViewBackgroundColor = UIColor(hex: "f9f9f9")
+//    let tableViewBackgroundColor = UIColor(hex: "f9f9f9")
     
     lazy var timer = AutosearchTimer { [weak self] in self?.searchForSong() }
     var searchTerm: String = ""
@@ -23,7 +23,7 @@ class SongSearchTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.backgroundColor = tableViewBackgroundColor
+//        tableView.backgroundColor = tableViewBackgroundColor
         definesPresentationContext = true
         setupNavBar()
     }
