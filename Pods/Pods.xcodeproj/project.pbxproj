@@ -3,139 +3,127 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		04D7B995B1E7722148BAE59BBE3C2F72 /* Pods-SendTrack-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 489D9F98C0F3BEDCE3AB1EA166E839D2 /* Pods-SendTrack-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0775442D6B0E77C6EFBCC83A5D27ABC3 /* Pods-SendTrack-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E18A7F0F8455978F55C67A5A36C0822 /* Pods-SendTrack-dummy.m */; };
-		1EB71D1AA86DD85C44EC56F6376FE7C7 /* Pods-SendTrack-Message-Extension-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B3FB0EFA2D443787FFC8A5A55EDD75 /* Pods-SendTrack-Message-Extension-dummy.m */; };
-		2FE6D9A8948E0FA8905D27E003795653 /* CupertinoJWT-iOS11.0-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 512922429FD12DE1C3E0E4274985825C /* CupertinoJWT-iOS11.0-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		309CA0F8F5808135576F12D2796AAFD3 /* CupertinoJWTError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2305B5396BA08FB64B687024B5F3923 /* CupertinoJWTError.swift */; };
-		31D48EA1C6E92A780394B23E4EB7CC23 /* Pods-SendTrack-Message-Extension-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7486E551F3E2B032527791A2E8346A88 /* Pods-SendTrack-Message-Extension-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		32E1FB9B2E70E3909D22A91591ACBA88 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DC1C09012331A09958FE240B0FEB3E /* Data+Extension.swift */; };
-		3930D90BB25A6BDEF79B76A736310953 /* ASN1.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B55FF5C43D76BED5E835016C80A64 /* ASN1.swift */; };
-		552482BA5C6671DB0E695B078354B10E /* P8.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBA3BC3FC58114750E673CDE5133B0D /* P8.swift */; };
-		61D87D75B2C6CAE644062A435D0F55FB /* ASN1.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B55FF5C43D76BED5E835016C80A64 /* ASN1.swift */; };
-		70B65D387E17CBB2E2EEF88F9A93082B /* CupertinoJWT-iOS12.0-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C543835EED2C429F390D24B489938 /* CupertinoJWT-iOS12.0-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		734A3A08942C6F9EDEAE7727E5A70AC5 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DC1C09012331A09958FE240B0FEB3E /* Data+Extension.swift */; };
-		82F8DBBF96F9647B0AD41CC201390555 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		8E4F62E037458E12628CA5DAB2F889EF /* P8.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBA3BC3FC58114750E673CDE5133B0D /* P8.swift */; };
-		9B9BAF2A9CBFEDEA9E6523D7511518D8 /* ECPrivateKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CBC104403D5DF774FD223B88CFACBF /* ECPrivateKey.swift */; };
-		A7E4CF97210D6151B9913D487677F738 /* JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A0DF091621074564216ADC6C460865 /* JWT.swift */; };
-		AAF34EA27F796B1B71DCDA0BE2DE7CD7 /* install_common_crypto.sh in Resources */ = {isa = PBXBuildFile; fileRef = FEB6FC025B297601D58A7D70AF0770DE /* install_common_crypto.sh */; };
-		B21B7C3332523D29FBBE66CDEEDCA35B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		C24DBCDAA7539FC575391425C72B0123 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		C5D7ADC342055F68DBAF0D6247D28C4F /* ECKeyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B1BCB07B02A0F2652FF842EC003AB6 /* ECKeyData.swift */; };
-		CF2F6FB961520C846B87916375F7EB45 /* ECPrivateKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CBC104403D5DF774FD223B88CFACBF /* ECPrivateKey.swift */; };
-		D963B5601DF3E6E327DBDFDD7A6C2D01 /* JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A0DF091621074564216ADC6C460865 /* JWT.swift */; };
-		E8C7E15B860F253C10088E0794EC3852 /* install_common_crypto.sh in Resources */ = {isa = PBXBuildFile; fileRef = FEB6FC025B297601D58A7D70AF0770DE /* install_common_crypto.sh */; };
-		EC4DF6758C12636BED6CF26A7BDA6E7F /* CupertinoJWT-iOS11.0-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B9108F601BB858877273FA77C165F5 /* CupertinoJWT-iOS11.0-dummy.m */; };
-		F07C51CF41C81A93EFF1A1CC65594871 /* ECKeyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B1BCB07B02A0F2652FF842EC003AB6 /* ECKeyData.swift */; };
-		F78DF6B0F08C8CC914DD5A1675663FCB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		FB11656CB3847490C9CA8AA391A6F377 /* CupertinoJWT-iOS12.0-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 296C45778E125A12216F77D3716C5923 /* CupertinoJWT-iOS12.0-dummy.m */; };
-		FEFFD24CD4DB9AB072F58302EE9F853F /* CupertinoJWTError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2305B5396BA08FB64B687024B5F3923 /* CupertinoJWTError.swift */; };
+		061B48ACBA7DCDA6A6EDCD0AA75BAEE7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		364F3CDD0D3E94E709B45A56AFEB0AD5 /* Pods-SendTrack-Message-Extension-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7486E551F3E2B032527791A2E8346A88 /* Pods-SendTrack-Message-Extension-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		367543BF2750467819407284729D421A /* Pods-SendTrack-Message-Extension-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B3FB0EFA2D443787FFC8A5A55EDD75 /* Pods-SendTrack-Message-Extension-dummy.m */; };
+		46AE44521B5E64CB1C7AF6703287C793 /* CupertinoJWT-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CBF60AEFA1652AB7A0AD832272466B7 /* CupertinoJWT-dummy.m */; };
+		48029896DA6C390447484B24AA2A8546 /* ECKeyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C47C5323C5817A885E63D093842D6DC /* ECKeyData.swift */; };
+		48364316B948070CEFA51B855ADC9AC2 /* ECPrivateKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46B1C280FEF09B480E205EB543376D5 /* ECPrivateKey.swift */; };
+		4F9327E1B3DF5DCE36ADF8B0268D367C /* CupertinoJWT-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 88B9A810E7F5B6A2407D02E214FCE75F /* CupertinoJWT-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		52BBC3FCDA0C1FC0989234A39B83BFC4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		6B6993906B11BBB50C2F9B5FAB5B0E6C /* CupertinoJWTError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A86E6562C19AAFD1424F78401B895CF /* CupertinoJWTError.swift */; };
+		7F2A24FC21A2B3E23F6E53D3CC69E44D /* install_common_crypto.sh in Resources */ = {isa = PBXBuildFile; fileRef = AA85638F973CD6C7F6FC8CD0F4D2CD8C /* install_common_crypto.sh */; };
+		8290E367B3BFD47371666FE0597600D4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		A0A1F5AB60812FA899F9042E62A5B574 /* ASN1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2245004BF02EBF3E5582A704339E9F0F /* ASN1.swift */; };
+		BDB0E5A4F532C64E8C99D4E3AAAFC462 /* P8.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5BB4B4EA5B5FB0CBE3A973F8D27E8D /* P8.swift */; };
+		C7E24B8EB69213C0B5BCAE83494C69A9 /* Pods-SendTrack-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E18A7F0F8455978F55C67A5A36C0822 /* Pods-SendTrack-dummy.m */; };
+		D018F889906F6C8CCCA6138EB8E103C2 /* Pods-SendTrack-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 489D9F98C0F3BEDCE3AB1EA166E839D2 /* Pods-SendTrack-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D5F06E741998421E5987D48D9BF3123D /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FB769DAADA1B03044C0415948A1ECE /* Data+Extension.swift */; };
+		FF5CF2F2142DF2262DC5F7465846B741 /* JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768A1C9264A4E23F29640F47AB8C6DDB /* JWT.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0437950A4716EDE665C5BE806F5CDFDE /* PBXContainerItemProxy */ = {
+		5883A39EEF3E3146F94CDE9B3A93CACF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 6996FB11E424EDE142C25BF77A296FE5;
-			remoteInfo = "CupertinoJWT-iOS11.0";
+			remoteGlobalIDString = 7592D926F2A7FD8CAD1299CF559D7CDC;
+			remoteInfo = CupertinoJWT;
 		};
-		A8D0BA3C17EAB869F2833A465D1221CB /* PBXContainerItemProxy */ = {
+		947E4B8A249F06D5C372C0CB5BA685C7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = E4CE92E42D654C528E5B7D8BDCB83FDD;
-			remoteInfo = "CupertinoJWT-iOS12.0";
+			remoteGlobalIDString = 7592D926F2A7FD8CAD1299CF559D7CDC;
+			remoteInfo = CupertinoJWT;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		046C543835EED2C429F390D24B489938 /* CupertinoJWT-iOS12.0-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "CupertinoJWT-iOS12.0-umbrella.h"; path = "../CupertinoJWT-iOS12.0/CupertinoJWT-iOS12.0-umbrella.h"; sourceTree = "<group>"; };
+		0312961AF02E3800E6CDD2493C67DA46 /* CupertinoJWT.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = CupertinoJWT.modulemap; sourceTree = "<group>"; };
 		04FFD1D1F2FC2D2EF1269644E65CE900 /* Pods-SendTrack-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SendTrack-Info.plist"; sourceTree = "<group>"; };
+		0E5BB4B4EA5B5FB0CBE3A973F8D27E8D /* P8.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = P8.swift; path = Sources/P8.swift; sourceTree = "<group>"; };
 		0FFA471ABF5F8FA1F17E71D4AE9C6C30 /* Pods-SendTrack-Message-Extension-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SendTrack-Message-Extension-Info.plist"; sourceTree = "<group>"; };
 		18E124BDA53B8BCE84B813EBCDD5A3B1 /* Pods-SendTrack-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SendTrack-acknowledgements.plist"; sourceTree = "<group>"; };
-		1CB4C4021EF40B961DBB877C68D6C3C2 /* CupertinoJWT.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CupertinoJWT.framework; path = "CupertinoJWT-iOS12.0.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A86E6562C19AAFD1424F78401B895CF /* CupertinoJWTError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CupertinoJWTError.swift; path = Sources/CupertinoJWTError.swift; sourceTree = "<group>"; };
 		1E18A7F0F8455978F55C67A5A36C0822 /* Pods-SendTrack-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SendTrack-dummy.m"; sourceTree = "<group>"; };
-		296C45778E125A12216F77D3716C5923 /* CupertinoJWT-iOS12.0-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "CupertinoJWT-iOS12.0-dummy.m"; path = "../CupertinoJWT-iOS12.0/CupertinoJWT-iOS12.0-dummy.m"; sourceTree = "<group>"; };
-		2DCA12A9705F3F2001A611F233B705BC /* CupertinoJWT-iOS12.0-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "CupertinoJWT-iOS12.0-prefix.pch"; path = "../CupertinoJWT-iOS12.0/CupertinoJWT-iOS12.0-prefix.pch"; sourceTree = "<group>"; };
+		2245004BF02EBF3E5582A704339E9F0F /* ASN1.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ASN1.swift; path = Sources/ASN1.swift; sourceTree = "<group>"; };
+		2CBF60AEFA1652AB7A0AD832272466B7 /* CupertinoJWT-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CupertinoJWT-dummy.m"; sourceTree = "<group>"; };
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		34D4EA7A0D24D0BFA5EBC35FB4D13D29 /* CupertinoJWT-iOS11.0-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "CupertinoJWT-iOS11.0-Info.plist"; sourceTree = "<group>"; };
-		35C550868EC98CD59484C94956F8EF71 /* CupertinoJWT-iOS11.0-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CupertinoJWT-iOS11.0-prefix.pch"; sourceTree = "<group>"; };
+		3224504700CD765BA7558EF82A2CE4DA /* CupertinoJWT-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CupertinoJWT-prefix.pch"; sourceTree = "<group>"; };
 		489D9F98C0F3BEDCE3AB1EA166E839D2 /* Pods-SendTrack-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SendTrack-umbrella.h"; sourceTree = "<group>"; };
-		4B3176AB662BF9CBEFA9667A7BCBA1AF /* Pods_SendTrack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SendTrack.framework; path = "Pods-SendTrack.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B3176AB662BF9CBEFA9667A7BCBA1AF /* Pods_SendTrack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SendTrack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C4484BA5BDDACE63AB17FAA4E9E7778 /* Pods-SendTrack-Message-Extension-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SendTrack-Message-Extension-acknowledgements.markdown"; sourceTree = "<group>"; };
-		512922429FD12DE1C3E0E4274985825C /* CupertinoJWT-iOS11.0-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CupertinoJWT-iOS11.0-umbrella.h"; sourceTree = "<group>"; };
-		59A0DF091621074564216ADC6C460865 /* JWT.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JWT.swift; path = Sources/JWT.swift; sourceTree = "<group>"; };
 		65D1BFBDC24A3B8CF90ED55126750FD4 /* Pods-SendTrack-Message-Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SendTrack-Message-Extension.debug.xcconfig"; sourceTree = "<group>"; };
-		6797028078239004D512BACC38327E09 /* CupertinoJWT-iOS12.0-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = "CupertinoJWT-iOS12.0-Info.plist"; path = "../CupertinoJWT-iOS12.0/CupertinoJWT-iOS12.0-Info.plist"; sourceTree = "<group>"; };
-		71E781FA5CE7B28DD71E4E2560D35393 /* CupertinoJWT-iOS11.0.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "CupertinoJWT-iOS11.0.xcconfig"; sourceTree = "<group>"; };
 		74447AC6E423FC1D361962AB1CBE1E99 /* Pods-SendTrack-Message-Extension.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-SendTrack-Message-Extension.modulemap"; sourceTree = "<group>"; };
 		7486E551F3E2B032527791A2E8346A88 /* Pods-SendTrack-Message-Extension-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SendTrack-Message-Extension-umbrella.h"; sourceTree = "<group>"; };
 		76609420EEBCCD2C8E50264739F82654 /* Pods-SendTrack-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SendTrack-acknowledgements.markdown"; sourceTree = "<group>"; };
+		768A1C9264A4E23F29640F47AB8C6DDB /* JWT.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JWT.swift; path = Sources/JWT.swift; sourceTree = "<group>"; };
 		7B2D6D811D621C2BCE2FFCF8A6BD75C6 /* Pods-SendTrack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SendTrack.release.xcconfig"; sourceTree = "<group>"; };
 		7D9A50ACD3D93CB781FDFC7663241A6D /* Pods-SendTrack-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SendTrack-frameworks.sh"; sourceTree = "<group>"; };
+		88AADE3B04D9339DF33F7606D15C8E38 /* CupertinoJWT-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "CupertinoJWT-Info.plist"; sourceTree = "<group>"; };
+		88B9A810E7F5B6A2407D02E214FCE75F /* CupertinoJWT-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CupertinoJWT-umbrella.h"; sourceTree = "<group>"; };
+		8C47C5323C5817A885E63D093842D6DC /* ECKeyData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ECKeyData.swift; path = Sources/ECKeyData.swift; sourceTree = "<group>"; };
 		9039DDB6A392D9EC32169E6BA04BF47A /* Pods-SendTrack.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SendTrack.debug.xcconfig"; sourceTree = "<group>"; };
 		92A8B20A56319DEF0A3C3FF0D0FC2B44 /* Pods-SendTrack.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-SendTrack.modulemap"; sourceTree = "<group>"; };
 		92B3FB0EFA2D443787FFC8A5A55EDD75 /* Pods-SendTrack-Message-Extension-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SendTrack-Message-Extension-dummy.m"; sourceTree = "<group>"; };
-		92D4BFE8D4F778EEED6CD53E2A0F5407 /* CupertinoJWT-iOS12.0.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "CupertinoJWT-iOS12.0.xcconfig"; path = "../CupertinoJWT-iOS12.0/CupertinoJWT-iOS12.0.xcconfig"; sourceTree = "<group>"; };
-		94483D0D1E2D774372BBC92B9B4A74C4 /* Pods_SendTrack_Message_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SendTrack_Message_Extension.framework; path = "Pods-SendTrack-Message-Extension.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		99B9108F601BB858877273FA77C165F5 /* CupertinoJWT-iOS11.0-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CupertinoJWT-iOS11.0-dummy.m"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		C2305B5396BA08FB64B687024B5F3923 /* CupertinoJWTError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CupertinoJWTError.swift; path = Sources/CupertinoJWTError.swift; sourceTree = "<group>"; };
-		C289AE817F1607672E4E3AB92FAC60A8 /* CupertinoJWT.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CupertinoJWT.framework; path = "CupertinoJWT-iOS11.0.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D36D11426120CEF1E4147D3BB3C0C92C /* CupertinoJWT-iOS11.0.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "CupertinoJWT-iOS11.0.modulemap"; sourceTree = "<group>"; };
-		D63B55FF5C43D76BED5E835016C80A64 /* ASN1.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ASN1.swift; path = Sources/ASN1.swift; sourceTree = "<group>"; };
+		94483D0D1E2D774372BBC92B9B4A74C4 /* Pods_SendTrack_Message_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SendTrack_Message_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C524D1D575A2694926F7996A776A0D8 /* CupertinoJWT.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CupertinoJWT.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9DEA71E2F5A51E988D313098E3658E2A /* CupertinoJWT.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CupertinoJWT.xcconfig; sourceTree = "<group>"; };
+		AA85638F973CD6C7F6FC8CD0F4D2CD8C /* install_common_crypto.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = install_common_crypto.sh; sourceTree = "<group>"; };
+		C4FB769DAADA1B03044C0415948A1ECE /* Data+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Data+Extension.swift"; path = "Sources/Data+Extension.swift"; sourceTree = "<group>"; };
 		D6A207DCAFC882B225848D8E5D05C99B /* Pods-SendTrack-Message-Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SendTrack-Message-Extension.release.xcconfig"; sourceTree = "<group>"; };
-		D8DC1C09012331A09958FE240B0FEB3E /* Data+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Data+Extension.swift"; path = "Sources/Data+Extension.swift"; sourceTree = "<group>"; };
-		E1B1BCB07B02A0F2652FF842EC003AB6 /* ECKeyData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ECKeyData.swift; path = Sources/ECKeyData.swift; sourceTree = "<group>"; };
-		E8020FFDBF6A4DC18375338FACB57144 /* CupertinoJWT-iOS12.0.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; name = "CupertinoJWT-iOS12.0.modulemap"; path = "../CupertinoJWT-iOS12.0/CupertinoJWT-iOS12.0.modulemap"; sourceTree = "<group>"; };
-		E8CBC104403D5DF774FD223B88CFACBF /* ECPrivateKey.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ECPrivateKey.swift; path = Sources/ECPrivateKey.swift; sourceTree = "<group>"; };
-		EBBA3BC3FC58114750E673CDE5133B0D /* P8.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = P8.swift; path = Sources/P8.swift; sourceTree = "<group>"; };
+		E46B1C280FEF09B480E205EB543376D5 /* ECPrivateKey.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ECPrivateKey.swift; path = Sources/ECPrivateKey.swift; sourceTree = "<group>"; };
 		F51BC3AA5F7160E2E201F371920A65D0 /* Pods-SendTrack-Message-Extension-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SendTrack-Message-Extension-acknowledgements.plist"; sourceTree = "<group>"; };
-		FEB6FC025B297601D58A7D70AF0770DE /* install_common_crypto.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = install_common_crypto.sh; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		5FFB7FCC162D57F69E7C46AE93591663 /* Frameworks */ = {
+		3B7554189EAC3E49EDD25767973A3E57 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82F8DBBF96F9647B0AD41CC201390555 /* Foundation.framework in Frameworks */,
+				8290E367B3BFD47371666FE0597600D4 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		ACA6077FAEE3931F29CC4C9D1EBBAAAC /* Frameworks */ = {
+		577F9B589218590F3F3F90C519C5B9C3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C24DBCDAA7539FC575391425C72B0123 /* Foundation.framework in Frameworks */,
+				061B48ACBA7DCDA6A6EDCD0AA75BAEE7 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CB77F740E13C65E0C7780187D3F20B91 /* Frameworks */ = {
+		AC73D6AEB211E4BCEA5918D984EF00A3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B21B7C3332523D29FBBE66CDEEDCA35B /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D3A301E3C93CA7CBDF6A480F2FCAF99E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F78DF6B0F08C8CC914DD5A1675663FCB /* Foundation.framework in Frameworks */,
+				52BBC3FCDA0C1FC0989234A39B83BFC4 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		064517C7A14100B10D932A13164A9FBD /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				0312961AF02E3800E6CDD2493C67DA46 /* CupertinoJWT.modulemap */,
+				9DEA71E2F5A51E988D313098E3658E2A /* CupertinoJWT.xcconfig */,
+				2CBF60AEFA1652AB7A0AD832272466B7 /* CupertinoJWT-dummy.m */,
+				88AADE3B04D9339DF33F7606D15C8E38 /* CupertinoJWT-Info.plist */,
+				3224504700CD765BA7558EF82A2CE4DA /* CupertinoJWT-prefix.pch */,
+				88B9A810E7F5B6A2407D02E214FCE75F /* CupertinoJWT-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/CupertinoJWT";
+			sourceTree = "<group>";
+		};
 		0EB5F2E8D7C5B0818740F5CD79C69F06 /* Pods-SendTrack-Message-Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,38 +140,34 @@
 			path = "Target Support Files/Pods-SendTrack-Message-Extension";
 			sourceTree = "<group>";
 		};
-		39421C5A571257952DC917AB28F61C1D /* CupertinoJWT */ = {
+		1E651DD05DAEA93B1BD2C8374F9EF8C9 /* CupertinoJWT */ = {
 			isa = PBXGroup;
 			children = (
-				D63B55FF5C43D76BED5E835016C80A64 /* ASN1.swift */,
-				C2305B5396BA08FB64B687024B5F3923 /* CupertinoJWTError.swift */,
-				D8DC1C09012331A09958FE240B0FEB3E /* Data+Extension.swift */,
-				E1B1BCB07B02A0F2652FF842EC003AB6 /* ECKeyData.swift */,
-				E8CBC104403D5DF774FD223B88CFACBF /* ECPrivateKey.swift */,
-				59A0DF091621074564216ADC6C460865 /* JWT.swift */,
-				EBBA3BC3FC58114750E673CDE5133B0D /* P8.swift */,
-				DF9532128DBA4164AB45A932EA5EDB01 /* Resources */,
-				F635DAD6464E63D52AB8EBFE2A6F70DE /* Support Files */,
+				2245004BF02EBF3E5582A704339E9F0F /* ASN1.swift */,
+				1A86E6562C19AAFD1424F78401B895CF /* CupertinoJWTError.swift */,
+				C4FB769DAADA1B03044C0415948A1ECE /* Data+Extension.swift */,
+				8C47C5323C5817A885E63D093842D6DC /* ECKeyData.swift */,
+				E46B1C280FEF09B480E205EB543376D5 /* ECPrivateKey.swift */,
+				768A1C9264A4E23F29640F47AB8C6DDB /* JWT.swift */,
+				0E5BB4B4EA5B5FB0CBE3A973F8D27E8D /* P8.swift */,
+				6DA24EA2BAC1FB4C480F7EFB54E73886 /* Resources */,
+				064517C7A14100B10D932A13164A9FBD /* Support Files */,
 			);
-			name = CupertinoJWT;
 			path = CupertinoJWT;
 			sourceTree = "<group>";
 		};
-		484073B4A66D85D45E23115A43413B17 /* Products */ = {
+		6DA24EA2BAC1FB4C480F7EFB54E73886 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C289AE817F1607672E4E3AB92FAC60A8 /* CupertinoJWT.framework */,
-				1CB4C4021EF40B961DBB877C68D6C3C2 /* CupertinoJWT.framework */,
-				4B3176AB662BF9CBEFA9667A7BCBA1AF /* Pods_SendTrack.framework */,
-				94483D0D1E2D774372BBC92B9B4A74C4 /* Pods_SendTrack_Message_Extension.framework */,
+				AA85638F973CD6C7F6FC8CD0F4D2CD8C /* install_common_crypto.sh */,
 			);
-			name = Products;
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		86331A172A17EFA52A7F59250D1E2987 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				39421C5A571257952DC917AB28F61C1D /* CupertinoJWT */,
+				1E651DD05DAEA93B1BD2C8374F9EF8C9 /* CupertinoJWT */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -195,6 +179,16 @@
 				0EB5F2E8D7C5B0818740F5CD79C69F06 /* Pods-SendTrack-Message-Extension */,
 			);
 			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		A3270CC5F9F14EB5470ED0188B0C29CB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9C524D1D575A2694926F7996A776A0D8 /* CupertinoJWT.framework */,
+				4B3176AB662BF9CBEFA9667A7BCBA1AF /* Pods_SendTrack.framework */,
+				94483D0D1E2D774372BBC92B9B4A74C4 /* Pods_SendTrack_Message_Extension.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		C0834CEBB1379A84116EF29F93051C60 /* iOS */ = {
@@ -211,7 +205,7 @@
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
 				86331A172A17EFA52A7F59250D1E2987 /* Pods */,
-				484073B4A66D85D45E23115A43413B17 /* Products */,
+				A3270CC5F9F14EB5470ED0188B0C29CB /* Products */,
 				8BEF0D9B7C35E8534F572746D11AC260 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
@@ -222,14 +216,6 @@
 				C0834CEBB1379A84116EF29F93051C60 /* iOS */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		DF9532128DBA4164AB45A932EA5EDB01 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				FEB6FC025B297601D58A7D70AF0770DE /* install_common_crypto.sh */,
-			);
-			name = Resources;
 			sourceTree = "<group>";
 		};
 		F4A06EF29421DDE35800F66F9D63C53D /* Pods-SendTrack */ = {
@@ -249,58 +235,30 @@
 			path = "Target Support Files/Pods-SendTrack";
 			sourceTree = "<group>";
 		};
-		F635DAD6464E63D52AB8EBFE2A6F70DE /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				D36D11426120CEF1E4147D3BB3C0C92C /* CupertinoJWT-iOS11.0.modulemap */,
-				71E781FA5CE7B28DD71E4E2560D35393 /* CupertinoJWT-iOS11.0.xcconfig */,
-				99B9108F601BB858877273FA77C165F5 /* CupertinoJWT-iOS11.0-dummy.m */,
-				34D4EA7A0D24D0BFA5EBC35FB4D13D29 /* CupertinoJWT-iOS11.0-Info.plist */,
-				35C550868EC98CD59484C94956F8EF71 /* CupertinoJWT-iOS11.0-prefix.pch */,
-				512922429FD12DE1C3E0E4274985825C /* CupertinoJWT-iOS11.0-umbrella.h */,
-				E8020FFDBF6A4DC18375338FACB57144 /* CupertinoJWT-iOS12.0.modulemap */,
-				92D4BFE8D4F778EEED6CD53E2A0F5407 /* CupertinoJWT-iOS12.0.xcconfig */,
-				296C45778E125A12216F77D3716C5923 /* CupertinoJWT-iOS12.0-dummy.m */,
-				6797028078239004D512BACC38327E09 /* CupertinoJWT-iOS12.0-Info.plist */,
-				2DCA12A9705F3F2001A611F233B705BC /* CupertinoJWT-iOS12.0-prefix.pch */,
-				046C543835EED2C429F390D24B489938 /* CupertinoJWT-iOS12.0-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/CupertinoJWT-iOS11.0";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		383FC1C70B588D33B867976A469242A0 /* Headers */ = {
+		83DB0E076192AE7220648B14D1807B24 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				31D48EA1C6E92A780394B23E4EB7CC23 /* Pods-SendTrack-Message-Extension-umbrella.h in Headers */,
+				D018F889906F6C8CCCA6138EB8E103C2 /* Pods-SendTrack-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5822F630960352F76D77C7C4120C293E /* Headers */ = {
+		C416FC38DFC45F1D45A63973169C77D6 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2FE6D9A8948E0FA8905D27E003795653 /* CupertinoJWT-iOS11.0-umbrella.h in Headers */,
+				364F3CDD0D3E94E709B45A56AFEB0AD5 /* Pods-SendTrack-Message-Extension-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AF259451D9C5A26A7C42D05EC0D86031 /* Headers */ = {
+		D0C535CAB5EFB5F1C1D4E50D97E319BA /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				70B65D387E17CBB2E2EEF88F9A93082B /* CupertinoJWT-iOS12.0-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B5F28610966A45607EABE6DE17D69519 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				04D7B995B1E7722148BAE59BBE3C2F72 /* Pods-SendTrack-umbrella.h in Headers */,
+				4F9327E1B3DF5DCE36ADF8B0268D367C /* CupertinoJWT-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,78 +267,59 @@
 /* Begin PBXNativeTarget section */
 		3536D21278E1C31DEF9755827A42F267 /* Pods-SendTrack */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D27477B3D0C4612CCC85BD2E023964A /* Build configuration list for PBXNativeTarget "Pods-SendTrack" */;
+			buildConfigurationList = DD0DAB56622805680724487F98A40EAD /* Build configuration list for PBXNativeTarget "Pods-SendTrack" */;
 			buildPhases = (
-				B5F28610966A45607EABE6DE17D69519 /* Headers */,
-				C05CF4010174AC9E558C04C1BDC9E503 /* Sources */,
-				D3A301E3C93CA7CBDF6A480F2FCAF99E /* Frameworks */,
-				594BF37ACF0BAF91B943875793E806DF /* Resources */,
+				83DB0E076192AE7220648B14D1807B24 /* Headers */,
+				85FEE5CDF96C4E9EE8CF24BEBBF69B55 /* Sources */,
+				577F9B589218590F3F3F90C519C5B9C3 /* Frameworks */,
+				C1858ABFCB1CFDE8BB8B8669DFA5F056 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				41012A95BD00CA408C776E05F9187AC2 /* PBXTargetDependency */,
+				9EE9B576A1F8925EEEBFF99B146F7E6E /* PBXTargetDependency */,
 			);
 			name = "Pods-SendTrack";
 			productName = "Pods-SendTrack";
 			productReference = 4B3176AB662BF9CBEFA9667A7BCBA1AF /* Pods_SendTrack.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		6996FB11E424EDE142C25BF77A296FE5 /* CupertinoJWT-iOS11.0 */ = {
+		7592D926F2A7FD8CAD1299CF559D7CDC /* CupertinoJWT */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EDF121E981758861764D5B037729DB79 /* Build configuration list for PBXNativeTarget "CupertinoJWT-iOS11.0" */;
+			buildConfigurationList = 55B4C1C1617F049A4790A9E6526083D4 /* Build configuration list for PBXNativeTarget "CupertinoJWT" */;
 			buildPhases = (
-				5822F630960352F76D77C7C4120C293E /* Headers */,
-				772321302EA113216D0F6EA61FCD63BD /* [CP-User] CommonCrypto */,
-				6BA7C6E5BC98D14965A83B7A9BE781EA /* Sources */,
-				ACA6077FAEE3931F29CC4C9D1EBBAAAC /* Frameworks */,
-				5D7B99D9D04B484E721BC60A86000DDB /* Resources */,
+				D0C535CAB5EFB5F1C1D4E50D97E319BA /* Headers */,
+				404245E951ACB441829050D0FE7CBD34 /* [CP-User] CommonCrypto */,
+				704B996A300B8D4D3FD1560EF48825BB /* Sources */,
+				3B7554189EAC3E49EDD25767973A3E57 /* Frameworks */,
+				01E03E085508703BCBF07E03284450E1 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "CupertinoJWT-iOS11.0";
-			productName = "CupertinoJWT-iOS11.0";
-			productReference = C289AE817F1607672E4E3AB92FAC60A8 /* CupertinoJWT.framework */;
+			name = CupertinoJWT;
+			productName = CupertinoJWT;
+			productReference = 9C524D1D575A2694926F7996A776A0D8 /* CupertinoJWT.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		E1D2A27E9D9C740005F73D7F9A7EEE87 /* Pods-SendTrack-Message-Extension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8CBD8756E9FAB60601B20E8773F6D71A /* Build configuration list for PBXNativeTarget "Pods-SendTrack-Message-Extension" */;
+			buildConfigurationList = 1BD1965B7BB4FAEBD4F34B5B5FCE0CB2 /* Build configuration list for PBXNativeTarget "Pods-SendTrack-Message-Extension" */;
 			buildPhases = (
-				383FC1C70B588D33B867976A469242A0 /* Headers */,
-				D7861076572195FF05BE250420DA3771 /* Sources */,
-				5FFB7FCC162D57F69E7C46AE93591663 /* Frameworks */,
-				69F00F8B93B6B13602F9049B46C74D8C /* Resources */,
+				C416FC38DFC45F1D45A63973169C77D6 /* Headers */,
+				401FA2567562F91121C31FB1847BCC96 /* Sources */,
+				AC73D6AEB211E4BCEA5918D984EF00A3 /* Frameworks */,
+				32432DCDFB77C957B90600779BC24276 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				98850AA40F4E9D91450755B7889B1A29 /* PBXTargetDependency */,
+				B084252CBEBDAAB7FEA7D32E20754E02 /* PBXTargetDependency */,
 			);
 			name = "Pods-SendTrack-Message-Extension";
 			productName = "Pods-SendTrack-Message-Extension";
 			productReference = 94483D0D1E2D774372BBC92B9B4A74C4 /* Pods_SendTrack_Message_Extension.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		E4CE92E42D654C528E5B7D8BDCB83FDD /* CupertinoJWT-iOS12.0 */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 80DDACF0522999CAE7C2C6710F6F9EBA /* Build configuration list for PBXNativeTarget "CupertinoJWT-iOS12.0" */;
-			buildPhases = (
-				AF259451D9C5A26A7C42D05EC0D86031 /* Headers */,
-				2433813DE19082851E1B9D7D93AF4FA0 /* [CP-User] CommonCrypto */,
-				FA8AA24EC0918A5DEF4B90A0F620BE8C /* Sources */,
-				CB77F740E13C65E0C7780187D3F20B91 /* Frameworks */,
-				62FC527B4EC1A984A080AD7F1A436ECD /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "CupertinoJWT-iOS12.0";
-			productName = "CupertinoJWT-iOS12.0";
-			productReference = 1CB4C4021EF40B961DBB877C68D6C3C2 /* CupertinoJWT.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -391,21 +330,25 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
 				LastUpgradeCheck = 1100;
+				TargetAttributes = {
+					7592D926F2A7FD8CAD1299CF559D7CDC = {
+						LastSwiftMigration = 1100;
+					};
+				};
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = 484073B4A66D85D45E23115A43413B17 /* Products */;
+			productRefGroup = A3270CC5F9F14EB5470ED0188B0C29CB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6996FB11E424EDE142C25BF77A296FE5 /* CupertinoJWT-iOS11.0 */,
-				E4CE92E42D654C528E5B7D8BDCB83FDD /* CupertinoJWT-iOS12.0 */,
+				7592D926F2A7FD8CAD1299CF559D7CDC /* CupertinoJWT */,
 				3536D21278E1C31DEF9755827A42F267 /* Pods-SendTrack */,
 				E1D2A27E9D9C740005F73D7F9A7EEE87 /* Pods-SendTrack-Message-Extension */,
 			);
@@ -413,30 +356,22 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		594BF37ACF0BAF91B943875793E806DF /* Resources */ = {
+		01E03E085508703BCBF07E03284450E1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F2A24FC21A2B3E23F6E53D3CC69E44D /* install_common_crypto.sh in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32432DCDFB77C957B90600779BC24276 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5D7B99D9D04B484E721BC60A86000DDB /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				AAF34EA27F796B1B71DCDA0BE2DE7CD7 /* install_common_crypto.sh in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		62FC527B4EC1A984A080AD7F1A436ECD /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E8C7E15B860F253C10088E0794EC3852 /* install_common_crypto.sh in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		69F00F8B93B6B13602F9049B46C74D8C /* Resources */ = {
+		C1858ABFCB1CFDE8BB8B8669DFA5F056 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -446,17 +381,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2433813DE19082851E1B9D7D93AF4FA0 /* [CP-User] CommonCrypto */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			name = "[CP-User] CommonCrypto";
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "sh ${PODS_TARGET_SRCROOT}/install_common_crypto.sh";
-		};
-		772321302EA113216D0F6EA61FCD63BD /* [CP-User] CommonCrypto */ = {
+		404245E951ACB441829050D0FE7CBD34 /* [CP-User] CommonCrypto */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -469,281 +394,56 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		6BA7C6E5BC98D14965A83B7A9BE781EA /* Sources */ = {
+		401FA2567562F91121C31FB1847BCC96 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				61D87D75B2C6CAE644062A435D0F55FB /* ASN1.swift in Sources */,
-				EC4DF6758C12636BED6CF26A7BDA6E7F /* CupertinoJWT-iOS11.0-dummy.m in Sources */,
-				FEFFD24CD4DB9AB072F58302EE9F853F /* CupertinoJWTError.swift in Sources */,
-				734A3A08942C6F9EDEAE7727E5A70AC5 /* Data+Extension.swift in Sources */,
-				C5D7ADC342055F68DBAF0D6247D28C4F /* ECKeyData.swift in Sources */,
-				CF2F6FB961520C846B87916375F7EB45 /* ECPrivateKey.swift in Sources */,
-				D963B5601DF3E6E327DBDFDD7A6C2D01 /* JWT.swift in Sources */,
-				552482BA5C6671DB0E695B078354B10E /* P8.swift in Sources */,
+				367543BF2750467819407284729D421A /* Pods-SendTrack-Message-Extension-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C05CF4010174AC9E558C04C1BDC9E503 /* Sources */ = {
+		704B996A300B8D4D3FD1560EF48825BB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0775442D6B0E77C6EFBCC83A5D27ABC3 /* Pods-SendTrack-dummy.m in Sources */,
+				A0A1F5AB60812FA899F9042E62A5B574 /* ASN1.swift in Sources */,
+				46AE44521B5E64CB1C7AF6703287C793 /* CupertinoJWT-dummy.m in Sources */,
+				6B6993906B11BBB50C2F9B5FAB5B0E6C /* CupertinoJWTError.swift in Sources */,
+				D5F06E741998421E5987D48D9BF3123D /* Data+Extension.swift in Sources */,
+				48029896DA6C390447484B24AA2A8546 /* ECKeyData.swift in Sources */,
+				48364316B948070CEFA51B855ADC9AC2 /* ECPrivateKey.swift in Sources */,
+				FF5CF2F2142DF2262DC5F7465846B741 /* JWT.swift in Sources */,
+				BDB0E5A4F532C64E8C99D4E3AAAFC462 /* P8.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D7861076572195FF05BE250420DA3771 /* Sources */ = {
+		85FEE5CDF96C4E9EE8CF24BEBBF69B55 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1EB71D1AA86DD85C44EC56F6376FE7C7 /* Pods-SendTrack-Message-Extension-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FA8AA24EC0918A5DEF4B90A0F620BE8C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3930D90BB25A6BDEF79B76A736310953 /* ASN1.swift in Sources */,
-				FB11656CB3847490C9CA8AA391A6F377 /* CupertinoJWT-iOS12.0-dummy.m in Sources */,
-				309CA0F8F5808135576F12D2796AAFD3 /* CupertinoJWTError.swift in Sources */,
-				32E1FB9B2E70E3909D22A91591ACBA88 /* Data+Extension.swift in Sources */,
-				F07C51CF41C81A93EFF1A1CC65594871 /* ECKeyData.swift in Sources */,
-				9B9BAF2A9CBFEDEA9E6523D7511518D8 /* ECPrivateKey.swift in Sources */,
-				A7E4CF97210D6151B9913D487677F738 /* JWT.swift in Sources */,
-				8E4F62E037458E12628CA5DAB2F889EF /* P8.swift in Sources */,
+				C7E24B8EB69213C0B5BCAE83494C69A9 /* Pods-SendTrack-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		41012A95BD00CA408C776E05F9187AC2 /* PBXTargetDependency */ = {
+		9EE9B576A1F8925EEEBFF99B146F7E6E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "CupertinoJWT-iOS12.0";
-			target = E4CE92E42D654C528E5B7D8BDCB83FDD /* CupertinoJWT-iOS12.0 */;
-			targetProxy = A8D0BA3C17EAB869F2833A465D1221CB /* PBXContainerItemProxy */;
+			name = CupertinoJWT;
+			target = 7592D926F2A7FD8CAD1299CF559D7CDC /* CupertinoJWT */;
+			targetProxy = 5883A39EEF3E3146F94CDE9B3A93CACF /* PBXContainerItemProxy */;
 		};
-		98850AA40F4E9D91450755B7889B1A29 /* PBXTargetDependency */ = {
+		B084252CBEBDAAB7FEA7D32E20754E02 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "CupertinoJWT-iOS11.0";
-			target = 6996FB11E424EDE142C25BF77A296FE5 /* CupertinoJWT-iOS11.0 */;
-			targetProxy = 0437950A4716EDE665C5BE806F5CDFDE /* PBXContainerItemProxy */;
+			name = CupertinoJWT;
+			target = 7592D926F2A7FD8CAD1299CF559D7CDC /* CupertinoJWT */;
+			targetProxy = 947E4B8A249F06D5C372C0CB5BA685C7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		24D2BA1B20A1B24BAEA13DEA000A322A /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 71E781FA5CE7B28DD71E4E2560D35393 /* CupertinoJWT-iOS11.0.xcconfig */;
-			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = YES;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/CupertinoJWT-iOS11.0/CupertinoJWT-iOS11.0-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/CupertinoJWT-iOS11.0/CupertinoJWT-iOS11.0-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/CupertinoJWT-iOS11.0/CupertinoJWT-iOS11.0.modulemap";
-				PRODUCT_MODULE_NAME = CupertinoJWT;
-				PRODUCT_NAME = CupertinoJWT;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		257497152829C177993B5EC99C1D227A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"POD_CONFIGURATION_RELEASE=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 5.0;
-				SYMROOT = "${SRCROOT}/../build";
-			};
-			name = Release;
-		};
-		62AF30684EC85B6823DB7901BAD0FA1C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 71E781FA5CE7B28DD71E4E2560D35393 /* CupertinoJWT-iOS11.0.xcconfig */;
-			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = YES;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/CupertinoJWT-iOS11.0/CupertinoJWT-iOS11.0-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/CupertinoJWT-iOS11.0/CupertinoJWT-iOS11.0-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/CupertinoJWT-iOS11.0/CupertinoJWT-iOS11.0.modulemap";
-				PRODUCT_MODULE_NAME = CupertinoJWT;
-				PRODUCT_NAME = CupertinoJWT;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		93D2112EB7C858D3F06799C1633E942B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 92D4BFE8D4F778EEED6CD53E2A0F5407 /* CupertinoJWT-iOS12.0.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/CupertinoJWT-iOS12.0/CupertinoJWT-iOS12.0-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/CupertinoJWT-iOS12.0/CupertinoJWT-iOS12.0-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/CupertinoJWT-iOS12.0/CupertinoJWT-iOS12.0.modulemap";
-				PRODUCT_MODULE_NAME = CupertinoJWT;
-				PRODUCT_NAME = CupertinoJWT;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		CBA96AC02934D5C48495A4A1AB16D9FC /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7B2D6D811D621C2BCE2FFCF8A6BD75C6 /* Pods-SendTrack.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-SendTrack/Pods-SendTrack-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-SendTrack/Pods-SendTrack.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		DD8F832993327D1DD8046C3CBCBD97CD /* Debug */ = {
+		131356BE54884448CA49C07BEDF4BB2A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -794,7 +494,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -807,83 +507,7 @@
 			};
 			name = Debug;
 		};
-		E63321EC630159CA91B3E212B616293C /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 92D4BFE8D4F778EEED6CD53E2A0F5407 /* CupertinoJWT-iOS12.0.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/CupertinoJWT-iOS12.0/CupertinoJWT-iOS12.0-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/CupertinoJWT-iOS12.0/CupertinoJWT-iOS12.0-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/CupertinoJWT-iOS12.0/CupertinoJWT-iOS12.0.modulemap";
-				PRODUCT_MODULE_NAME = CupertinoJWT;
-				PRODUCT_NAME = CupertinoJWT;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		E9EF4C5055ED2BE715CB8EC85EE8F492 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 65D1BFBDC24A3B8CF90ED55126750FD4 /* Pods-SendTrack-Message-Extension.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				APPLICATION_EXTENSION_API_ONLY = YES;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-SendTrack-Message-Extension/Pods-SendTrack-Message-Extension-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-SendTrack-Message-Extension/Pods-SendTrack-Message-Extension.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		EBC489964B68164798312CBD9EAF0A22 /* Release */ = {
+		16A69DE80AC71E1A9316585D8E474B90 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D6A207DCAFC882B225848D8E5D05C99B /* Pods-SendTrack-Message-Extension.release.xcconfig */;
 			buildSettings = {
@@ -901,7 +525,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Target Support Files/Pods-SendTrack-Message-Extension/Pods-SendTrack-Message-Extension-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -923,7 +547,46 @@
 			};
 			name = Release;
 		};
-		FA83F6081E0D839DDFDB1850541314AD /* Debug */ = {
+		B336B4A510B599DECF0D72D9DE395268 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7B2D6D811D621C2BCE2FFCF8A6BD75C6 /* Pods-SendTrack.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-SendTrack/Pods-SendTrack-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SendTrack/Pods-SendTrack.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		BBB381B7139ECA1580772AB7052BD63F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9039DDB6A392D9EC32169E6BA04BF47A /* Pods-SendTrack.debug.xcconfig */;
 			buildSettings = {
@@ -961,14 +624,188 @@
 			};
 			name = Debug;
 		};
+		C8740909AABCB04631116CC96F0F6DD8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9DEA71E2F5A51E988D313098E3658E2A /* CupertinoJWT.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/CupertinoJWT/CupertinoJWT-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/CupertinoJWT/CupertinoJWT-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/CupertinoJWT/CupertinoJWT.modulemap";
+				PRODUCT_MODULE_NAME = CupertinoJWT;
+				PRODUCT_NAME = CupertinoJWT;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		E2082ECFC30EE9ECB3A3B16399FD14A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9DEA71E2F5A51E988D313098E3658E2A /* CupertinoJWT.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/CupertinoJWT/CupertinoJWT-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/CupertinoJWT/CupertinoJWT-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/CupertinoJWT/CupertinoJWT.modulemap";
+				PRODUCT_MODULE_NAME = CupertinoJWT;
+				PRODUCT_NAME = CupertinoJWT;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		EA1DA385FA4D47052CEFF06354BC9965 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 65D1BFBDC24A3B8CF90ED55126750FD4 /* Pods-SendTrack-Message-Extension.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-SendTrack-Message-Extension/Pods-SendTrack-Message-Extension-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SendTrack-Message-Extension/Pods-SendTrack-Message-Extension.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		F090CD07A80273D5A73C8EA19224ADDB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2D27477B3D0C4612CCC85BD2E023964A /* Build configuration list for PBXNativeTarget "Pods-SendTrack" */ = {
+		1BD1965B7BB4FAEBD4F34B5B5FCE0CB2 /* Build configuration list for PBXNativeTarget "Pods-SendTrack-Message-Extension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FA83F6081E0D839DDFDB1850541314AD /* Debug */,
-				CBA96AC02934D5C48495A4A1AB16D9FC /* Release */,
+				EA1DA385FA4D47052CEFF06354BC9965 /* Debug */,
+				16A69DE80AC71E1A9316585D8E474B90 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -976,35 +813,26 @@
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DD8F832993327D1DD8046C3CBCBD97CD /* Debug */,
-				257497152829C177993B5EC99C1D227A /* Release */,
+				131356BE54884448CA49C07BEDF4BB2A /* Debug */,
+				F090CD07A80273D5A73C8EA19224ADDB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		80DDACF0522999CAE7C2C6710F6F9EBA /* Build configuration list for PBXNativeTarget "CupertinoJWT-iOS12.0" */ = {
+		55B4C1C1617F049A4790A9E6526083D4 /* Build configuration list for PBXNativeTarget "CupertinoJWT" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				93D2112EB7C858D3F06799C1633E942B /* Debug */,
-				E63321EC630159CA91B3E212B616293C /* Release */,
+				C8740909AABCB04631116CC96F0F6DD8 /* Debug */,
+				E2082ECFC30EE9ECB3A3B16399FD14A4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8CBD8756E9FAB60601B20E8773F6D71A /* Build configuration list for PBXNativeTarget "Pods-SendTrack-Message-Extension" */ = {
+		DD0DAB56622805680724487F98A40EAD /* Build configuration list for PBXNativeTarget "Pods-SendTrack" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E9EF4C5055ED2BE715CB8EC85EE8F492 /* Debug */,
-				EBC489964B68164798312CBD9EAF0A22 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		EDF121E981758861764D5B037729DB79 /* Build configuration list for PBXNativeTarget "CupertinoJWT-iOS11.0" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				62AF30684EC85B6823DB7901BAD0FA1C /* Debug */,
-				24D2BA1B20A1B24BAEA13DEA000A322A /* Release */,
+				BBB381B7139ECA1580772AB7052BD63F /* Debug */,
+				B336B4A510B599DECF0D72D9DE395268 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -1,6 +1,0 @@
-framework module CupertinoJWT {
-  umbrella header "CupertinoJWT-iOS11.0-umbrella.h"
-
-  export *
-  module * { export * }
-}

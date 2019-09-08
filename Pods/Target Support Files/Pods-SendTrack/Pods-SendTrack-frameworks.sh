@@ -161,10 +161,10 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/CupertinoJWT-iOS12.0/CupertinoJWT.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/CupertinoJWT/CupertinoJWT.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/CupertinoJWT-iOS12.0/CupertinoJWT.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/CupertinoJWT/CupertinoJWT.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait
