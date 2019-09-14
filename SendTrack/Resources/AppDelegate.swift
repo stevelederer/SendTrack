@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func checkPasteboard() {
         guard  let pasteboardString = UIPasteboard.general.string else { return }
-        if pasteboardString.contains("https://itunes.apple.com") && pasteboardString != UserDefaults.standard.string(forKey: "previousStringFromPasteboard") {
+        if pasteboardString.contains("https://music.apple.com") && pasteboardString != UserDefaults.standard.string(forKey: "previousStringFromPasteboard") {
             // switch to search tab
             switchToSeachTab()
         } else if pasteboardString.contains("https://open.spotify.com/") && pasteboardString != UserDefaults.standard.string(forKey: "previousStringFromPasteboard") {
