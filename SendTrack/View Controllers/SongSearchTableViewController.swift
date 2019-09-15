@@ -40,11 +40,11 @@ class SongSearchTableViewController: UITableViewController {
     }
     
     func getPasteboardValue() {
-        guard let pasteboardString = UIPasteboard.general.string, pasteboardString != UserDefaults.standard.string(forKey: "previousStringFromPasteboard") else { return }
-        if pasteboardString.contains("https://itunes.apple.com") {
+        guard let pasteboardString = UIPasteboard.general.string, pasteboardString != UserDefaults.standard.string(forKey: String.GlobalStrings.previousStringKey.rawValue) else { return }
+        if pasteboardString.contains(String.GlobalStrings.appleMusicBasePath.rawValue) {
             print("apple music link in pasteboard: \(pasteboardString)")
             presentClipboardAlert(withServiceName: .AppleMusic, withClipboardLink: pasteboardString)
-        } else if pasteboardString.contains("https://open.spotify.com/") {
+        } else if pasteboardString.contains(String.GlobalStrings.spotifyBasePath.rawValue) {
             print("spotify link in pasteboard: \(pasteboardString)")
             presentClipboardAlert(withServiceName: .Spotify, withClipboardLink: pasteboardString)
         }

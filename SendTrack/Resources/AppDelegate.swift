@@ -26,10 +26,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func checkPasteboard() {
         guard  let pasteboardString = UIPasteboard.general.string else { return }
-        if pasteboardString.contains("https://music.apple.com") && pasteboardString != UserDefaults.standard.string(forKey: "previousStringFromPasteboard") {
+        if pasteboardString.contains(String.GlobalStrings.appleMusicBasePath.rawValue) && pasteboardString != UserDefaults.standard.string(forKey: String.GlobalStrings.previousStringKey.rawValue) {
             // switch to search tab
             switchToSeachTab()
-        } else if pasteboardString.contains("https://open.spotify.com/") && pasteboardString != UserDefaults.standard.string(forKey: "previousStringFromPasteboard") {
+        } else if pasteboardString.contains(String.GlobalStrings.spotifyBasePath.rawValue) && pasteboardString != UserDefaults.standard.string(forKey: String.GlobalStrings.previousStringKey.rawValue) {
             // switch to search tab
             switchToSeachTab()
         }

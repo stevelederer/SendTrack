@@ -67,6 +67,8 @@
 		1BEF9E50221673F700E7E1DA /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEF9E4F221673F700E7E1DA /* IAPHelper.swift */; };
 		1BEF9E52221679B900E7E1DA /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEF9E51221679B900E7E1DA /* AboutViewController.swift */; };
 		1BF7B69B2220819500F1E9D4 /* LegalTermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF7B69A2220819500F1E9D4 /* LegalTermsViewController.swift */; };
+		1BFCB120232DF3D2003988F5 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFCB11F232DF3D2003988F5 /* String+Extension.swift */; };
+		1BFCB122232DF515003988F5 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFCB11F232DF3D2003988F5 /* String+Extension.swift */; };
 		EC48FBBEBC61425C61C678C0 /* Pods_SendTrack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C79813947310F114D476DCB7 /* Pods_SendTrack.framework */; };
 /* End PBXBuildFile section */
 
@@ -137,6 +139,7 @@
 		1BEF9E4F221673F700E7E1DA /* IAPHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPHelper.swift; sourceTree = "<group>"; };
 		1BEF9E51221679B900E7E1DA /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		1BF7B69A2220819500F1E9D4 /* LegalTermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LegalTermsViewController.swift; path = "SendTrack/View Controllers/LegalTermsViewController.swift"; sourceTree = SOURCE_ROOT; };
+		1BFCB11F232DF3D2003988F5 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		5BF49B45930011EBFB05B090 /* Pods-SendTrack-Message-Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SendTrack-Message-Extension.release.xcconfig"; path = "Target Support Files/Pods-SendTrack-Message-Extension/Pods-SendTrack-Message-Extension.release.xcconfig"; sourceTree = "<group>"; };
 		810D95255D757FFB80610C9E /* Pods-SendTrack-Message-Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SendTrack-Message-Extension.debug.xcconfig"; path = "Target Support Files/Pods-SendTrack-Message-Extension/Pods-SendTrack-Message-Extension.debug.xcconfig"; sourceTree = "<group>"; };
 		C79813947310F114D476DCB7 /* Pods_SendTrack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SendTrack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -187,6 +190,7 @@
 				1BEF9E4F221673F700E7E1DA /* IAPHelper.swift */,
 				1BD5BA0F22123574007C0FE9 /* MessageComposer.swift */,
 				1BEF9E4522163B3000E7E1DA /* Notification.Name+Extension.swift */,
+				1BFCB11F232DF3D2003988F5 /* String+Extension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -538,6 +542,7 @@
 				1BEF9E50221673F700E7E1DA /* IAPHelper.swift in Sources */,
 				1BEF9E52221679B900E7E1DA /* AboutViewController.swift in Sources */,
 				1B1D9F8B220B9F3500DFC5B1 /* AppleMusicTrack.swift in Sources */,
+				1BFCB120232DF3D2003988F5 /* String+Extension.swift in Sources */,
 				1B1C9F21221CC4C80084099E /* SendTrackTabBarController.swift in Sources */,
 				1B6C89592218BC1900ECD216 /* AppleMusicUserController.swift in Sources */,
 				1B06A768220BF0A900000E81 /* SpotifyAccessToken.swift in Sources */,
@@ -573,6 +578,7 @@
 				1BB9A041221A81A70075A216 /* MessageComposer.swift in Sources */,
 				1BB9A03D221A7D8D0075A216 /* SongSearchTableViewController.swift in Sources */,
 				1BB9A035221A7D560075A216 /* AutosearchTimer.swift in Sources */,
+				1BFCB122232DF515003988F5 /* String+Extension.swift in Sources */,
 				1B77F202221B3C020039F61B /* SongMessageExtensionViewController.swift in Sources */,
 				1BB9A01D221A7A300075A216 /* MessagesViewController.swift in Sources */,
 				1BB9A033221A7D510075A216 /* AppleMusicTrack.swift in Sources */,
@@ -747,7 +753,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SendTrack/Resources/SendTrack.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 56CLV9J785;
 				INFOPLIST_FILE = "$(SRCROOT)/SendTrack/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -771,7 +777,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SendTrack/Resources/SendTrack.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 56CLV9J785;
 				INFOPLIST_FILE = "$(SRCROOT)/SendTrack/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -794,7 +800,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
 				CODE_SIGN_ENTITLEMENTS = "SendTrack-Message-Extension/Resources/SendTrack-Message-Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 56CLV9J785;
 				INFOPLIST_FILE = "$(SRCROOT)/SendTrack-Message-Extension/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -819,7 +825,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
 				CODE_SIGN_ENTITLEMENTS = "SendTrack-Message-Extension/Resources/SendTrack-Message-Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 56CLV9J785;
 				INFOPLIST_FILE = "$(SRCROOT)/SendTrack-Message-Extension/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
